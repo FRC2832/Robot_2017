@@ -2,7 +2,7 @@
 <dashboard>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
 		<location x="186" y="0"/>
-		<width>720</width>
+		<width>640</width>
 		<height>480</height>
 		<property name="Camera Choice" value=""/>
 	</static-widget>
