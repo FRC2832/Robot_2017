@@ -1,7 +1,7 @@
-package org.usfirst.frc2832.PracticeRobotCode.commands;
+package org.usfirst.frc2832.Robot2017.commands;
 
-import org.usfirst.frc2832.PracticeRobotCode.Robot;
-import org.usfirst.frc2832.PracticeRobotCode.RobotMap;
+import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;

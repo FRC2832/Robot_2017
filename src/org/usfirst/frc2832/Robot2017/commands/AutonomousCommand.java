@@ -9,8 +9,8 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc2832.PracticeRobotCode.commands;
-import org.usfirst.frc2832.PracticeRobotCode.Robot;
+package org.usfirst.frc2832.Robot2017.commands;
+import org.usfirst.frc2832.Robot2017.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 

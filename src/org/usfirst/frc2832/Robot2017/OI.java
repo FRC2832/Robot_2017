@@ -9,15 +9,15 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc2832.PracticeRobotCode;
+package org.usfirst.frc2832.Robot2017;
 
-import org.usfirst.frc2832.PracticeRobotCode.commands.*;
+import org.usfirst.frc2832.Robot2017.commands.*;
+import org.usfirst.frc2832.Robot2017.subsystems.*;
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import org.usfirst.frc2832.PracticeRobotCode.subsystems.*;
 
 
 /**

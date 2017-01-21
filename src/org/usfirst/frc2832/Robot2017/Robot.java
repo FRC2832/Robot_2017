@@ -9,13 +9,12 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc2832.PracticeRobotCode;
+package org.usfirst.frc2832.Robot2017;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc2832.PracticeRobotCode.commands.AutonomousCommand;
-import org.usfirst.frc2832.PracticeRobotCode.subsystems.DriveTrain;
-import org.usfirst.frc2832.PracticeRobotCode.subsystems.Lights;
+import org.usfirst.frc2832.Robot2017.commands.*;
+import org.usfirst.frc2832.Robot2017.subsystems.*;
 
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
@@ -25,8 +24,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc2832.PracticeRobotCode.commands.*;
-import org.usfirst.frc2832.PracticeRobotCode.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the

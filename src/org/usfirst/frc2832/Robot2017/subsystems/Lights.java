@@ -9,10 +9,11 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc2832.PracticeRobotCode.subsystems;
+package org.usfirst.frc2832.Robot2017.subsystems;
 
-import org.usfirst.frc2832.PracticeRobotCode.RobotMap;
-import org.usfirst.frc2832.PracticeRobotCode.commands.*;
+import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.commands.*;
+
 import edu.wpi.first.wpilibj.Relay;
 
 import edu.wpi.first.wpilibj.command.Subsystem;

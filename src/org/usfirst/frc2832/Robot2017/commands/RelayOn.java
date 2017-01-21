@@ -9,13 +9,13 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc2832.PracticeRobotCode.commands;
+package org.usfirst.frc2832.Robot2017.commands;
+import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
+
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Direction;
 import edu.wpi.first.wpilibj.command.Command;
-
-import org.usfirst.frc2832.PracticeRobotCode.Robot;
-import org.usfirst.frc2832.PracticeRobotCode.RobotMap;
 
 /**
  *
