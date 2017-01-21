@@ -1,0 +1,28 @@
+<xml version="1.0">
+<dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="186" y="0"/>
+		<width>720</width>
+		<height>480</height>
+		<property name="Camera Choice" value=""/>
+	</static-widget>
+	<widget field="Autonomous Command" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="0"/>
+	</widget>
+	<widget field="RelayOn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="25"/>
+	</widget>
+	<widget field="AllForward" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="50"/>
+	</widget>
+	<widget field="MotorPositionCheck" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="75"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
+		<location x="0" y="0"/>
+		<property name="Image File" value="C:\Users\dmpri\Desktop\sdbg2017.png"/>
+	</static-widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
