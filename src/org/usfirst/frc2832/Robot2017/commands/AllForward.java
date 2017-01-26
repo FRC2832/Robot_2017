@@ -17,41 +17,11 @@ public class AllForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	/*
-    	WheelMotors.lFrontDrive.enable();
-    	WheelMotors.rFrontDrive.enable();
-    	WheelMotors.lRearDrive.enable();
-    	WheelMotors.rRearDrive.enable();
-    	
-    	WheelMotors.lFrontDrive.changeControlMode(TalonControlMode.Speed);
-    	WheelMotors.rFrontDrive.changeControlMode(TalonControlMode.Speed);
-    	WheelMotors.lRearDrive.changeControlMode(TalonControlMode.Speed);
-    	WheelMotors.rRearDrive.changeControlMode(TalonControlMode.Speed);
-    	
-    	WheelMotors.lFrontDrive.set(0);
-    	WheelMotors.rFrontDrive.set(0);
-    	WheelMotors.lRearDrive.set(0);
-    	WheelMotors.rRearDrive.set(0);
-    	*/
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	/*
-    	if(Robot.oi.bButton.get()){
-    	WheelMotors.lFrontDrive.set(0.5);
-    	WheelMotors.rFrontDrive.set(0.5);
-    	WheelMotors.lRearDrive.set(0.5);
-    	WheelMotors.rRearDrive.set(0.5);
-    	}else{
-    		WheelMotors.lFrontDrive.set(0);
-        	WheelMotors.rFrontDrive.set(0);
-        	WheelMotors.lRearDrive.set(0);
-        	WheelMotors.rRearDrive.set(0);
-    		
-    	}*/
-    	Robot.driveTrain.robotDrive.tankDrive(0.5, 0.5);
+    	Robot.driveTrain.setArcadeDriveCommand(0.5, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
