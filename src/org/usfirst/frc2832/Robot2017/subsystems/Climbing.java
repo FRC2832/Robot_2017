@@ -1,5 +1,8 @@
 package org.usfirst.frc2832.Robot2017.subsystems;
 
+import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.commands.DefaultClimb;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,6 +16,12 @@ public class Climbing extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new DefaultClimb());
+    	
+    }
+    public void setClimbMotorSpeed(double speed) {
+    	RobotMap.climbMotor1.set(speed);
+    	RobotMap.climbMotor1.set(speed);
     }
 }
 
