@@ -18,9 +18,12 @@
 	<widget field="MotorPositionCheck" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="0" y="75"/>
 	</widget>
+	<widget field="Piston Extended" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="112"/>
+	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
 		<location x="0" y="0"/>
-		<property name="Image File" value="C:\Users\dmpri\Desktop\sdbg2017.png"/>
+		<property name="Image File" value="C:\Users\dmpri\OneDrive\Documents\GitHub\Robot_2017\sdbg2017.png"/>
 	</static-widget>
 </dashboard>
 <live-window>
