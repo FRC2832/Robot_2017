@@ -47,7 +47,7 @@ public class Drive extends Command {
     	Joystick control = Robot.oi.xBoxController;
     	double speed = -control.getRawAxis(1) * 0.7;
     	double turn = control.getRawAxis(4) * 0.7;
-    	DriveTrain.drive.arcadeDrive(speed, turn);
+    	DriveTrain.robotDrive.arcadeDrive(speed, turn);
     }
 
     // Make this return true when this Command no longer needs to run execute()

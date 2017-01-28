@@ -9,23 +9,21 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class GearIntakeOpen extends Command {
+public class GearIntakeOpen extends Command implements Runnable {
 	public GearIntakeOpen() {
 		requires(Robot.gearIntake);
 		
 	}
 	
 	protected void initialize() {
-		Robot.gearIntake.toggleExtended();
+		requires(Robot.driveTrain);
 		SmartDashboard.putBoolean("Piston Extended", Robot.gearIntake.getExtended());
 	}
 	
 	protected void execute() {
-		if(Robot.gearIntake.getExtended()) {
-			RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kForward);
-		} else {
-			RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kReverse);
-		}
+		RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kForward);
+		Robot.gearIntake.toggleExtended();
+		new Thread(this).start();
 	}
 	
 	protected void end() {
@@ -34,6 +32,22 @@ public class GearIntakeOpen extends Command {
 	@Override
 	protected boolean isFinished() {
 		return true;
+	}
+
+	@Override
+	public void run() {
+		long then = System.currentTimeMillis();
+		boolean running = true;
+		while(running) {
+			if(System.currentTimeMillis() - then > 3000) {
+				RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kReverse);
+				Robot.gearIntake.toggleExtended();
+				running = false;
+				
+			}
+			
+		}
+		
 	}
 	
 }
