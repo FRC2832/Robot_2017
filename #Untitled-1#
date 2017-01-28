@@ -1,0 +1,17 @@
+vals[0] = RobotMap.frontLeftMotor.getEncPosition() / RobotMap.ENCODER_PULSE_PER_METER;
+		vals[1] = RobotMap.frontRightMotor.getEncPosition() / RobotMap.ENCODER_PULSE_PER_METER;
+		return vals;
+		
+		
+		
+static final double TOLERANCE = 0.1;
+private static final double ENCODER_TO_METERS = 1.96;
+
+
+vals[0] = RobotMap.frontLeftMotor.getEncPosition() / RobotMap.ENCODER_PULSE_PER_METER;
+vals[1] = RobotMap.frontRightMotor.getEncPosition() / RobotMap.ENCODER_PULSE_PER_METER;
+
+
+
+
+return Math.signum(dist) * (DriveEncoders.getAbsoluteValue() - initVal) > Math.abs(dist); 

@@ -2,6 +2,7 @@ package org.usfirst.frc2832.Robot2017.autonCommands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.DriveEncoders;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -20,7 +21,9 @@ public class MoveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	initEncoderVal = RobotMap.driveTrainRightFront.getEncPosition();
+    	//initEncoderVal = RobotMap.driveTrainRightFront.getEncPosition();
+    	
+    	initEncoderVal = DriveEncoders.getAbsoluteValue();
     			
     }
 
@@ -30,7 +33,8 @@ public class MoveForward extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-      return (RobotMap.driveTrainLeftFront.getEncPosition() - initEncoderVal > Math.abs(dist));
+      //return (RobotMap.driveTrainLeftFront.getEncPosition() - initEncoderVal > Math.abs(dist));
+    	return Math.signum(dist) * (DriveEncoders.getAbsoluteValue() - initEncoderVal) > Math.abs(dist);
     }
 
     
