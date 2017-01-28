@@ -33,6 +33,7 @@ public class MoveForward extends Command {
       return (RobotMap.driveTrainLeftFront.getEncPosition() - initEncoderVal > Math.abs(dist));
     }
 
+    
     // Called once after isFinished returns true
     protected void end() {
     	Robot.driveTrain.robotDrive.arcadeDrive(0, 0);
