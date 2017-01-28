@@ -79,8 +79,8 @@ public class OI {
         yButton.whenPressed(new GearIntakeOpen());
         //b button operated by default command only?
         bButton.whenPressed(new AllForward());
-        xButton.whenPressed(new MotorPositionCheck());
-      //  yButton.whileHeld(new Climb());
+        xButton.whileHeld(new Climb());
+        //Have Motor Position Check on smart dashboard only, not controller
         
 
         // SmartDashboard Buttons
