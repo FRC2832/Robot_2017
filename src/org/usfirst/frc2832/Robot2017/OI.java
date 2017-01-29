@@ -13,9 +13,11 @@ package org.usfirst.frc2832.Robot2017;
 
 import org.usfirst.frc2832.Robot2017.commands.AllForward;
 import org.usfirst.frc2832.Robot2017.commands.AutonomousCommand;
-import org.usfirst.frc2832.Robot2017.commands.GearIntakeOpen;
+import org.usfirst.frc2832.Robot2017.commands.Climb;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
+import org.usfirst.frc2832.Robot2017.commands.gearunload.IntakeGearSequence;
+import org.usfirst.frc2832.Robot2017.commands.ramp.Ramp;
 import org.usfirst.frc2832.Robot2017.subsystems.GearIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -75,8 +77,8 @@ public class OI {
         bButton = new JoystickButton(xBoxController, 2);
         xButton = new JoystickButton(xBoxController, 3);
         yButton = new JoystickButton(xBoxController, 4);
-        aButton.whenPressed(new RelayOn());
-        yButton.whenPressed(new GearIntakeOpen());
+        aButton.whenPressed(new Ramp());
+        yButton.whenPressed(new IntakeGearSequence());
         //b button operated by default command only?
         bButton.whenPressed(new AllForward());
         xButton.whenPressed(new MotorPositionCheck());
