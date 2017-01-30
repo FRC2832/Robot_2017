@@ -15,3 +15,8 @@ vals[1] = RobotMap.frontRightMotor.getEncPosition() / RobotMap.ENCODER_PULSE_PER
 
 
 return Math.signum(dist) * (DriveEncoders.getAbsoluteValue() - initVal) > Math.abs(dist); 
+
+
+0  *
+1.0
+-1.0
