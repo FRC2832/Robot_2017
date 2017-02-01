@@ -1,31 +1,34 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
-import org.usfirst.frc2832.Robot2017.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
-public class DefaultClimb extends Command {
+public class Wait extends Command {
 
-    public DefaultClimb() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.climb);
+    private long length;
+
+	public Wait(long length, Subsystem sub) {
+    	this.length = length;
+    	requires(sub);
     }
 
+    private static long initialTime;
+    
     // Called just before this Command runs the first time
     protected void initialize() {
+    	initialTime = System.currentTimeMillis();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climb.setClimbMotorSpeed(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return System.currentTimeMillis() > initialTime + length;
     }
 
     // Called once after isFinished returns true

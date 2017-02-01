@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2832.Robot2017.commands;
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
@@ -48,6 +49,7 @@ public class Drive extends Command {
     	double speed = -control.getRawAxis(1) * 0.7;
     	double turn = control.getRawAxis(4) * 0.7;
     	DriveTrain.robotDrive.arcadeDrive(speed, turn);
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
