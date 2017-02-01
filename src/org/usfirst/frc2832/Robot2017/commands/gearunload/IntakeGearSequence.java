@@ -12,11 +12,11 @@ public class IntakeGearSequence extends CommandGroup {
 
     public IntakeGearSequence() {
     	addSequential(new OpenDoors());
-    	addSequential(new Wait(100, Robot.gearIntake));
-    	addSequential(new ExtendPusher());
-    	addSequential(new Wait(100, Robot.gearIntake));
+    	addSequential(new Wait(300, Robot.gearIntake));
     	addSequential(new RetractPusher());
-    	addSequential(new Wait(100, Robot.gearIntake));
+    	addSequential(new Wait(400, Robot.gearIntake));
+    	addSequential(new ExtendPusher());
+    	addSequential(new Wait(500, Robot.gearIntake));
     	addSequential(new CloseDoors());
     }
 }
