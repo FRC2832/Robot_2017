@@ -15,7 +15,6 @@ import org.usfirst.frc2832.Robot2017.commands.AllForward;
 import org.usfirst.frc2832.Robot2017.commands.AutonomousCommand;
 import org.usfirst.frc2832.Robot2017.commands.Climb;
 
-import org.usfirst.frc2832.Robot2017.commands.GearIntakeOpen;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 
