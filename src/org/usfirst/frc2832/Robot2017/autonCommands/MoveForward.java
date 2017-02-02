@@ -5,7 +5,7 @@ import org.usfirst.frc2832.Robot2017.RobotMap;
 import org.usfirst.frc2832.Robot2017.DriveEncoders;
 
 import edu.wpi.first.wpilibj.command.Command;
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -23,19 +23,21 @@ public class MoveForward extends Command {
     protected void initialize() {
     	//initEncoderVal = RobotMap.driveTrainRightFront.getEncPosition();
     	
-    	initEncoderVal = (RobotMap.driveTrainLeftFront.getEncPosition()-RobotMap.driveTrainRightFront.getEncPosition())/2;
+    	initEncoderVal = (RobotMap.driveTrainLeftFront.getEncPosition()+RobotMap.driveTrainRightFront.getEncPosition())/2;
     			
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveTrain.robotDrive.arcadeDrive(0.5, 0);
+    	SmartDashboard.putDouble("Change in encoder values", ((RobotMap.driveTrainLeftFront.getEncPosition()+RobotMap.driveTrainRightFront.getEncPosition())/2 - initEncoderVal));
+    	
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
       //return (RobotMap.driveTrainLeftFront.getEncPosition() - initEncoderVal > Math.abs(dist));
     	System.out.println("**********************"+DriveEncoders.getAbsoluteValue());
-    	return ((RobotMap.driveTrainLeftFront.getEncPosition()-RobotMap.driveTrainRightFront.getEncPosition())/2 - initEncoderVal) > Math.abs(dist);
+    	return (Math.abs((RobotMap.driveTrainLeftFront.getEncPosition()+RobotMap.driveTrainRightFront.getEncPosition())/2 - initEncoderVal)) > Math.abs(dist);
     }
 
     
