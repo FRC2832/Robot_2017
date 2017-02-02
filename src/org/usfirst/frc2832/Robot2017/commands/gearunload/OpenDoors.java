@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Opens the door, duh
  */
 public class OpenDoors extends Command {
 

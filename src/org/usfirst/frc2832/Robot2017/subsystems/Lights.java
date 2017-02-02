@@ -20,7 +20,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 /**
- *
+ * Handles light crap
  */
 public class Lights extends Subsystem {
 

@@ -7,7 +7,7 @@ import org.usfirst.frc2832.Robot2017.commands.DefaultClimb;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Handles Climbing
  */
 public class Climbing extends Subsystem {
 
