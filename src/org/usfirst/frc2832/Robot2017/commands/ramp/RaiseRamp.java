@@ -1,17 +1,20 @@
-package org.usfirst.frc2832.Robot2017.commands;
+package org.usfirst.frc2832.Robot2017.commands.ramp;
 
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DefaultClimb extends Command {
+public class RaiseRamp extends Command {
 
-    public DefaultClimb() {
+    public RaiseRamp() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.climb);
+        // eg. requires(chassis);
+    	requires(Robot.gearIntake);
     }
 
     // Called just before this Command runs the first time
@@ -20,12 +23,14 @@ public class DefaultClimb extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climb.setClimbMotorSpeed(0);
+    	RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kReverse);
+    	System.out.println("Reverse");
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

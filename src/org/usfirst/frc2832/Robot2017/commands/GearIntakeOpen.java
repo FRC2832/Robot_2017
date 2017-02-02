@@ -17,12 +17,10 @@ public class GearIntakeOpen extends Command implements Runnable {
 	
 	protected void initialize() {
 		requires(Robot.driveTrain);
-		SmartDashboard.putBoolean("Piston Extended", Robot.gearIntake.getExtended());
 	}
 	
 	protected void execute() {
 		RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kForward);
-		Robot.gearIntake.toggleExtended();
 		new Thread(this).start();
 	}
 	
@@ -41,7 +39,6 @@ public class GearIntakeOpen extends Command implements Runnable {
 		while(running) {
 			if(System.currentTimeMillis() - then > 3000) {
 				RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kReverse);
-				Robot.gearIntake.toggleExtended();
 				running = false;
 				
 			}
