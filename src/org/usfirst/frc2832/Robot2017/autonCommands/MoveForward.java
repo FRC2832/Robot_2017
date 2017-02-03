@@ -18,6 +18,11 @@ public class MoveForward extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
+    public MoveForward(double distance)
+    {
+    	required(Robot.driveTrain);
+    	dist = distance;
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -30,7 +35,7 @@ public class MoveForward extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveTrain.robotDrive.arcadeDrive(0.5, 0);
-    	SmartDashboard.putDouble("Change in encoder values", ((RobotMap.driveTrainLeftFront.getEncPosition()+RobotMap.driveTrainRightFront.getEncPosition())/2 - initEncoderVal));
+    	//SmartDashboard.putDouble("Change in encoder values", ((RobotMap.driveTrainLeftFront.getEncPosition()+RobotMap.driveTrainRightFront.getEncPosition())/2 - initEncoderVal));
     	
     }
     // Make this return true when this Command no longer needs to run execute()
