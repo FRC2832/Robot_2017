@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 /**
- *
+ *Handles drive train
  */
 public class DriveTrain extends Subsystem {
 	public static final SpeedController leftFront = RobotMap.driveTrainLeftFront;

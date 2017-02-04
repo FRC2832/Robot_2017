@@ -4,7 +4,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Waits a set amount of milliseconds, not centiseconds. 
+ *To be used in command groups. Second parameter should be the respective subsystem.
  */
 public class Wait extends Command {
 

@@ -7,7 +7,7 @@ import org.usfirst.frc2832.Robot2017.commands.DefaultClimb;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Handles Climbing
  */
 public class Climbing extends Subsystem {
 
@@ -17,12 +17,12 @@ public class Climbing extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new Climb());
+    	setDefaultCommand(new DefaultClimb());
     	
     }
     public void setClimbMotorSpeed(double speed) {
-    	RobotMap.climbMotor1.set(speed);
-    	RobotMap.climbMotor2.set(speed);
+		/* speed is made negative here so that climbing up is positive, down is negative */
+    	RobotMap.climbMotor.set(-speed);
     }
 }
 

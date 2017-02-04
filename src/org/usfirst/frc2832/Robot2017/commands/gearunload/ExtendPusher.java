@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Extends the pusher, duh
  */
 public class ExtendPusher extends Command {
 
