@@ -21,6 +21,7 @@ public class AllForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(!Robot.isClimbing)
     	Robot.driveTrain.setArcadeDriveCommand(0.5, 0);
     }
 

@@ -20,9 +20,9 @@ import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
-import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGearSequence;
-import org.usfirst.frc2832.Robot2017.commands.ramp.Ramp;
-import org.usfirst.frc2832.Robot2017.subsystems.GearIntake;
+import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
+import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOff;
+import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOn;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -81,8 +81,10 @@ public class OI {
         bButton = new JoystickButton(xBoxController, 2);
         xButton = new JoystickButton(xBoxController, 3);
         yButton = new JoystickButton(xBoxController, 4);
-        aButton.whenPressed(new Ramp());
-        yButton.whenPressed(new ExpelGearSequence());
+        
+        aButton.whenPressed(new ShooterSequenceOn());
+        aButton.whenReleased(new ShooterSequenceOff());
+        yButton.whenPressed(new ExpelGear());
         //b button operated by default command only?
         bButton.whenPressed(new AllForward());
         xButton.whileHeld(new Climb());

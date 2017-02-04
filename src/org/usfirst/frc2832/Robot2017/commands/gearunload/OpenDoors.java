@@ -24,6 +24,7 @@ public class OpenDoors extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(!Robot.isClimbing)
     	RobotMap.gearScoreDoor.set(DoubleSolenoid.Value.kReverse);
     }
 
