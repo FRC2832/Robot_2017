@@ -36,8 +36,8 @@ public class RobotMap {
     public static CANTalon climbMotor;
     public static CANTalon shooterShootMotor;
     public static CANTalon shooterFeeder;
+    public static CANTalon shooterAgitator;
     public static CANTalon ballIntakeMotor;
-    public static CANTalon ballIntakeLift;
     public static DoubleSolenoid gearIntakeRamp;
     public static DoubleSolenoid gearScorePusher;
     public static DoubleSolenoid gearScoreDoor;
@@ -74,8 +74,8 @@ public class RobotMap {
         
         ballIntakeMotor = new CANTalon(9);
         LiveWindow.addActuator("BallIntake", "Intake", ballIntakeMotor);
-        ballIntakeLift = new CANTalon(10);
-        LiveWindow.addActuator("BallIntake", "Lift", ballIntakeLift);
+        shooterAgitator = new CANTalon(10);
+        LiveWindow.addActuator("Shooter", "Agitator", shooterAgitator);
         
 
         lightsLightEnable = new Relay(0);
