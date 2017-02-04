@@ -21,6 +21,8 @@ import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
+import org.usfirst.frc2832.Robot2017.commands.ingest.IngestOff;
+import org.usfirst.frc2832.Robot2017.commands.ingest.IngestOn;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOn;
 
@@ -86,7 +88,8 @@ public class OI {
         aButton.whenReleased(new ShooterSequenceOff());
         yButton.whenPressed(new ExpelGear());
         //b button operated by default command only?
-        bButton.whenPressed(new AllForward());
+        bButton.whenPressed(new IngestOn());
+        bButton.whenReleased(new IngestOff());
         xButton.whileHeld(new Climb());
         //Have Motor Position Check on smart dashboard only, not controller
         

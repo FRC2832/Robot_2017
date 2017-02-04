@@ -2,6 +2,7 @@ package org.usfirst.frc2832.Robot2017.commands.shooter;
 
 import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -22,7 +23,7 @@ public class FeederOff extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.shooterFeeder.set(20);
+    	Shooter.shooterFeeder.set(20);
     	System.out.println("FeederOn");
 
     }
