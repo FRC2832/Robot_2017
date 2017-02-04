@@ -32,6 +32,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+//robot code
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
