@@ -3,7 +3,7 @@ package org.usfirst.frc2832.Robot2017.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Handles ball intake
  */
 public class BallIntake extends Subsystem {
 

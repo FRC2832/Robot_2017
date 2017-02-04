@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Retracts pusher, duh
  */
 public class RetractPusher extends Command {
 
@@ -24,6 +24,7 @@ public class RetractPusher extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(!Robot.isClimbing)
     	RobotMap.gearScorePusher.set(DoubleSolenoid.Value.kReverse);
 
     }

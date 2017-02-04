@@ -1,20 +1,18 @@
-package org.usfirst.frc2832.Robot2017.commands.ramp;
+package org.usfirst.frc2832.Robot2017.commands.shooter;
 
 import org.usfirst.frc2832.Robot2017.Robot;
-import org.usfirst.frc2832.Robot2017.RobotMap;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class LowerRamp extends Command {
+public class AgitatorOn extends Command {
 
-    public LowerRamp() {
+    public AgitatorOn() {
+    	requires(Robot.shooter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.gearIntake);
     }
 
     // Called just before this Command runs the first time
@@ -23,14 +21,11 @@ public class LowerRamp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kForward);
-    	System.out.println("Lower");
-
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

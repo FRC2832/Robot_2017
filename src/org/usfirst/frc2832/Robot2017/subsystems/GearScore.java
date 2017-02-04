@@ -3,7 +3,7 @@ package org.usfirst.frc2832.Robot2017.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * Handles gear vomiting
  */
 public class GearScore extends Subsystem {
 

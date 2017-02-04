@@ -1,12 +1,13 @@
 package org.usfirst.frc2832.Robot2017.subsystems;
 
 import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.commands.Climb;
 import org.usfirst.frc2832.Robot2017.commands.DefaultClimb;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Handles Climbing
  */
 public class Climbing extends Subsystem {
 
@@ -20,8 +21,8 @@ public class Climbing extends Subsystem {
     	
     }
     public void setClimbMotorSpeed(double speed) {
-    	RobotMap.climbMotor1.set(speed);
-    	RobotMap.climbMotor1.set(speed);
+		/* speed is made negative here so that climbing up is positive, down is negative */
+    	RobotMap.climbMotor.set(-speed);
     }
 }
 

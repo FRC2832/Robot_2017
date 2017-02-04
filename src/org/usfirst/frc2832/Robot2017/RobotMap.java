@@ -33,8 +33,7 @@ public class RobotMap {
     public static CANTalon driveTrainRightFront;
     public static CANTalon driveTrainLeftRear;
     public static CANTalon driveTrainRightRear;
-    public static CANTalon climbMotor1;
-    public static CANTalon climbMotor2;
+    public static CANTalon climbMotor;
     public static CANTalon shooterShootMotor;
     public static CANTalon shooterFeeder;
     public static CANTalon ballIntakeMotor;
@@ -64,11 +63,9 @@ public class RobotMap {
 		driveTrainRobotDrive41.setExpiration(0.1);
 		driveTrainRobotDrive41.setSensitivity(0.5);
 		driveTrainRobotDrive41.setMaxOutput(1.0);
-          
-        climbMotor1 = new CANTalon(5);
-        LiveWindow.addActuator("Climbing", "Motor1", climbMotor1);
-        climbMotor2 = new CANTalon(6);
-        LiveWindow.addActuator("Climbing", "Motor2", climbMotor2);
+        
+        climbMotor = new CANTalon(5);
+        LiveWindow.addActuator("Climbing", "Motor", climbMotor);
         
         shooterShootMotor = new CANTalon(7);
         LiveWindow.addActuator("Shooter", "Shoot", shooterShootMotor);

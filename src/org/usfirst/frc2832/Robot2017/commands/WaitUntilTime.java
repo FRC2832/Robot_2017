@@ -1,33 +1,35 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
-import org.usfirst.frc2832.Robot2017.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Waits a set amount of milliseconds, not centiseconds. 
+ *To be used in command groups. Second parameter should be the respective subsystem.
  */
-public class AllForward extends Command {
+public class WaitUntilTime extends Command {
 
-    public AllForward() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
-    	
+    private long length;
+
+	public WaitUntilTime(long length, Subsystem sub) {
+    	this.length = length;
+    	requires(sub);
     }
 
+    private static long initialTime;
+    
     // Called just before this Command runs the first time
     protected void initialize() {
+    	initialTime = System.currentTimeMillis();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!Robot.isClimbing)
-    	Robot.driveTrain.setArcadeDriveCommand(0.5, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return !Robot.oi.bButton.get();
+    	return System.currentTimeMillis() > initialTime + length;
     }
 
     // Called once after isFinished returns true
