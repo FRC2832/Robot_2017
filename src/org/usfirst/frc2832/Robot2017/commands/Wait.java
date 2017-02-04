@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *Waits a set amount of milliseconds, not centiseconds. 
  *To be used in command groups. Second parameter should be the respective subsystem.
  */
-public class WaitUntilTime extends Command {
+public class Wait extends Command {
 
     private long length;
 
-	public WaitUntilTime(long length, Subsystem sub) {
+	public Wait(long length, Subsystem sub) {
     	this.length = length;
     	requires(sub);
     }

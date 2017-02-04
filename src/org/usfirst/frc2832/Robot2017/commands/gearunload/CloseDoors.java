@@ -5,7 +5,6 @@ import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  *Closes the door, duh
@@ -24,7 +23,6 @@ public class CloseDoors extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!Robot.isClimbing)    		
     	RobotMap.gearScoreDoor.set(DoubleSolenoid.Value.kForward);
     }
 

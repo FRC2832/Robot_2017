@@ -16,7 +16,6 @@ public class DefaultClimb extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.isClimbing = true;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,12 +30,10 @@ public class DefaultClimb extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.isClimbing = false;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.isClimbing = false;
     }
 }

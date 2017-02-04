@@ -45,12 +45,11 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!Robot.isClimbing) {
     	Joystick control = Robot.oi.xBoxController;
     	double speed = -control.getRawAxis(1) * 0.7;
     	double turn = control.getRawAxis(4) * 0.7;
     	DriveTrain.robotDrive.arcadeDrive(speed, turn);
-    	}
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
