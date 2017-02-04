@@ -22,7 +22,9 @@ public class ShooterOn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.shooterShootMotor.set(100);
+    	RobotMap.shooterShootMotor.set(60);
+    	System.out.println("ShooterOn");
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

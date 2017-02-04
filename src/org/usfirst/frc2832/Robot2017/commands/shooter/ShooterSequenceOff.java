@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ShooterSequenceOff extends CommandGroup {
 
     public ShooterSequenceOff() {
-    	addParallel(new AgitatorOff());
-    	addParallel(new FeederOff());
-    	addParallel(new ShooterOff());
+    	addSequential(new AgitatorOff());
+    	addSequential(new FeederOff());
+    	addSequential(new ShooterOff());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

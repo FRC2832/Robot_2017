@@ -15,7 +15,7 @@ public class ShooterSequenceOn extends CommandGroup {
     public ShooterSequenceOn() {
     	addSequential(new AgitatorOn());
     	addSequential(new ShooterOn());
-    	addSequential(new WaitUntilSpeed(RobotMap.shooterShootMotor, 60, Robot.shooter));
+    	addSequential(new WaitUntilSpeed(RobotMap.shooterShootMotor, 50, Robot.shooter));
     	addSequential(new FeederOn());
         // Add Commands here:
         // e.g. addSequential(new Command1());

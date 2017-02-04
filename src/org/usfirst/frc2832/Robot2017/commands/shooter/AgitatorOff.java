@@ -23,6 +23,7 @@ public class AgitatorOff extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.shooterAgitator.set(0);
+    	System.out.println("AgitatorOff");
     }
 
     // Make this return true when this Command no longer needs to run execute()
