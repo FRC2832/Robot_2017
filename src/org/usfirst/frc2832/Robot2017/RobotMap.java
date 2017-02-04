@@ -34,7 +34,6 @@ public class RobotMap {
     public static CANTalon driveTrainLeftRear;
     public static CANTalon driveTrainRightRear;
     public static CANTalon climbMotor;
-    public static CANTalon ballIntakeMotor;
     public static DoubleSolenoid gearIntakeRamp;
     public static RobotDrive driveTrainRobotDrive41;
     public static Relay lightsLightEnable;
@@ -61,10 +60,6 @@ public class RobotMap {
         
         climbMotor = new CANTalon(5);
         LiveWindow.addActuator("Climbing", "Motor", climbMotor);
-        
-        ballIntakeMotor = new CANTalon(8);
-        LiveWindow.addActuator("BallIntake", "Intake", ballIntakeMotor);
-        ballIntakeMotor.enableBrakeMode(false);
         
         lightsLightEnable = new Relay(0);
         LiveWindow.addActuator("Lights", "LightEnable", lightsLightEnable);
