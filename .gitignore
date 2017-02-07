@@ -2,3 +2,4 @@
 *.class
 build/*
 dist/*
+.classpath
