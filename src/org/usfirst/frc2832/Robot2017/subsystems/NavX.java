@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.SPI;
 import com.kauailabs.navx.frc.AHRS;
 
 public class NavX extends Subsystem implements PIDOutput {
-	PIDController turnController;
+	public static PIDController turnController;
 	public static final double kToleranceDegrees = 2;
-	double rotateToAngleRate;
+	public static double rotateToAngleRate;
 	static final double kP = 0.03;
 	static final double kI = 0.00;
 	static final double kD = 0.00;
 	static final double kF = 0.00;
-	AHRS ahrs;
+	public static AHRS ahrs;
 
 	@Override
 	protected void initDefaultCommand() {
@@ -24,10 +24,9 @@ public class NavX extends Subsystem implements PIDOutput {
 		turnController.setOutputRange(-1.0, 1.0);
 		turnController.setAbsoluteTolerance(kToleranceDegrees);
 		turnController.setContinuous(true);
-	      
 		
 	}
-
+	
 	@Override
 	public void pidWrite(double output) {
 		rotateToAngleRate = output;

@@ -17,7 +17,7 @@ import org.usfirst.frc2832.Robot2017.commands.Climb;
 
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
-
+import org.usfirst.frc2832.Robot2017.commands.Rotate;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
@@ -91,7 +91,7 @@ public class OI {
         bButton.whenPressed(new IngestOn());
         bButton.whenReleased(new IngestOff());
         xButton.whileHeld(new Climb());
-//        RightBumper.whenPressed();
+        RightBumper.whileHeld(new Rotate());
         //Have Motor Position Check on smart dashboard only, not controller
         
 
