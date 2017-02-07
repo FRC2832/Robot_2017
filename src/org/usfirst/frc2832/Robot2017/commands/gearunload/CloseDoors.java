@@ -1,20 +1,21 @@
-package org.usfirst.frc2832.Robot2017.commands;
+package org.usfirst.frc2832.Robot2017.commands.gearunload;
 
 import org.usfirst.frc2832.Robot2017.Robot;
-import org.usfirst.frc2832.Robot2017.subsystems.DriveTrain;
+import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.subsystems.GearScore;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Closes the door, duh
  */
-public class DefaultDrive extends Command {
+public class CloseDoors extends Command {
 
-    public DefaultDrive() {
+    public CloseDoors() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveTrain);
+    	requires(Robot.gearScore);
     }
 
     // Called just before this Command runs the first time
@@ -23,15 +24,13 @@ public class DefaultDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Joystick control = Robot.oi.xBoxController;
-    	double speed = -control.getRawAxis(1) * 0.7;
-    	double turn = control.getRawAxis(4) * 0.7;
-    	Robot.driveTrain.setArcadeDriveCommand(speed, turn);
+    	if(!Robot.isClimbing) GearScore.gearScoreDoor.set(DoubleSolenoid.Value.kForward);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
