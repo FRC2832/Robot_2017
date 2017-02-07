@@ -1,10 +1,12 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
+import org.usfirst.frc2832.Robot2017.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class RotateCrapTest extends Command {
     public RotateCrapTest() {
-    	requires(NavX);
+    	requires(Robot.navX);
     }
 	
     public void initialize() {

@@ -1,43 +1,43 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
-import org.usfirst.frc2832.Robot2017.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Waits a set amount of milliseconds, not centiseconds. 
+ *To be used in command groups. Second parameter should be the respective subsystem.
  */
-public class Climb extends Command {
+public class WaitUntilTime extends Command {
 
-    public Climb() {
-        requires(Robot.climb);
+    private long length;
+
+	public WaitUntilTime(long length, Subsystem sub) {
+    	this.length = length;
+    	requires(sub);
     }
 
+    private static long initialTime;
+    
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.isClimbing = true;
-    	
+    	initialTime = System.currentTimeMillis();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climb.setClimbMotorSpeed(0.7);
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	return System.currentTimeMillis() > initialTime + length;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.isClimbing = false;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.isClimbing = false;
     }
 }

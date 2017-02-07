@@ -1,20 +1,20 @@
-package org.usfirst.frc2832.Robot2017.commands.ramp;
+package org.usfirst.frc2832.Robot2017.commands.shooter;
 
 import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.subsystems.Shooter;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class RaiseRamp extends Command {
+public class ShooterOff extends Command {
 
-    public RaiseRamp() {
+    public ShooterOff() {
+    	requires(Robot.shooter);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.gearIntake);
     }
 
     // Called just before this Command runs the first time
@@ -23,8 +23,8 @@ public class RaiseRamp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.gearIntakeRamp.set(DoubleSolenoid.Value.kReverse);
-    	System.out.println("Reverse");
+    	Shooter.shooterShootMotor.set(0);
+    	System.out.println("ShooterOff");
 
     }
 

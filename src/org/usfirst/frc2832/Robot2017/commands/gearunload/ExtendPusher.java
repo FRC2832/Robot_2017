@@ -2,6 +2,7 @@ package org.usfirst.frc2832.Robot2017.commands.gearunload;
 
 import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.RobotMap;
+import org.usfirst.frc2832.Robot2017.subsystems.GearScore;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,7 +25,8 @@ public class ExtendPusher extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.gearScorePusher.set(DoubleSolenoid.Value.kForward);
+    	if(!Robot.isClimbing) GearScore.gearScorePusher.set(DoubleSolenoid.Value.kForward);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
