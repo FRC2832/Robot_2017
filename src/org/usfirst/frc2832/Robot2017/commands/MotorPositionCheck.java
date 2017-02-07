@@ -1,6 +1,7 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -25,34 +26,34 @@ public class MotorPositionCheck extends Command {
     protected void execute() {
     	double runTime = Timer.getFPGATimestamp() - startTime;
     	
-    	/*
+    	
     	if(runTime < 2) {
-    		WheelMotors.lFrontDrive.set(0.5);
-    		WheelMotors.rFrontDrive.set(0.0);
-    		WheelMotors.lRearDrive.set(0.0);
-    		WheelMotors.rRearDrive.set(0.0);
+    		RobotMap.driveTrainLeftFront.set(0.5);
+    		RobotMap.driveTrainRightFront.set(0.0);
+    		RobotMap.driveTrainLeftRear.set(0.0);
+    		RobotMap.driveTrainRightRear.set(0.0);
     	} else if(runTime < 4) {
-    		WheelMotors.lFrontDrive.set(0.0);
-    		WheelMotors.rFrontDrive.set(0.5);
-    		WheelMotors.lRearDrive.set(0.0);
-    		WheelMotors.rRearDrive.set(0.0);
+    		RobotMap.driveTrainLeftFront.set(0.0);
+    		RobotMap.driveTrainRightFront.set(0.5);
+    		RobotMap.driveTrainLeftRear.set(0.0);
+    		RobotMap.driveTrainRightRear.set(0.0);
     	} else if(runTime < 6) {
-    		WheelMotors.lFrontDrive.set(0.0);
-    		WheelMotors.rFrontDrive.set(0.0);
-    		WheelMotors.lRearDrive.set(0.5);
-    		WheelMotors.rRearDrive.set(0.0);
+    		RobotMap.driveTrainLeftFront.set(0.0);
+    		RobotMap.driveTrainRightFront.set(0.0);
+    		RobotMap.driveTrainLeftRear.set(0.5);
+    		RobotMap.driveTrainRightRear.set(0.0);
     	} else if(runTime < 8) {
-    		WheelMotors.lFrontDrive.set(0.0);
-    		WheelMotors.rFrontDrive.set(0.0);
-    		WheelMotors.lRearDrive.set(0.0);
-    		WheelMotors.rRearDrive.set(0.5);
+    		RobotMap.driveTrainLeftFront.set(0.0);
+    		RobotMap.driveTrainRightFront.set(0.0);
+    		RobotMap.driveTrainLeftRear.set(0.0);
+    		RobotMap.driveTrainRightRear.set(0.5);
     	} else {
-    		WheelMotors.lFrontDrive.set(0.0);
-    		WheelMotors.rFrontDrive.set(0.0);
-    		WheelMotors.lRearDrive.set(0.0);
-    		WheelMotors.rRearDrive.set(0.0);
+    		RobotMap.driveTrainLeftFront.set(0.0);
+    		RobotMap.driveTrainRightFront.set(0.0);
+    		RobotMap.driveTrainLeftRear.set(0.0);
+    		RobotMap.driveTrainRightRear.set(0.0);
     	} 
-    	*/
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,27 +1,33 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc2832.Robot2017.subsystems.DriveTrain;
+import org.usfirst.frc2832.Robot2017.subsystems.NavX;
 
 /**
  *
  */
-public class Climb extends Command {
+public class Rotate extends Command {
+	public static double angle = 0;
 
-    public Climb() {
-        requires(Robot.climb);
+    public Rotate() {
+    	requires(Robot.navX);
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.isClimbing = true;
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climb.setClimbMotorSpeed(0.7);
+    	NavX.turnController.enable();
+    	NavX.turnController.setSetpoint(90);
+    	DriveTrain.robotDrive.mecanumDrive_Cartesian(0, 0, NavX.rotateToAngleRate, NavX.ahrs.getAngle());
     	
     }
 
@@ -32,12 +38,11 @@ public class Climb extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.isClimbing = false;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.isClimbing = false;
     }
+
 }
