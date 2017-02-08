@@ -16,7 +16,7 @@ public class ExpelGear extends CommandGroup {
     	addSequential(new RetractPusher());
     	addSequential(new WaitUntilTime(400, Robot.gearIntake));
     	addSequential(new ExtendPusher());
-    	addSequential(new WaitUntilTime(500, Robot.gearIntake));
-    	addSequential(new CloseDoors());
+    	//addSequential(new WaitUntilTime(500, Robot.gearIntake));
+    	//addSequential(new CloseDoors());
     }
 }
