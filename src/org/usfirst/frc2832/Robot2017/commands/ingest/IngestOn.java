@@ -1,5 +1,6 @@
 package org.usfirst.frc2832.Robot2017.commands.ingest;
 
+import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.subsystems.BallIntake;
 import org.usfirst.frc2832.Robot2017.subsystems.Shooter;
 
@@ -21,6 +22,7 @@ public class IngestOn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.isIngesting = true;
     	BallIntake.ballIntakeMotor.set(30);
     }
 
