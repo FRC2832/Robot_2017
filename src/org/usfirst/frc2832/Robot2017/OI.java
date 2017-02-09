@@ -137,7 +137,7 @@ public class OI {
         SmartDashboard.putNumber("Right Front Encoder Value: ", RobotMap.driveTrainRightFront.getEncPosition());
         SmartDashboard.putNumber("Right Back Encoder Value: ", RobotMap.driveTrainRightRear.getEncPosition());
         SmartDashboard.putNumber("Left Trigger: ", Robot.lTrigger);
-        SmartDashboard.putNumber("Left Trigger: ", Robot.rTrigger);
+        SmartDashboard.putNumber("Right Trigger: ", Robot.rTrigger);
 
     }
 
