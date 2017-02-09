@@ -106,6 +106,7 @@ public class OI {
         bButton.whenPressed(Robot.isIngesting ? new IngestOff(): new IngestOn());
         xButton.whileHeld(new CloseDoors());
         rightBumper.whileHeld(new Rotate());
+        startButton.whenPressed(new Climb());
         //Have Motor Position Check on smart dashboard only, not controller
 
         // SmartDashboard Buttons
