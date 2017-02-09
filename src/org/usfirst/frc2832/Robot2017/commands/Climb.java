@@ -24,7 +24,7 @@ public class Climb extends Command {
     	if(Robot.lTrigger > 0.1) {
     		Robot.climb.setClimbMotorSpeed(0.7 * Robot.lTrigger);
     	} else {
-    		Robot.climb.setClimbMotorSpeed(0.7 * Robot.climbSpeeed);
+    		Robot.climb.setClimbMotorSpeed(0.7 * Math.max(0, Math.min(100, Robot.climbSpeeed)));
     	}
     	
     }
