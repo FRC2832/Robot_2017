@@ -14,7 +14,7 @@ package org.usfirst.frc2832.Robot2017;
 import org.usfirst.frc2832.Robot2017.commands.AllForward;
 import org.usfirst.frc2832.Robot2017.commands.AutonomousCommand;
 import org.usfirst.frc2832.Robot2017.commands.Climb;
-
+import org.usfirst.frc2832.Robot2017.commands.DriveForward;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 import org.usfirst.frc2832.Robot2017.commands.Rotate;
@@ -103,7 +103,7 @@ public class OI {
         //Have Motor Position Check on smart dashboard only, not controller
 
         // SmartDashboard Buttons
-        SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
+        SmartDashboard.putData("Autonomous Command", new DriveForward(4.0));
         SmartDashboard.putData("RelayOn", new RelayOn());
         SmartDashboard.putData("AllForward", new AllForward());
         SmartDashboard.putData("MotorPositionCheck", new MotorPositionCheck());
