@@ -24,6 +24,9 @@ import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterOn;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOn;
+import org.usfirst.frc2832.Robot2017.pixy.PixyException;
+import org.usfirst.frc2832.Robot2017.pixy.PixyI2C;
+import org.usfirst.frc2832.Robot2017.pixy.PixyPacket;
 import org.usfirst.frc2832.Robot2017.subsystems.*;
 
 import edu.wpi.cscore.CvSink;
@@ -156,6 +159,10 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+    	RobotMap.driveTrainLeftFront.enableBrakeMode(true);
+    	RobotMap.driveTrainRightFront.enableBrakeMode(true);
+    	RobotMap.driveTrainLeftRear.enableBrakeMode(true);
+    	RobotMap.driveTrainRightRear.enableBrakeMode(true);
         // schedule the autonomous command (example)
     	//next two lines of code work for now, but we'll probably want to replace them with a more 
     	//elegant way of selecting the auton mode we want from the smart dashboard 
@@ -175,6 +182,10 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+    	RobotMap.driveTrainLeftFront.enableBrakeMode(true);
+    	RobotMap.driveTrainRightFront.enableBrakeMode(true);
+    	RobotMap.driveTrainLeftRear.enableBrakeMode(true);
+    	RobotMap.driveTrainRightRear.enableBrakeMode(true);
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove

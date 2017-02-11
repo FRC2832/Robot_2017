@@ -46,8 +46,8 @@ public class Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick control = Robot.oi.xBoxController;
-    	double speed = -control.getRawAxis(1) * 0.7;
-    	double turn = control.getRawAxis(4) * 0.7;
+    	double speed = -control.getRawAxis(1) * 0.8;
+    	double turn = control.getRawAxis(4) * 0.8;
     	DriveTrain.robotDrive.arcadeDrive(speed, turn);
 
     }

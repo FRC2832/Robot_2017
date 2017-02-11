@@ -1,4 +1,4 @@
-package org.usfirst.frc2832.Robot2017;
+package org.usfirst.frc2832.Robot2017.pixy;
 
 
 import edu.wpi.first.wpilibj.I2C;
