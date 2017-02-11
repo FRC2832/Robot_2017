@@ -18,6 +18,8 @@ import org.usfirst.frc2832.Robot2017.commands.DriveForward;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 import org.usfirst.frc2832.Robot2017.commands.Rotate;
+import org.usfirst.frc2832.Robot2017.commands.TankDriveLeft;
+import org.usfirst.frc2832.Robot2017.commands.TankDriveRight;
 import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
 import org.usfirst.frc2832.Robot2017.commands.RelayOn;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
@@ -105,8 +107,10 @@ public class OI {
         //b button operated by default command only?
         bButton.whenPressed(Robot.isIngesting ? new IngestOff(): new IngestOn());
         xButton.whileHeld(new CloseDoors());
-        rightBumper.whileHeld(new Rotate());
+        //rightBumper.whileHeld(new Rotate());
         startButton.whenPressed(new Climb());
+        leftBumper.whileHeld(new TankDriveLeft());
+        rightBumper.whileHeld(new TankDriveRight());
         //Have Motor Position Check on smart dashboard only, not controller
 
         // SmartDashboard Buttons
