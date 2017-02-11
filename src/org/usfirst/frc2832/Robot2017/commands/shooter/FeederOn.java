@@ -22,7 +22,8 @@ public class FeederOn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Shooter.shooterFeeder.set(20);
+    	if(!Robot.isClimbing)
+    		Shooter.shooterFeeder.set(20);
     	
     }
 
