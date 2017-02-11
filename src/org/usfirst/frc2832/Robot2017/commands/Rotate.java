@@ -16,7 +16,7 @@ public class Rotate extends Command {
 
     public Rotate() {
     	requires(Robot.navX);
-    	
+
     }
 
     // Called just before this Command runs the first time
@@ -27,8 +27,10 @@ public class Rotate extends Command {
     protected void execute() {
     	NavX.turnController.enable();
     	NavX.turnController.setSetpoint(90);
-    	DriveTrain.robotDrive.mecanumDrive_Cartesian(0, 0, NavX.rotateToAngleRate, NavX.ahrs.getAngle());
-    	
+    	//DriveTrain.robotDrive.mecanumDrive_Cartesian(0, 0, NavX.rotateToAngleRate, NavX.ahrs.getAngle());
+    	//DriveTrain.robotDrive.arcadeDrive(NavX.rotateToAngleRate, 0, NavX.ahrs.getAngle(), 0);
+    	//The above code is for rotating with NavX.  Haven't figured out how to redo mecanum code for arcadedrive yet
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
