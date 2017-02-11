@@ -24,7 +24,7 @@ public class CloseDoors extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!Robot.isClimbing) GearScore.gearScoreDoor.set(DoubleSolenoid.Value.kForward);
+    	GearScore.gearScoreDoor.set(DoubleSolenoid.Value.kForward);
     	
     }
 

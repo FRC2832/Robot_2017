@@ -23,8 +23,8 @@ public class ShooterOn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Shooter.shooterShootMotor.set(Math.max(0, Math.min(100, Robot.shootSpeeed)));
-    	System.out.println("ShooterOn");
+    	if(!Robot.isClimbing)
+    		Shooter.shooterShootMotor.set(Math.max(0, Math.min(100, Robot.shootSpeeed)));
 
     }
 
