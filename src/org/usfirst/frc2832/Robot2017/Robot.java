@@ -142,9 +142,9 @@ public class Robot extends IterativeRobot {
         auto = new SendableChooser();
         auto.addObject("Do nothing at all", "0");
         auto.addObject("Move Forward 3", "f3");
-        auto.addDefault("Expel Gear Forward", "f3");
-        auto.addDefault("Expel Gear Right", "f4");
-        auto.addDefault("Expel Gear Left", "f5");
+        auto.addDefault("Expel Gear Forward", "e3");
+        auto.addDefault("Expel Gear Right", "e4");
+        auto.addDefault("Expel Gear Left", "e5");
         SmartDashboard.putData("Autonomous Selection", auto);
         autonomousCommand = new AutonomousCommand();
 
