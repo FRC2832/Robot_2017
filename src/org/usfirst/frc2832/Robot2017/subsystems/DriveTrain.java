@@ -60,5 +60,10 @@ public class DriveTrain extends Subsystem {
     {
     	 RobotMap.driveTrainRobotDrive41.arcadeDrive(speed, turn);
     }
+    public void setTankDriveCommand(double right, double left)
+    {
+    	RobotMap.driveTrainRobotDrive41.tankDrive(left, right);
+    }
 }
+
 

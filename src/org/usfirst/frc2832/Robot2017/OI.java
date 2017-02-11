@@ -107,7 +107,7 @@ public class OI {
         //b button operated by default command only?
         bButton.whenPressed(Robot.isIngesting ? new IngestOff(): new IngestOn());
         xButton.whileHeld(new CloseDoors());
-        //rightBumper.whileHeld(new Rotate());
+        //selectButton.whileHeld(new Rotate());
         startButton.whenPressed(new Climb());
         leftBumper.whileHeld(new TankDriveLeft());
         rightBumper.whileHeld(new TankDriveRight());

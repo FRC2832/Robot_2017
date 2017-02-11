@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveForward extends Command {
-	private double distance=0;//to cross green line distnace in meters is approximately 2.41097 so set it to 2.5 meters
+	private double distance= 2;//to cross green line distnace in meters is approximately 2.41097 so set it to 2.5 meters
 	private double initEncoderVal =0;
 	
 
-     DriveForward() {
+     public DriveForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);

@@ -11,9 +11,17 @@
 
 package org.usfirst.frc2832.Robot2017;
 
+import java.util.ArrayList;
+
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc2832.Robot2017.commands.*;
+import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
+import org.usfirst.frc2832.Robot2017.commands.shooter.AgitatorOn;
+import org.usfirst.frc2832.Robot2017.commands.shooter.FeederOff;
+import org.usfirst.frc2832.Robot2017.commands.shooter.FeederOn;
+import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterOff;
+import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterOn;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOn;
 import org.usfirst.frc2832.Robot2017.subsystems.*;
@@ -24,6 +32,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -148,7 +157,13 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+    	//next two lines of code work for now, but we'll probably want to replace them with a more 
+    	//elegant way of selecting the auton mode we want from the smart dashboard 
+    	ArrayList <Command> listOfCommands = new ArrayList <Command>();
+    	listOfCommands.add(new DriveForward());
+    	autonomousCommand = (CommandGroup) new AutonCommandGroup (listOfCommands); 
+       
+    	if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**
