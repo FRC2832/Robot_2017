@@ -20,15 +20,15 @@ public class Shooter extends Subsystem {
 	public Shooter() {
 		super();
 
-	shooterFeeder = new CANTalon(7);
+	shooterFeeder = new CANTalon(8);
     LiveWindow.addActuator("Shooter", "Feeder", shooterFeeder);
     shooterFeeder.enableBrakeMode(false);
     
-    shooterShootMotor = new CANTalon(8);
+    shooterShootMotor = new CANTalon(7);
     LiveWindow.addActuator("Shooter", "ShootMotor", shooterShootMotor);
     shooterShootMotor.enableBrakeMode(false);
     
-    shooterAgitator = new CANTalon(9);
+    shooterAgitator = new CANTalon(10);
     LiveWindow.addActuator("Shooter", "Agitator", shooterAgitator);
     shooterAgitator.enableBrakeMode(false);
     

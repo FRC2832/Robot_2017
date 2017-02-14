@@ -14,7 +14,7 @@ public class BallIntake extends Subsystem {
 
     public BallIntake() {
     	super();
-    	ballIntakeMotor = new CANTalon(8);
+    	ballIntakeMotor = new CANTalon(9);
         LiveWindow.addActuator("BallIntake", "Intake", ballIntakeMotor);
         ballIntakeMotor.enableBrakeMode(false);
         
