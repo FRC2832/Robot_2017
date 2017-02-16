@@ -46,7 +46,7 @@ public class Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Joystick control = Robot.oi.xBoxController;
-    	double speed = -control.getRawAxis(1) * 0.8;
+    	double speed = -control.getRawAxis(1);
     	double turn = control.getRawAxis(4) * 0.8;
     	DriveTrain.robotDrive.arcadeDrive(speed, turn);
 
@@ -60,7 +60,6 @@ public class Drive extends Command {
     // Called once after isFinished returns true
     protected void end() {
     }
-
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
