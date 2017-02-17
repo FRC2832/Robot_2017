@@ -34,6 +34,15 @@ public class Shooter extends Subsystem {
     
 	}
     
+    public static void trigger(double speed) {
+        shooterAgitator.set(0.2);
+        shooterShootMotor.set(speed);
+        if(shooterShootMotor.getSpeed() > speed / 150) {
+            shooterFeeder.set(0.2);
+        }
+
+    }
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 

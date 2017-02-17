@@ -100,13 +100,14 @@ public class OI {
         yButton.whenPressed(new ExpelGear());
         //b button operated by default command only?
         bButton.whenPressed(Robot.isIngesting ? new IngestOff(): new IngestOn());
+        bButton.whenReleased(new IngestOff());
         xButton.whileHeld(new CloseDoors());
         //selectButton.whileHeld(new Rotate());
         startButton.whenPressed(new Climb());
         leftBumper.whileHeld(new TankDriveLeft());
         rightBumper.whileHeld(new TankDriveRight());
         //Have Motor Position Check on smart dashboard only, not controller
-
+        
         SmartDashboard.putData("Autonomous Command", new DriveForward(4.0));
   	    SmartDashboard.putData("RelayOn", new RelayOn());
   	    SmartDashboard.putData("AllForward", new AllForward());

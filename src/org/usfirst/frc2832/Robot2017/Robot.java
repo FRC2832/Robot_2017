@@ -74,7 +74,8 @@ public class Robot extends IterativeRobot {
     public static NavX navX;
     public static double lTrigger, rTrigger;
     public static PixyI2C testPixy;
-    public static int shootSpeeed = 50, pov;
+    public static int pov;
+    public static double shootSpeeed = 40;
     public static AnalogInput analogInput;
     public static DigitalInput digitalInput;
     public static AnalogInput pwm;
@@ -241,10 +242,13 @@ public class Robot extends IterativeRobot {
         if(lTrigger > 0.1)
         	new Climb().start();
         if(rTrigger > 0.1) {
-        	new ShooterSequenceOn().start();
-        } else {
-        	new ShooterSequenceOff().start();
-        }
+        	shooter.trigger(shootSpeeed);
+    	} else {
+    	    new ShooterSequenceOff();
+    	}
+
+        
+        
         //if(pov == -1) {
        	//	povActivated = false;
         //} else {
