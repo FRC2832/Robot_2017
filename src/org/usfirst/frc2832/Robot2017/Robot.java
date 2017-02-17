@@ -100,41 +100,50 @@ public class Robot extends IterativeRobot {
     	pixyInput = new AnalogInput(1);
     	
   //  	lights = new Lights();
-    	new Thread(() -> {
-	    	
-	        
-	        UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-	        camera.setResolution(720, 480);
-	        CvSink cvSink = CameraServer.getInstance().getVideo();
-	        CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-	        
-	        Mat source = new Mat();
-	        Mat output = new Mat();
-	        
-	        while(true) {
-	            cvSink.grabFrame(source);
-	            Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-	            outputStream.putFrame(output);
-	        }
-        }).start();
-    	
-    	new Thread(() -> {
-	    	
-	        
-	        UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-	        camera.setResolution(720, 480);
-	        CvSink cvSink = CameraServer.getInstance().getVideo();
-	        CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-	        
-	        Mat source = new Mat();
-	        Mat output = new Mat();
-	        
-	        while(true) {
-	            cvSink.grabFrame(source);
-	            Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-	            outputStream.putFrame(output);
-	        }
-        }).start();
+    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+	     	camera.setResolution(720, 480);
+	     	if (camera.isConnected() == true) {
+	     		
+	     		new Thread(() -> {
+	 		        	
+	 			        CvSink cvSink = CameraServer.getInstance().getVideo();
+	 			        CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+	 			        
+	 			        Mat source = new Mat();
+	 			        Mat output = new Mat();
+	 			        
+	 			        while(true) {
+	 			        	System.out.println("Camera1 is conncted");
+	 			            cvSink.grabFrame(source);
+	 			            Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+	 			            outputStream.putFrame(output);
+	 			        }
+	 			        
+	     		}).start();
+	     		
+	     	}
+	     	
+	     	UsbCamera cameraTwo = CameraServer.getInstance().startAutomaticCapture();
+	     	cameraTwo.setResolution(720, 480);
+	     	if (cameraTwo.isConnected() == true) {
+	     		
+	     		new Thread(() -> {
+	 		        	
+	 			        CvSink cvSink = CameraServer.getInstance().getVideo();
+	 			        CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+	 			        
+	 			        Mat source = new Mat();
+	 			        Mat output = new Mat();
+				        
+	 			        while(true) {
+	 			        	System.out.println("Camera2 is conncted");
+	 			            cvSink.grabFrame(source);
+	 			            Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+	 			            outputStream.putFrame(output);
+	 			        }
+	 			        
+	     		}).start();
+	     	}
         
 
         driveTrain = new DriveTrain();
