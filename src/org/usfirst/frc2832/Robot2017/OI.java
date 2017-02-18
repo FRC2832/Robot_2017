@@ -11,9 +11,9 @@
 
 package org.usfirst.frc2832.Robot2017;
 
+import org.usfirst.frc2832.Robot2017.autonCommands.DriveForward;
 import org.usfirst.frc2832.Robot2017.commands.AllForward;
 import org.usfirst.frc2832.Robot2017.commands.Climb;
-import org.usfirst.frc2832.Robot2017.commands.DriveForward;
 import org.usfirst.frc2832.Robot2017.commands.TankDriveLeft;
 import org.usfirst.frc2832.Robot2017.commands.TankDriveRight;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
