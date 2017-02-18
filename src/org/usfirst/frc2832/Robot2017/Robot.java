@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc2832.Robot2017.autonCommands.AutonAimGear;
+import org.usfirst.frc2832.Robot2017.autonCommands.SensorForward;
 import org.usfirst.frc2832.Robot2017.commands.*;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
 import org.usfirst.frc2832.Robot2017.commands.ingest.IngestToggle;
@@ -172,6 +174,9 @@ public class Robot extends IterativeRobot {
         auto.addDefault("Expel Gear Forward", "e9");
         auto.addDefault("Expel Gear Right", "e4");
         auto.addDefault("Expel Gear Left", "e5");
+        auto.addDefault("SensorForward", "c4");
+        auto.addDefault("PixyAuton", "d4");
+        
         SmartDashboard.putData("Autonomous Selection", auto);
         autonomousCommand = new AutonomousCommand();
 
@@ -245,6 +250,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("RightFront Current", pdp.getCurrent(0));
         SmartDashboard.putNumber("RightRear Current", pdp.getCurrent(1));
         SmartDashboard.putBoolean("IsIngesting", isIngesting);
+        SmartDashboard.putData("AutonAimGear", new AutonAimGear());
+        SmartDashboard.putData("SensorForward", new SensorForward());
         
         lTrigger = oi.getXBoxController().getRawAxis(2);
         rTrigger = oi.getXBoxController().getRawAxis(3);
