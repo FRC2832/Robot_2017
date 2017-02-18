@@ -1,6 +1,7 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -16,6 +17,8 @@ public class DefaultClimb extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	RobotMap.compressor.start();
+    	Robot.isClimbing = false;
     }
 
     // Called repeatedly when this Command is scheduled to run
