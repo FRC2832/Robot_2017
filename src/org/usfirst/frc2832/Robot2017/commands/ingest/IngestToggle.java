@@ -9,21 +9,22 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IngestOn extends Command {
+public class IngestToggle extends Command {
 
-    public IngestOn() {
+    public IngestToggle() {
+    	requires(Robot.ballIntake);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.isIngesting = true;
-    	BallIntake.ballIntakeMotor.set(30);
+    	Robot.isIngesting = !Robot.isIngesting;
     }
 
     // Make this return true when this Command no longer needs to run execute()

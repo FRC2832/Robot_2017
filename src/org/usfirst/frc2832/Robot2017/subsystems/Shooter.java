@@ -1,5 +1,6 @@
 package org.usfirst.frc2832.Robot2017.subsystems;
 
+import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.RobotMap;
 
 import com.ctre.CANTalon;
@@ -7,6 +8,7 @@ import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Handles the shooting
@@ -31,9 +33,17 @@ public class Shooter extends Subsystem {
     shooterAgitator = new CANTalon(10);
     LiveWindow.addActuator("Shooter", "Agitator", shooterAgitator);
     shooterAgitator.enableBrakeMode(false);
-    
 	}
-    
+	
+	public static void trigger() {
+		double speeed = Math.max(0, Math.min(100, Robot.shootSpeeed));
+		shooterAgitator.set(0.2);
+		shooterShootMotor.set(speeed / 100);
+		SmartDashboard.putNumber("SPEEED", shooterShootMotor.getSpeed() / 1000);
+		if(shooterShootMotor.getSpeed() / 1000 > speeed / 150) {
+			shooterFeeder.set(0.2);
+		}
+	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 

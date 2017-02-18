@@ -17,6 +17,7 @@ import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc2832.Robot2017.commands.*;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
+import org.usfirst.frc2832.Robot2017.commands.ingest.IngestToggle;
 import org.usfirst.frc2832.Robot2017.commands.shooter.AgitatorOn;
 import org.usfirst.frc2832.Robot2017.commands.shooter.FeederOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.FeederOn;
@@ -70,7 +71,7 @@ public class Robot extends IterativeRobot {
     public static GearScore gearScore;
     public static Shooter shooter;
     public static Lights lights;
-    public static boolean isClimbing = false, isIngesting = false, povActivated = false;
+    public static boolean isClimbing = false, isIngesting = false, povActivated = false, shootMethod1 = true;
     public static NavX navX;
     public static double lTrigger, rTrigger;
     public static PixyI2C testPixy;
@@ -243,6 +244,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("LeftRear Current", pdp.getCurrent(15));
         SmartDashboard.putNumber("RightFront Current", pdp.getCurrent(0));
         SmartDashboard.putNumber("RightRear Current", pdp.getCurrent(1));
+        SmartDashboard.putBoolean("IsIngesting", isIngesting);
         
         lTrigger = oi.getXBoxController().getRawAxis(2);
         rTrigger = oi.getXBoxController().getRawAxis(3);
@@ -250,10 +252,20 @@ public class Robot extends IterativeRobot {
         if(lTrigger > 0.1)
         	new Climb().start();
         if(rTrigger > 0.1) {
-        	new ShooterSequenceOn().start();
+        	if(shootMethod1) {
+        		shooter.trigger();
+        	} else {
+        		//new Shoot();
+        	}
         } else {
         	new ShooterSequenceOff().start();
         }
+        
+        if (isIngesting) {
+    		BallIntake.ballIntakeMotor.set(30);
+    	} else {
+    		BallIntake.ballIntakeMotor.set(0);
+    	}
         //if(pov == -1) {
        	//	povActivated = false;
         //} else {
