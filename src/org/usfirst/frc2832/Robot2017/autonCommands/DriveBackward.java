@@ -62,7 +62,7 @@ public class DriveBackward extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Math.signum(getDistance()) * (DriveEncoders.getAbsoluteValue() - getInitEncoderVal()) > Math.abs(getDistance());
+    	return Math.signum(getDistance()) * (getInitEncoderVal() - DriveEncoders.getAbsoluteValue()) > Math.abs(getDistance());
     }
 
     // Called once after isFinished returns true
