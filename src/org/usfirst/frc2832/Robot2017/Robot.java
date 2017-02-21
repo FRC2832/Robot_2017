@@ -177,12 +177,17 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+
         SmartDashboard.putNumber("Yaw Value", ahrs.getYaw());
         SmartDashboard.putNumber("Roll Value", ahrs.getRoll());
         SmartDashboard.putNumber("Pitch Value", ahrs.getPitch());
         SmartDashboard.putBoolean("IMU Connected", ahrs.isConnected());
         SmartDashboard.putBoolean("IMU Calibrating", ahrs.isCalibrating());
 
+        boolean zero_yaw_pressed = oi.xBoxController.getTrigger();
+        if ( zero_yaw_pressed ) {
+            ahrs.zeroYaw();
+        }
 
 
     }
