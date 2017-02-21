@@ -25,6 +25,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -131,7 +132,7 @@ public class Robot extends IterativeRobot {
 
 
         try {
-        	ahrs = new AHRS(I2C.Port.kMXP);
+        	ahrs = new AHRS(SerialPort.Port.kUSB);
         } catch (RuntimeException ex ) {
             DriverStation.reportError("Error instantiating navX-MXP:  " + ex.getMessage(), true);
         }
@@ -176,7 +177,14 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Yaw Angle", ahrs.getYaw());
+        SmartDashboard.putNumber("Yaw Value", ahrs.getYaw());
+        SmartDashboard.putNumber("Roll Value", ahrs.getRoll());
+        SmartDashboard.putNumber("Pitch Value", ahrs.getPitch());
+        SmartDashboard.putBoolean("IMU Connected", ahrs.isConnected());
+        SmartDashboard.putBoolean("IMU Calibrating", ahrs.isCalibrating());
+
+
+
     }
 
     /**
