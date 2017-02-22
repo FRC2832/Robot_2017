@@ -17,22 +17,29 @@ public class ParseInput {
 		if(movement.charAt(0) == 'f')
 			auto_Commands.add(new DriveForward(Double.valueOf(movement.substring(1))));
 		
-		//use for expelling the gear from the middle position
+		//use for expelling the gear from the middle position for practice bot
 		else if(movement.charAt(0) == 'e'){
 			auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 		}
+		//use for expelling the gear from the middle position of the actual bot
 		else if (movement.charAt(0) == 'd'){
-			auto_Commands.add(new AutonAimGear());
+			auto_Commands.add(new DriveForward(2));
 			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(1));
+			//auto_Commands.add(new AutonAimGear());
+			//auto_Commands.add(new ExpelGear());
 			//auto_Commands.add(new DriveBackward(Double.valueOf(movement.substring(2))));
 		}
+		//use for driving forward from right or left position from practice bot
 		else if (movement.charAt(0) == 'c'){
-			auto_Commands.add(new SensorForward());
+			auto_Commands.add(new DriveForward(4));
 		}
-		
-		
+		//use for driving forward from right or left position from actual bot
+		else if (movement.charAt(0) == 'b'){
+			auto_Commands.add(new DriveForward());
+		}
 			
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous
 	}

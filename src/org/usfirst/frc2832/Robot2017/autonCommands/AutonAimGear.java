@@ -19,6 +19,7 @@ public class AutonAimGear extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
      	requires (Robot.driveTrain);
+   
     }
 
     public AutonAimGear(double distance) {
@@ -72,7 +73,7 @@ public class AutonAimGear extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.distSensor.get() && (Math.signum(getDistance()) * (DriveEncoders.getAbsoluteValue() - getInitEncoderVal()) > Math.abs(getDistance())); 
+        return (Robot.pixyWidth.getAverageVoltage() > 2);
     }
 
     // Called once after isFinished returns true
@@ -80,6 +81,7 @@ public class AutonAimGear extends Command {
     	Robot.driveTrain.setTankDriveCommand(0, 0);
     	new ExpelGear();	
     }
+    
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

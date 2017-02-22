@@ -29,6 +29,7 @@ public class Rotate extends Command {
     	NavX.turnController.setSetpoint(90);
     	DriveTrain.robotDrive.mecanumDrive_Cartesian(0, 0, NavX.rotateToAngleRate, NavX.ahrs.getAngle());
     	
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

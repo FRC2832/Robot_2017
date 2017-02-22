@@ -97,19 +97,19 @@ public class OI {
         
         //aButton.whenPressed(new ShooterSequenceOn());
         //aButton.whenReleased(new ShooterSequenceOff());
-        aButton.whenPressed(new InterfaceFlip());
+        startButton.whenPressed(new InterfaceFlip());
         yButton.whenPressed(new ExpelGear());
         bButton.whenPressed(new IngestToggle());
         xButton.whileHeld(new CloseDoors());
         //selectButton.whileHeld(new Rotate());
-        startButton.whenPressed(new Climb());
+        //startButton.whenPressed(new Climb());
         leftBumper.whileHeld(new TankDriveLeft());
         rightBumper.whileHeld(new TankDriveRight());
         //Have Motor Position Check on smart dashboard only, not controller
 
-        SmartDashboard.putData("Autonomous Command", new DriveForward(4.0));
+        //SmartDashboard.putData("Autonomous Command", new DriveForward(4.0));
   	    SmartDashboard.putData("RelayOn", new RelayOn());
-  	    SmartDashboard.putData("AllForward", new AllForward());
+  	    //SmartDashboard.putData("AllForward", new AllForward());
   	    SmartDashboard.putData("MotorPositionCheck", new MotorPositionCheck());
   	    SmartDashboard.putData("Shooter sequence on", new ShooterSequenceOn());
   	    SmartDashboard.putData("Shooter sequence off", new ShooterSequenceOff());
