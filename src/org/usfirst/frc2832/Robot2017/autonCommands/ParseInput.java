@@ -2,6 +2,7 @@ package org.usfirst.frc2832.Robot2017.autonCommands;
 
 import java.util.ArrayList;
 
+import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,12 +23,15 @@ public class ParseInput {
 			auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new CloseDoors());
 		}
 		//use for expelling the gear from the middle position of the actual bot
 		else if (movement.charAt(0) == 'd'){
-			auto_Commands.add(new DriveForward(2));
+			auto_Commands.add(new DriveForward(3.3));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(1));
+			auto_Commands.add(new CloseDoors());
+			
 			//auto_Commands.add(new AutonAimGear());
 			//auto_Commands.add(new ExpelGear());
 			//auto_Commands.add(new DriveBackward(Double.valueOf(movement.substring(2))));
@@ -38,7 +42,7 @@ public class ParseInput {
 		}
 		//use for driving forward from right or left position from actual bot
 		else if (movement.charAt(0) == 'b'){
-			auto_Commands.add(new DriveForward());
+			auto_Commands.add(new DriveForward(3.8));
 		}
 			
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous

@@ -249,6 +249,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("SensorForward", new SensorForward());
         SmartDashboard.putNumber("PixyWidth Value", pixyWidth.getAverageVoltage());
         SmartDashboard.putData("DriveBackward", new DriveBackward());
+       // SmartDashboard.putNumber("Is Door Open", GearScore.gearScoreDoor.get());
         
         
         lTrigger = oi.getXBoxController().getRawAxis(2);
