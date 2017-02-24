@@ -27,7 +27,7 @@ public class ParseInput {
 		}
 		//use for expelling the gear from the middle position of the actual bot
 		else if (movement.charAt(0) == 'd'){
-			auto_Commands.add(new DriveForward(3.3));
+			auto_Commands.add(new DriveForward(3.4));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(1));
 			auto_Commands.add(new CloseDoors());
@@ -38,7 +38,7 @@ public class ParseInput {
 		}
 		//use for driving forward from right or left position from practice bot
 		else if (movement.charAt(0) == 'c'){
-			auto_Commands.add(new DriveForward(4));
+			auto_Commands.add(new DriveForward(4.5));
 		}
 		//use for driving forward from right or left position from actual bot
 		else if (movement.charAt(0) == 'b'){
