@@ -41,6 +41,7 @@ public class Rotate extends Command {
 	protected void initialize() {
 		Robot.driveTrain.setTankDriveCommand(0, 0);
 	}
+	
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {

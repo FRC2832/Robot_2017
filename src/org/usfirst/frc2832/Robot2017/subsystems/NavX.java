@@ -36,4 +36,5 @@ public class NavX extends Subsystem implements PIDOutput {
 	public static double getHeading() {
         return ahrs.getAngle();
     }
+	
 }
