@@ -32,5 +32,8 @@ public class NavX extends Subsystem implements PIDOutput {
 		rotateToAngleRate = output;
 		
 	}
-
+	
+	public static double getHeading() {
+        return ahrs.getAngle();
+    }
 }
