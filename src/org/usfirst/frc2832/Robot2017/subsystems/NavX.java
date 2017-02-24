@@ -29,8 +29,7 @@ public class NavX extends Subsystem implements PIDOutput {
 	
 	@Override
 	public void pidWrite(double output) {
-		rotateToAngleRate = output;
-		
+		rotateToAngleRate = output;		
 	}
 	
 	public static double getHeading() {
