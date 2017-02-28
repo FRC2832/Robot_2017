@@ -101,6 +101,7 @@ public class OI {
         yButton.whenPressed(new ExpelGear());
         bButton.whenPressed(new IngestToggle());
         xButton.whileHeld(new CloseDoors());
+        aButton.whenPressed(new FeederOn());
         //selectButton.whileHeld(new Rotate());
         //startButton.whenPressed(new Climb());
         leftBumper.whileHeld(new TankDriveLeft());

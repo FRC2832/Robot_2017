@@ -268,7 +268,7 @@ public class Robot extends IterativeRobot {
         }
         
         if (isIngesting) {
-    		BallIntake.ballIntakeMotor.set(30);
+    		BallIntake.ballIntakeMotor.set(0.3);
     	} else {
     		BallIntake.ballIntakeMotor.set(0);
     	}
