@@ -39,10 +39,11 @@ public class Shooter extends Subsystem {
 		double speeed = Math.max(0, Math.min(100, Robot.shootSpeeed));
 		shooterAgitator.set(0.2);
 		shooterShootMotor.set(speeed / 100);
-		SmartDashboard.putNumber("SPEEED", shooterShootMotor.getSpeed() / 1000);
-		if(shooterShootMotor.getSpeed() / 1000 > speeed / 150) {
-			shooterFeeder.set(0.2);
+		SmartDashboard.putNumber("SPEEED", shooterShootMotor.getEncVelocity());
+		if(shooterShootMotor.getEncVelocity() / 100 > speeed / 2) {
+			shooterFeeder.set(1);
 		}
+	
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

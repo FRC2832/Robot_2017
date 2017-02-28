@@ -81,7 +81,7 @@ public class Robot extends IterativeRobot {
     public static NavX navX;
     public static double lTrigger, rTrigger;
     public static PixyI2C testPixy;
-    public static int shootSpeeed = 50, pov;
+    public static int shootSpeeed = 70, pov;
     public static AnalogInput ultraSonic;
     public static DigitalInput distSensor;
     public static AnalogInput pixyInput;
