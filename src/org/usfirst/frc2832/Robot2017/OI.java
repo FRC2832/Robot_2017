@@ -141,6 +141,7 @@ public class OI {
 	            SmartDashboard.putNumber("Left Trigger: ", Robot.lTrigger);
 	            SmartDashboard.putNumber("Right Trigger: ", Robot.rTrigger);
 	            SmartDashboard.putBoolean("Door Status", doorsOpen);
+	            //SmartDashboard.putNumber("Shooting speed", shootSpeeed);
 	        }
 	        
         }).start();

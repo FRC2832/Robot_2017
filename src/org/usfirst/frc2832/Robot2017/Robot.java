@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot {
     	
   //  	lights = new Lights();
     	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-	     	camera.setResolution(320, 240);
+	     	camera.setResolution(360, 240);
 	     	if (camera.isConnected() == true) {
 	     		
 	     		new Thread(() -> {
