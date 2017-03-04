@@ -2,8 +2,6 @@ package org.usfirst.frc2832.Robot2017.autonCommands;
 
 import org.usfirst.frc2832.Robot2017.DriveEncoders;
 import org.usfirst.frc2832.Robot2017.Robot;
-import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
-
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -79,7 +77,7 @@ public class AutonAimGear extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.driveTrain.setTankDriveCommand(0, 0);
-    	new ExpelGear();	
+    	
     }
     
 
