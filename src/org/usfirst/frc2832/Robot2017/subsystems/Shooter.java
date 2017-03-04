@@ -37,7 +37,7 @@ public class Shooter extends Subsystem {
 	
 	public static void trigger() {
 		double speeed = Math.max(0, Math.min(100, Robot.shootSpeeed));
-		shooterAgitator.set(0.2);
+		shooterAgitator.set(-0.2);
 		shooterShootMotor.set(speeed / 100);
 		SmartDashboard.putNumber("SPEEED", shooterShootMotor.getEncVelocity());
 		if(shooterShootMotor.getEncVelocity() / 100 > speeed / 2) {
