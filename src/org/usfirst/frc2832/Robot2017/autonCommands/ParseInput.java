@@ -43,9 +43,9 @@ public class ParseInput {
 		}
 		//use for driving forward and turning from right position on practice bot.  VALUES MUST BE CHECKED WITH IRON HORSE
 				else if (movement.charAt(0) == 'i'){
-					auto_Commands.add(new DriveForward(3.8));
-					auto_Commands.add(new TurnLeft(.35));
-					auto_Commands.add(new DriveForward(3.1));
+					auto_Commands.add(new DriveForward(3.7));
+					auto_Commands.add(new TurnLeft(.5));
+					auto_Commands.add(new DriveForward(2.9));
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
 					auto_Commands.add(new CloseDoors());
