@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
+ * Changes:
+ * 2017-03-04	pzobel	comment out println
  */
 public class ShooterOff extends Command {
 
@@ -24,7 +26,7 @@ public class ShooterOff extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Shooter.shooterShootMotor.set(0);
-    	System.out.println("ShooterOff");
+    	//System.out.println("ShooterOff");
 
     }
 

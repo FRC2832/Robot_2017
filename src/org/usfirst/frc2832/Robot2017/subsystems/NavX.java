@@ -3,7 +3,8 @@ package org.usfirst.frc2832.Robot2017.subsystems;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.SPI;
+//import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SerialPort;
 import com.kauailabs.navx.frc.AHRS;
 
 public class NavX extends Subsystem implements PIDOutput {
@@ -18,7 +19,8 @@ public class NavX extends Subsystem implements PIDOutput {
 
 	@Override
 	protected void initDefaultCommand() {
-		ahrs = new AHRS(SPI.Port.kMXP); 
+		//ahrs = new AHRS(SPI.Port.kMXP); 
+		ahrs = new AHRS(SerialPort.Port.kUSB);
 		turnController = new PIDController(kP, kI, kD, kF, ahrs, this);
 		turnController.setInputRange(-180.0f,  180.0f);
 		turnController.setOutputRange(-1.0, 1.0);

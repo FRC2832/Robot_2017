@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
+ * Changes:
+ * 2017-03-04	comment out println
  */
 public class AgitatorOff extends Command {
 
@@ -24,7 +26,7 @@ public class AgitatorOff extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Shooter.shooterAgitator.set(0);
-    	System.out.println("AgitatorOff");
+    	//System.out.println("AgitatorOff");
     }
 
     // Make this return true when this Command no longer needs to run execute()

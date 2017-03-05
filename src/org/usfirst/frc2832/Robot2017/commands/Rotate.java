@@ -9,7 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Rotate extends Command {
-	private double targetHeading;
+
+	// TODO: Need to remove this later.
+	@Override
+	protected boolean isFinished() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+/*	private double targetHeading;
 	private double currentHeading;
 
 	// Clockwise or counterclockwise rotation
@@ -93,5 +100,5 @@ public class Rotate extends Command {
 
 		return normalizedValue;
 	}
-
+*/
 }
