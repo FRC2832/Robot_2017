@@ -24,6 +24,7 @@ public class RotateWithAngelTankDrive extends Command implements PIDOutput{
     private double targetAngleDegrees;
     private double rotateToAngleRate;
     
+    
     private static final double kP = 0.03;
     private static final double kI = 0.00;
     private static final double kD = 0.00;
