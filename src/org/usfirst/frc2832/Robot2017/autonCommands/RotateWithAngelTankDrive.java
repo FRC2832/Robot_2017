@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -22,8 +23,7 @@ public class RotateWithAngelTankDrive extends Command implements PIDOutput{
 
     private PIDController turnController;
     private double targetAngleDegrees;
-    private double rotateToAngleRate;
-    
+    private double rotateToAngleRate;    
     
     private static final double kP = 0.03;
     private static final double kI = 0.00;
@@ -48,7 +48,7 @@ public class RotateWithAngelTankDrive extends Command implements PIDOutput{
 			 * Multiple navX-model devices on a single robot are supported.
 			 ************************************************************************/
   		
-          ahrs = new AHRS(SPI.Port.kMXP); 
+          ahrs = new AHRS(SerialPort.Port.kUSB); 
       } catch (RuntimeException ex ) {
           DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
       }
