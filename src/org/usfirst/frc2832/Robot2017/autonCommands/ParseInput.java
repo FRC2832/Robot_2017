@@ -2,6 +2,7 @@ package org.usfirst.frc2832.Robot2017.autonCommands;
 
 import java.util.ArrayList;
 
+import org.usfirst.frc2832.Robot2017.commands.Rotate;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
 
@@ -19,7 +20,7 @@ public class ParseInput {
 			auto_Commands.add(new DriveForward(Double.valueOf(movement.substring(1))));
 		
 		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
-		else if(movement.charAt(0) == 'e'){
+		/*else if(movement.charAt(0) == 'e'){
 			auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
@@ -32,8 +33,8 @@ public class ParseInput {
 		}
 		//use for driving forward and turning from left position on practice bot.  VALUES MUST BE CHECKED WITH IRON HORSE
 		else if (movement.charAt(0) == 'h'){
-			auto_Commands.add(new DriveForward(3.8));
-			auto_Commands.add(new TurnRight(.35));
+			auto_Commands.add(new DriveForward(3.7));
+			auto_Commands.add(new Rotate(130));
 			auto_Commands.add(new DriveForward(3.1));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
@@ -44,30 +45,31 @@ public class ParseInput {
 		//use for driving forward and turning from right position on practice bot.  VALUES MUST BE CHECKED WITH IRON HORSE
 				else if (movement.charAt(0) == 'i'){
 					auto_Commands.add(new DriveForward(3.7));
-					auto_Commands.add(new TurnLeft(.5));
-					auto_Commands.add(new DriveForward(2.9));
+					auto_Commands.add(new Rotate(40));
+					auto_Commands.add(new DriveForward(3.1));
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
 					auto_Commands.add(new CloseDoors());
 
 			
 				}
+				*/
 		//use for driving forward from right or left position from actual bot.  THESE VALUE HAVE BEEN TESTED
 		else if (movement.charAt(0) == 'b'){
 			auto_Commands.add(new DriveForward(3.8));
 		}
 		//use for driving forward and turning from right position on actual bot.  VALUES MUST BE CHECKED WITH IRON KRAKEN
 		else if (movement.charAt(0) == 'a'){
-			auto_Commands.add(new DriveForward(3.8));
-			auto_Commands.add(new TurnLeft(.35));
-			auto_Commands.add(new DriveForward(3.1));
+			auto_Commands.add(new DriveForward(3.4));
+			auto_Commands.add(new Rotate(25));
+			auto_Commands.add(new DriveForward(2.2));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
 
 	
 		}
-		//use for driving forward and turning from left position on actual bot.  VALUES MUST BE CHECKED WITH IRON KRAKEN
+	/*	//use for driving forward and turning from left position on actual bot.  VALUES MUST BE CHECKED WITH IRON KRAKEN
 				else if (movement.charAt(0) == 'g'){
 					auto_Commands.add(new DriveForward(3.8));
 					auto_Commands.add(new TurnRight(.35));
@@ -78,6 +80,7 @@ public class ParseInput {
 
 			
 				}
+				*/
 		//use for expelling the gear from the middle position of the actual bot THESE VALUES HAVE BEEN TESTED
 				else if (movement.charAt(0) == 'd'){
 					auto_Commands.add(new DriveForward(3.4));
@@ -89,6 +92,16 @@ public class ParseInput {
 					//auto_Commands.add(new ExpelGear());
 					//auto_Commands.add(new DriveBackward(Double.valueOf(movement.substring(2))));
 				}
+/*				else if (movement.charAt(0) == 'j'){
+					
+					auto_Commands.add(new DriveForward(3.7));
+					auto_Commands.add(new Rotate(40));
+					auto_Commands.add(new AutonAimGear());
+					auto_Commands.add(new ExpelGear());
+					auto_Commands.add(new DriveBackward(2));
+					auto_Commands.add(new CloseDoors());
+				}
+				*/
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous
 	}
 	
