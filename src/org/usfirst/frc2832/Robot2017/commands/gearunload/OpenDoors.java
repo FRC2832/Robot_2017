@@ -7,6 +7,7 @@ import org.usfirst.frc2832.Robot2017.subsystems.GearScore;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *Opens the door, duh
@@ -22,6 +23,8 @@ public class OpenDoors extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//SmartDashboard.putString("Auton Debugging", "ExpelGearStart");
+    	//System.out.println("Expel Gear Start");
     }
 
     // Called repeatedly when this Command is scheduled to run

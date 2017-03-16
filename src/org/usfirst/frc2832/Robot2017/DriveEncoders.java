@@ -44,6 +44,11 @@ public class DriveEncoders extends Subsystem {
 		return vals;
 	}
 	
-	
+	public static void intializeEncoders()
+	{
+		RobotMap.driveTrainLeftFront.setEncPosition(0);
+		RobotMap.driveTrainRightFront.setEncPosition(0);
+		
+	}
 
 }
