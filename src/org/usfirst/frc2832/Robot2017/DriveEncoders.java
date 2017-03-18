@@ -26,7 +26,19 @@ public class DriveEncoders extends Subsystem {
 			return ENCODER_TO_METERS*(vals[0] - vals[1])/2; //CURRENTLY ONE IS OPPOSITE OF OTHER. IF ENCODER VALUE IS NOT CHANGING, CONSIDER REPLACING MINUS WITH PLUS
 			//return Math.sqrt(vals[0]*vals[1]);
 	}
-	
+	//0: no difference.  Positive: left > right.  Negative: Right>left
+	public static double getRawEncDifference()
+	{
+		return (Math.abs(DriveEncoders.getRawLeftValue()) - Math.abs(DriveEncoders.getRawRightValue()));
+	}
+	public static double getRawLeftValue()
+	{
+		return RobotMap.driveTrainLeftFront.getEncPosition();
+	}
+	public static double getRawRightValue()
+	{
+		return RobotMap.driveTrainRightFront.getEncPosition();
+	}
 	public static double getLeftValue()
 	{
 		return RobotMap.driveTrainLeftFront.getEncPosition() / ENCODER_PULSE_PER_METER;

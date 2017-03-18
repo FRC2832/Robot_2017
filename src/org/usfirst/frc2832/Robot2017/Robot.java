@@ -231,6 +231,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+    	DriveEncoders.intializeEncoders();
     	GearScore.gearScoreDoor.set(DoubleSolenoid.Value.kForward);
     	setBrakeMode(true);
     	InterfaceFlip.isFlipped = false;
@@ -257,9 +258,16 @@ public class Robot extends IterativeRobot {
         //SmartDashboard.putNumber("RightRear Current", pdp.getCurrent(1));
         SmartDashboard.putBoolean("IsIngesting", isIngesting);
         SmartDashboard.putData("AutonAimGear", new AutonAimGear());
+        SmartDashboard.putNumber("Right Encoder", DriveEncoders.getRawRightValue());
+        SmartDashboard.putNumber("Left Encoder", DriveEncoders.getRawLeftValue());
+        SmartDashboard.putNumber("Encoder Differences", DriveEncoders.getRawEncDifference());
+        
         //SmartDashboard.putData("SensorForward", new SensorForward());
         //SmartDashboard.putData("DriveBackward", new DriveBackward());
        // SmartDashboard.putNumber("Is Door Open", GearScore.gearScoreDoor.get());
+        SmartDashboard.putNumber("Accelerometer", NavX.ahrs.getWorldLinearAccelY());
+        SmartDashboard.putBoolean("IMU_Connected", NavX.ahrs.isConnected());
+        SmartDashboard.putNumber("IMU_Yaw", NavX.ahrs.getYaw());
    
         
         
