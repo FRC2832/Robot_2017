@@ -14,12 +14,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //	// For getRawEncDifference: 0: no difference.  Positive: left > right.  Negative: Right>left
 public class DriveForward extends Command {
 	private double distance= 2000;
-	private double initRightEnc = 0;
-	private double initLeftEnc = 0;
+	//private double initRightEnc = 0;
+	//private double initLeftEnc = 0;
 	private double startTime;
+    public static float maxAccel = 0;
+    public static float minAccel = 0;
 	private double currRightEnc;
 	private double currLeftEnc;
-	private double prevRightError;
+/*private double prevRightError;
 	private double prevLeftError;
 	private double currRightError;
 	private double currLeftError;
@@ -32,7 +34,8 @@ public class DriveForward extends Command {
 	private double currLeftControl;
 	private double prevRightControl;
 	private double rightDeltaT;
-	private double leftDeltaT;
+	private double leftDeltaT; */
+	
 	
 
      public DriveForward() {
@@ -53,21 +56,23 @@ public class DriveForward extends Command {
 	// Called just before this Command runs the first time
     protected void initialize() {
     	startTime = Timer.getFPGATimestamp();
-    	initRightEnc = DriveEncoders.getRawRightValue();
-    	initLeftEnc = DriveEncoders.getRawLeftValue();
-    	prevTime = System.currentTimeMillis();
-    	prevRightError = 0;
-    	prevLeftError = 0;
+    	maxAccel = 0;
+    	minAccel = 0;
+    	//initRightEnc = DriveEncoders.getRawRightValue();
+    	//initLeftEnc = DriveEncoders.getRawLeftValue();
+    	//prevTime = System.currentTimeMillis();
+    	//prevRightError = 0;
+    	//prevLeftError = 0;
     	//SmartDashboard.putString("Auton Debugging", "DriveForwardInit");
     	//System.out.println("DriveFowardInit");
     	}
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() { 
-    	/*currTime = System.currentTimeMillis();
+    	//currTime = System.currentTimeMillis();
     	currRightEnc = DriveEncoders.getRawRightValue();
     	currLeftEnc = DriveEncoders.getRawLeftValue();
-    	currRightError = currRightEnc - initRightEnc;
+    	/*currRightError = currRightEnc - initRightEnc;
     	currLeftError = currLeftEnc - initLeftEnc;
     	
     	rightDeltaT = iTerm * (currTime - prevTime) * currRightError + (pTerm * (currRightError - prevRightError))/(currTime - prevTime);
@@ -88,18 +93,26 @@ public class DriveForward extends Command {
     	}
     	else if (DriveEncoders.getRawEncDifference() > 50){
     		//Robot.driveTrain.setTankDriveCommand(.7, .5);
-    		Robot.driveTrain.setTankDriveCommand(.25, .5); //* (currRightEnc / currLeftEnc));
+    		Robot.driveTrain.setTankDriveCommand(.25, .5);  
     	}
     	else if (DriveEncoders.getRawEncDifference() < -50)
     	{
     		Robot.driveTrain.setTankDriveCommand(.5, .25);
     	}
+    	System.out.println(NavX.ahrs.getWorldLinearAccelY());
+    	
+    	if (minAccel > NavX.ahrs.getWorldLinearAccelY())
+        	minAccel = NavX.ahrs.getWorldLinearAccelY();
+        if (maxAccel < NavX.ahrs.getWorldLinearAccelY())
+        	maxAccel = NavX.ahrs.getWorldLinearAccelY();
+        SmartDashboard.putNumber("Max Accelerometer", maxAccel);
+        SmartDashboard.putNumber("Min Accelerometer", minAccel);
     	//SmartDashboard.putNumber("distanceAuton", DriveEncoders.getAbsoluteValue());
     	//SmartDashboard.putNumber("auton stop", (getDistance()) * (DriveEncoders.getAbsoluteValue() - getInitEncoderVal());
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (Timer.getFPGATimestamp() - startTime) > 5  || NavX.ahrs.getWorldLinearAccelY() > 1;
+    	return (Timer.getFPGATimestamp() - startTime) > 10  || NavX.ahrs.getWorldLinearAccelY() < -.5;
     }
 
     // Called once after isFinished returns true

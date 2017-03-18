@@ -21,7 +21,7 @@ public class ParseInput {
 		
 		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
 		else if(movement.charAt(0) == 'e'){
-			auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
+			auto_Commands.add(new DriveForward());//Double.valueOf(movement.substring(1))));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
@@ -83,7 +83,7 @@ public class ParseInput {
 				
 		//use for expelling the gear from the middle position of the actual bot THESE VALUES HAVE BEEN TESTED
 				else if (movement.charAt(0) == 'd'){
-					auto_Commands.add(new DriveForward(3.4));
+					auto_Commands.add(new DriveForward());
 					//auto_Commands.add(new DriveCorrected(3.3));
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(1));
