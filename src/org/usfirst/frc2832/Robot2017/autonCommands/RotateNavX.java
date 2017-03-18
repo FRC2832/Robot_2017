@@ -1,6 +1,8 @@
 package org.usfirst.frc2832.Robot2017.autonCommands;
 
+import org.usfirst.frc2832.Robot2017.DriveEncoders;
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.subsystems.DriveTrain;
 import org.usfirst.frc2832.Robot2017.subsystems.NavX;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -27,13 +29,17 @@ public class RotateNavX extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(rot > 0) {
-    		Robot.driveTrain.setTankDriveCommand(0.2, -0.2);
+    		DriveTrain.robotDrive.arcadeDrive(0.1, 0.6);
+    		//Robot.driveTrain.setTankDriveCommand(0.5, -0.5);
+    		System.out.println(">");
     		//Robot.driveTrain.setTankDriveCommand(-0.2 * (rot - initDeg), 0.2 * (initDeg - rot));
     	} else {
-    		Robot.driveTrain.setTankDriveCommand(-0.2, 0.2);
+    		DriveTrain.robotDrive.arcadeDrive(0.1, -0.6);
+    		//Robot.driveTrain.setTankDriveCommand(-0.5, 0.5);
+    		System.out.println("<");
     		//Robot.driveTrain.setTankDriveCommand(-0.2 * (initDeg - rot), 0.2 * (initDeg - rot));
     	}
-    	System.out.println(NavX.getHeading() + ":" + initDeg);
+    	System.out.println(NavX.getHeading() + ":	" + initDeg + ":	" + rot);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,6 +53,7 @@ public class RotateNavX extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	DriveEncoders.intializeEncoders();
     }
 
     // Called when another command which requires one or more of the same

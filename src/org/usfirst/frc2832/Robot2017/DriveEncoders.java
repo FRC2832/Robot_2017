@@ -60,7 +60,8 @@ public class DriveEncoders extends Subsystem {
 	{
 		RobotMap.driveTrainLeftFront.setEncPosition(0);
 		RobotMap.driveTrainRightFront.setEncPosition(0);
-		
+		RobotMap.driveTrainRightFront.setPosition(0);
+    	RobotMap.driveTrainLeftFront.setPosition(0);
 	}
 
 }

@@ -186,7 +186,7 @@ public class Robot extends IterativeRobot {
         auto.addObject("Expel Gear From left NavX(actual bot)", "g3");
         auto.addObject("Expel Gear From right NavX(practice bot)", "i3");
         auto.addObject("Expel Gear From right NavX(actual bot)", "a3");
-       // auto.addDefault("autonAimGear", "j7");
+        auto.addDefault("autonAimGear", "j7");
      
         
         SmartDashboard.putData("Autonomous Selection", auto);
@@ -214,6 +214,8 @@ public class Robot extends IterativeRobot {
     	//next two lines of code work for now, but we'll probably want to replace them with a more 
     	//elegant way of selecting the auton mode we want from the smart dashboard 
     	DriveEncoders.intializeEncoders();
+    	RobotMap.driveTrainRightFront.setPosition(0);
+    	RobotMap.driveTrainLeftFront.setPosition(0);
     	System.out.print(auto.getSelected());
     	autonomousCommand = (CommandGroup)new AutonCommandGroup (ParseInput.takeInput((String)auto.getSelected())); 
        
