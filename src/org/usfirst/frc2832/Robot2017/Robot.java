@@ -185,10 +185,10 @@ public class Robot extends IterativeRobot {
         auto.addObject("Expel Gear from Center (actual bot)", "d6"); //4 = 80 in for practice bot
         auto.addObject("Drive Forward from left or right position (practice bot)", "c5");
         auto.addObject("Drive Forward from left or right position (actual bot)", "b4");
-        auto.addObject("Expel Gear From left (practice bot)", "h3");
-        auto.addObject("Expel Gear From left (actual bot)", "g3");
-        auto.addObject("Expel Gear From right (practice bot)", "i3");
-        auto.addObject("Expel Gear From right (actual bot)", "a3");
+        auto.addObject("Expel Gear From left NavX(practice bot)", "h3");
+        auto.addObject("Expel Gear From left NavX(actual bot)", "g3");
+        auto.addObject("Expel Gear From right NavX(practice bot)", "i3");
+        auto.addObject("Expel Gear From right NavX(actual bot)", "a3");
        // auto.addDefault("autonAimGear", "j7");
      
         
