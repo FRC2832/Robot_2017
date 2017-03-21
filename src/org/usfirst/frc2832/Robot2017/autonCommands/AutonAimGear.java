@@ -56,11 +56,11 @@ public class AutonAimGear extends Command {
     	//figure out how close is "close enough" because it's unlikely we'll ever get to 2.5 on the dot.  Figure this out through testing
     	
     	Robot.driveTrain.setTankDriveCommand(.5, .5);
-    	if (Robot.pixyInput.getAverageVoltage() > 1.1 && Robot.pixyInput.getAverageVoltage() < 2.1){
+    	if (Robot.pixyInput.getAverageVoltage() > 1.15 && Robot.pixyInput.getAverageVoltage() < 2.1){
     		Robot.driveTrain.setTankDriveCommand(.5, .25);
     		SmartDashboard.putString("PixyImage", "turning right");
     	}
-    	else if (Robot.pixyInput.getAverageVoltage() < 0.9){
+    	else if (Robot.pixyInput.getAverageVoltage() < 1.95){
 			Robot.driveTrain.setTankDriveCommand(.25, .5);
 			SmartDashboard.putString("PixyImage", "turning left");
     	}
@@ -71,7 +71,7 @@ public class AutonAimGear extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Robot.pixyWidth.getAverageVoltage() > 2);
+        return (Robot.pixyWidth.getAverageVoltage() > 1.3);// || !Robot.distSensor.get());
     }
 
     // Called once after isFinished returns true

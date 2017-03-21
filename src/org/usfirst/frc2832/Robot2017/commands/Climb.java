@@ -30,9 +30,9 @@ public class Climb extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(Robot.lTrigger > 0.1) {
-    		Robot.climb.setClimbMotorSpeed(0.7 * Robot.lTrigger);
+    		Robot.climb.setClimbMotorSpeed(0.8 * Robot.lTrigger);
     	} else {
-    		Robot.climb.setClimbMotorSpeed(0.7);
+    		Robot.climb.setClimbMotorSpeed(0.8);
     	}
     	
     }
