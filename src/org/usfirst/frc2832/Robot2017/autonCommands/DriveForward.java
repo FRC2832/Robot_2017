@@ -1,6 +1,7 @@
 package org.usfirst.frc2832.Robot2017.autonCommands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
+import org.usfirst.frc2832.Robot2017.RobotMap;
 import org.usfirst.frc2832.Robot2017.subsystems.NavX;
 import org.usfirst.frc2832.Robot2017.DriveEncoders;
 
@@ -13,7 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 //	// For getRawEncDifference: 0: no difference.  Positive: left > right.  Negative: Right>left
 public class DriveForward extends Command {
-	private double distance= 2000;
+	private double distance = 4000;
 	//private double initRightEnc = 0;
 	//private double initLeftEnc = 0;
 	private double startTime;
@@ -55,6 +56,8 @@ public class DriveForward extends Command {
     
 	// Called just before this Command runs the first time
     protected void initialize() {
+    	RobotMap.driveTrainRightFront.setPosition(0);
+    	RobotMap.driveTrainLeftFront.setPosition(0);
     	startTime = Timer.getFPGATimestamp();
     	maxAccel = 0;
     	minAccel = 0;
@@ -88,16 +91,16 @@ public class DriveForward extends Command {
     	prevRightError = currRightError;
     	prevLeftError = currLeftError;
     	*/
-    	if (Math.abs(DriveEncoders.getRawEncDifference()) < 51 ){
-    		Robot.driveTrain.setTankDriveCommand(.5, .5);
+    	if (Math.abs(DriveEncoders.getRawEncDifference()) < 20 ){
+    		Robot.driveTrain.setTankDriveCommand(.6, .6);
     	}
     	else if (DriveEncoders.getRawEncDifference() > 50){
     		//Robot.driveTrain.setTankDriveCommand(.7, .5);
-    		Robot.driveTrain.setTankDriveCommand(.25, .5);  
+    		Robot.driveTrain.setTankDriveCommand(.5, .6);  
     	}
-    	else if (DriveEncoders.getRawEncDifference() < -50)
+    	else if (DriveEncoders.getRawEncDifference() < -20)
     	{
-    		Robot.driveTrain.setTankDriveCommand(.5, .25);
+    		Robot.driveTrain.setTankDriveCommand(.6, .5);
     	}
     	System.out.println(NavX.ahrs.getWorldLinearAccelY());
     	
@@ -112,10 +115,10 @@ public class DriveForward extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (Timer.getFPGATimestamp() - startTime) > 10  || NavX.ahrs.getWorldLinearAccelY() < -.5;
+       	return (Timer.getFPGATimestamp() - startTime) > 10  || (NavX.ahrs.getWorldLinearAccelY() < -0.8 && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance);
     }
 
-    // Called once after isFinished returns true
+    // Called once after isFinished returns true2000
     protected void end() {
     	Robot.driveTrain.setTankDriveCommand(0.0, 0.0);
     	//SmartDashboard.putString("Auton Debugging", "DriveForwardEnd");

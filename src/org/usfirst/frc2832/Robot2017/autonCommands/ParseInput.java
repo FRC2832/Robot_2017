@@ -23,7 +23,8 @@ public class ParseInput {
 		
 		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
 		else if(movement.charAt(0) == 'e'){
-			auto_Commands.add(new DriveForwardDist(152.4, 1860, 10));
+			//auto_Commands.add(new DriveForwardDist(152.4, 1860, 10));
+			auto_Commands.add(new DriveForward(4000));
 			//auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
 			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new ExpelGear());
@@ -37,16 +38,23 @@ public class ParseInput {
 		}
 		//use for driving forward and turning from left position on practice bot.  VALUES MUST BE CHECKED WITH IRON HORSE
 		else if (movement.charAt(0) == 'h'){
-			auto_Commands.add(new DriveForwardDist(152.4, 1756, 10));
+			auto_Commands.add(new DriveForwardDist(152.4, 1450, 10));
 			//auto_Commands.add(new RotateWithAngelTankDrive(60));
-			auto_Commands.add(new RotateNavX(60));
+			auto_Commands.add(new RotateNavX(-59));
+			auto_Commands.add(new DriveForward(1000));
+			//auto_Commands.add(new DriveForwardDist(152.4, 1800, 5));
+			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new CloseDoors());
 			//auto_Commands.add(new DriveForwardDist(0, 0));
 		}
 		//use for driving forward and turning from right position on practice bot.  VALUES MUST BE CHECKED WITH IRON HORSE
 				else if (movement.charAt(0) == 'i'){
 					auto_Commands.add(new DriveForwardDist(152.4, 1906, 10));
 					auto_Commands.add(new RotateNavX(60));
-					auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
+					auto_Commands.add(new DriveForward(1000));
+					//auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
 					auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
