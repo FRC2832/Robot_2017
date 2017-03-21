@@ -11,33 +11,20 @@
 
 package org.usfirst.frc2832.Robot2017;
 
-import org.usfirst.frc2832.Robot2017.autonCommands.DriveForward;
-import org.usfirst.frc2832.Robot2017.autonCommands.RotateWithAngelTankDrive;
-import org.usfirst.frc2832.Robot2017.autonCommands.TurnLeft;
-import org.usfirst.frc2832.Robot2017.autonCommands.TurnRight;
-import org.usfirst.frc2832.Robot2017.commands.AllForward;
-import org.usfirst.frc2832.Robot2017.commands.Climb;
 import org.usfirst.frc2832.Robot2017.commands.InterfaceFlip;
+import org.usfirst.frc2832.Robot2017.commands.SwitchCamera;
 import org.usfirst.frc2832.Robot2017.commands.TankDriveLeft;
 import org.usfirst.frc2832.Robot2017.commands.TankDriveRight;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.CloseDoors;
 import org.usfirst.frc2832.Robot2017.commands.gearunload.ExpelGear;
-import org.usfirst.frc2832.Robot2017.commands.gearunload.ExtendPusher;
-import org.usfirst.frc2832.Robot2017.commands.gearunload.OpenDoors;
-import org.usfirst.frc2832.Robot2017.commands.gearunload.RetractPusher;
 import org.usfirst.frc2832.Robot2017.commands.ingest.IngestToggle;
 import org.usfirst.frc2832.Robot2017.commands.shooter.AgitatorOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.AgitatorOn;
-import org.usfirst.frc2832.Robot2017.commands.shooter.FeederOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.FeederOn;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterOn;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOff;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOn;
-import org.usfirst.frc2832.Robot2017.commands.MotorPositionCheck;
-import org.usfirst.frc2832.Robot2017.commands.RelayOn;
-import org.usfirst.frc2832.Robot2017.commands.Rotate;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -107,7 +94,7 @@ public class OI {
         bButton.whenPressed(new IngestToggle());
         xButton.whileHeld(new CloseDoors());
         aButton.whenPressed(new FeederOn());
-        //selectButton.whileHeld(new Rotate());
+        selectButton.whenPressed(new SwitchCamera());
         //startButton.whenPressed(new Climb());
         leftBumper.whileHeld(new TankDriveLeft());
         rightBumper.whileHeld(new TankDriveRight());
@@ -130,6 +117,7 @@ public class OI {
   	    //SmartDashboard.putData("Extend pusher", new ExtendPusher());
   	    //SmartDashboard.putData("Retract pusher", new RetractPusher());
   	    SmartDashboard.putData("Flip motors", new InterfaceFlip());
+  	    SmartDashboard.putNumber("camerasleect", Robot.camera);
   	   // SmartDashboard.putData("Turn Right", new TurnRight(.5));
   	   // SmartDashboard.putData("Turn Left", new TurnLeft(.5));
   	    //SmartDashboard.putData("Rotate left", new Rotate(45));
@@ -151,6 +139,7 @@ public class OI {
 	            SmartDashboard.putNumber("Left Trigger: ", Robot.lTrigger);
 	            SmartDashboard.putNumber("Right Trigger: ", Robot.rTrigger);
 	            SmartDashboard.putBoolean("Door Status", doorsOpen);
+	            SmartDashboard.putNumber("camera", Robot.camera);
 	            //SmartDashboard.putNumber("Shooting speed", shootSpeeed);
 	        }
 	        
