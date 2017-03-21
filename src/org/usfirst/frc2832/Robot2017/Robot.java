@@ -53,6 +53,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -107,8 +108,8 @@ public class Robot extends IterativeRobot {
     	
   //  	lights = new Lights();
     	
-    	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-	    camera.setResolution(360, 240);
+ //   	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+//	    camera.setResolution(360, 240);
 	    
 	    /* TODO: commenting out all this extra stuff 
      	if (camera.isConnected() == true) {
@@ -155,6 +156,18 @@ public class Robot extends IterativeRobot {
 	     		}).start();
 	     	}
         */
+	    
+	    new Thread(() -> {
+	    	UsbCamera c0 = CameraServer.getInstance().startAutomaticCapture(0);
+	    	UsbCamera c1 = CameraServer.getInstance().startAutomaticCapture(1);
+	    	while(true) {
+	    		if(camera == 0) {
+	    			NetworkTable.getTable("camera").putString("c", c0.getName());
+	    		} else {
+	    			NetworkTable.getTable("camera").putString("c", c1.getName());
+	    		}
+	    	}
+	    }).start();
 
         driveTrain = new DriveTrain();
         ballIntake = new BallIntake();
