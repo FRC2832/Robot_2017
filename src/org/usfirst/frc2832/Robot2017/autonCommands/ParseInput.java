@@ -38,10 +38,10 @@ public class ParseInput {
 		}
 		//Expel Gear From Right NavX(practice bot)
 		else if (movement.charAt(0) == 'i'){
-			auto_Commands.add(new DriveForwardDist(152.4, 1720, 5));
+			auto_Commands.add(new DriveForwardDist(152.4, 1870, 5));
 			//auto_Commands.add(new RotateWithAngelTankDrive(60));
 			auto_Commands.add(new RotateNavX(-59));
-			auto_Commands.add(new DriveForward(1000, 1.1));
+			auto_Commands.add(new DriveForward(1000, 1.2));
 			//auto_Commands.add(new DriveForwardDist(152.4, 1800, 5));
 			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new ExpelGear());
@@ -51,9 +51,9 @@ public class ParseInput {
 		}
 		//Expel Gear From Left NavX(practice bot)
 				else if (movement.charAt(0) == 'h'){
-					auto_Commands.add(new DriveForwardDist(152.4, 1906, 10));
+					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
 					auto_Commands.add(new RotateNavX(60));
-					auto_Commands.add(new DriveForward(1000, 1.1));
+					auto_Commands.add(new DriveForward(1000, 1.2));
 					//auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
 					auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 					auto_Commands.add(new ExpelGear());

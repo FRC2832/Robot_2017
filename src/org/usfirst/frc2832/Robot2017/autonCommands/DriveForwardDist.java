@@ -16,6 +16,7 @@ public class DriveForwardDist extends Command {
 	
     public DriveForwardDist(double diameter, double dist, double timeOut) {
         // Use requires() here to declare subsystem dependencies
+    	System.out.println("Constructor");
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
     	DriveEncoders.intializeEncoders();
@@ -28,7 +29,7 @@ public class DriveForwardDist extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("DriveForwardDist: " + dist);
+    	System.out.println("DriveForwardDist Init: " + dist);
     	DriveEncoders.intializeEncoders();
     	
     	startTime = Timer.getFPGATimestamp();
@@ -36,6 +37,7 @@ public class DriveForwardDist extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Execute");
     	//System.out.println(DriveEncoders.getRawEncDifference());
     	if (Math.abs(DriveEncoders.getRawEncDifference()) < 51 ){
     		Robot.driveTrain.setTankDriveCommand(.5, .5);
@@ -48,8 +50,8 @@ public class DriveForwardDist extends Command {
     	{
     		Robot.driveTrain.setTankDriveCommand(.5, .25);
     	}
-    	left = Math.abs(RobotMap.driveTrainLeftFront.getEncPosition()) - initLeft;
-    	right = Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) - initRight;
+    	left = Math.abs(Math.abs(RobotMap.driveTrainLeftFront.getEncPosition())) - initLeft;
+    	right = Math.abs(Math.abs(RobotMap.driveTrainRightFront.getEncPosition())) - initRight;
     	curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
     }
 
@@ -57,7 +59,7 @@ public class DriveForwardDist extends Command {
     protected boolean isFinished() {
     	if(curDist > dist)
     		System.out.println(curDist + "------ " + dist + "------" + initLeft + ":" + initRight);
-        return curDist > dist;// || Timer.getFPGATimestamp() - startTime > timeOut;
+        return curDist > dist || Timer.getFPGATimestamp() - startTime > timeOut;
     }
 
     // Called once after isFinished returns true

@@ -116,7 +116,7 @@ public class DriveForward extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       	return (Timer.getFPGATimestamp() - startTime) > 10  || (NavX.ahrs.getWorldLinearAccelY() < -0.8 && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance);
+       	return (Timer.getFPGATimestamp() - startTime) > 5  || (NavX.ahrs.getWorldLinearAccelY() < -0.8 && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance);
     }
 
     // Called once after isFinished returns true2000
