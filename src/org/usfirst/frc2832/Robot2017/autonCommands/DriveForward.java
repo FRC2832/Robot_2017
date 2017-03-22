@@ -22,6 +22,7 @@ public class DriveForward extends Command {
     public static float minAccel = 0;
 	private double currRightEnc;
 	private double currLeftEnc;
+	private double speed;
 /*private double prevRightError;
 	private double prevLeftError;
 	private double currRightError;
@@ -45,17 +46,17 @@ public class DriveForward extends Command {
     	requires(Robot.driveTrain);
     	}
     
-     public DriveForward(double distance) {
+     public DriveForward(double distance, double speed) {
         // Use requires() here to declare subsystem dependencies
-        
     	this();
+        this.speed = speed;
     	setDistance(distance);
-    	
     	}
      
     
 	// Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("DriveForward: " + distance);
     	RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
     	startTime = Timer.getFPGATimestamp();
@@ -92,17 +93,17 @@ public class DriveForward extends Command {
     	prevLeftError = currLeftError;
     	*/
     	if (Math.abs(DriveEncoders.getRawEncDifference()) < 20 ){
-    		Robot.driveTrain.setTankDriveCommand(.6, .6);
+    		Robot.driveTrain.setTankDriveCommand(.6 * speed, .6 * speed);
     	}
     	else if (DriveEncoders.getRawEncDifference() > 50){
     		//Robot.driveTrain.setTankDriveCommand(.7, .5);
-    		Robot.driveTrain.setTankDriveCommand(.5, .6);  
+    		Robot.driveTrain.setTankDriveCommand(.5 * speed, .6 * speed);  
     	}
     	else if (DriveEncoders.getRawEncDifference() < -20)
     	{
-    		Robot.driveTrain.setTankDriveCommand(.6, .5);
+    		Robot.driveTrain.setTankDriveCommand(.6 * speed, .5 * speed);
     	}
-    	System.out.println(NavX.ahrs.getWorldLinearAccelY());
+    	//System.out.println(NavX.ahrs.getWorldLinearAccelY());
     	
     	if (minAccel > NavX.ahrs.getWorldLinearAccelY())
         	minAccel = NavX.ahrs.getWorldLinearAccelY();
@@ -120,6 +121,7 @@ public class DriveForward extends Command {
 
     // Called once after isFinished returns true2000
     protected void end() {
+    	System.out.println("DriveForward End");
     	Robot.driveTrain.setTankDriveCommand(0.0, 0.0);
     	//SmartDashboard.putString("Auton Debugging", "DriveForwardEnd");
     	//System.out.println("DriveFowardEnd" + DriveEncoders.getAbsoluteValue());

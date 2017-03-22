@@ -23,6 +23,7 @@ public class RotateNavX extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("RotateNavX Start");
     	initDeg = NavX.getHeading();
     }
 
@@ -54,11 +55,14 @@ public class RotateNavX extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	DriveEncoders.intializeEncoders();
+    	System.out.println("RotateNavX End");
+
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+
     }
     
     private double normalize(double input) {

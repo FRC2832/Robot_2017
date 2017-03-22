@@ -18,18 +18,19 @@ public class DriveForwardDist extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
+    	DriveEncoders.intializeEncoders();
     	this.diameter = diameter;
     	this.dist = dist;
     	this.timeOut = timeOut;
+    	initLeft = RobotMap.driveTrainLeftFront.getEncPosition();
+    	initRight = RobotMap.driveTrainRightFront.getEncPosition();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("DriveForwardDist: " + dist);
     	DriveEncoders.intializeEncoders();
-    	RobotMap.driveTrainRightFront.setPosition(0);
-    	RobotMap.driveTrainLeftFront.setPosition(0);
-    	initLeft = RobotMap.driveTrainLeftFront.getEncPosition();
-    	initRight = RobotMap.driveTrainRightFront.getEncPosition();
+    	
     	startTime = Timer.getFPGATimestamp();
     }
 
@@ -50,13 +51,13 @@ public class DriveForwardDist extends Command {
     	left = Math.abs(RobotMap.driveTrainLeftFront.getEncPosition()) - initLeft;
     	right = Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) - initRight;
     	curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
-    	System.out.println();
-    	System.out.println(curDist + ":" + dist);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return curDist > dist || Timer.getFPGATimestamp() - startTime > timeOut;
+    	if(curDist > dist)
+    		System.out.println(curDist + "------ " + dist + "------" + initLeft + ":" + initRight);
+        return curDist > dist;// || Timer.getFPGATimestamp() - startTime > timeOut;
     }
 
     // Called once after isFinished returns true
@@ -64,10 +65,13 @@ public class DriveForwardDist extends Command {
     	RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
     	Robot.driveTrain.setTankDriveCommand(0, 0);
+    	System.out.println("DriveForwardDist End");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	System.out.println("DriveForwardDist Interrupt");
+
     }
 }
