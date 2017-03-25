@@ -56,7 +56,7 @@ public class DriveForward extends Command {
     
 	// Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("DriveForward: " + distance);
+    	//System.out.println("DriveForward: " + distance);
     	RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
     	startTime = Timer.getFPGATimestamp();
@@ -121,7 +121,7 @@ public class DriveForward extends Command {
 
     // Called once after isFinished returns true2000
     protected void end() {
-    	System.out.println("DriveForward End");
+    	//System.out.println("DriveForward End");
     	Robot.driveTrain.setTankDriveCommand(0.0, 0.0);
     	//SmartDashboard.putString("Auton Debugging", "DriveForwardEnd");
     	//System.out.println("DriveFowardEnd" + DriveEncoders.getAbsoluteValue());

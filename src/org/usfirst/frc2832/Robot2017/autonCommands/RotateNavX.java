@@ -23,7 +23,7 @@ public class RotateNavX extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("RotateNavX Start");
+    	//System.out.println("RotateNavX Start");
     	initDeg = NavX.getHeading();
     }
 
@@ -32,12 +32,12 @@ public class RotateNavX extends Command {
     	if(rot > 0) {
     		DriveTrain.robotDrive.arcadeDrive(0.1, 0.6);
     		//Robot.driveTrain.setTankDriveCommand(0.5, -0.5);
-    		System.out.println(">");
+    		//System.out.println(">");
     		//Robot.driveTrain.setTankDriveCommand(-0.2 * (rot - initDeg), 0.2 * (initDeg - rot));
     	} else {
     		DriveTrain.robotDrive.arcadeDrive(0.1, -0.6);
     		//Robot.driveTrain.setTankDriveCommand(-0.5, 0.5);
-    		System.out.println("<");
+    		//System.out.println("<");
     		//Robot.driveTrain.setTankDriveCommand(-0.2 * (initDeg - rot), 0.2 * (initDeg - rot));
     	}
     	System.out.println(NavX.getHeading() + ":	" + initDeg + ":	" + rot);
@@ -55,7 +55,7 @@ public class RotateNavX extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	DriveEncoders.intializeEncoders();
-    	System.out.println("RotateNavX End");
+    	//System.out.println("RotateNavX End");
 
     }
 
