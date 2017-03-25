@@ -23,8 +23,14 @@ public class DriveForwardDist extends Command {
     	this.diameter = diameter;
     	this.dist = dist;
     	this.timeOut = timeOut;
-    	initLeft = RobotMap.driveTrainLeftFront.getEncPosition();
-    	initRight = RobotMap.driveTrainRightFront.getEncPosition();
+    	initLeft = DriveEncoders.getRawLeftValue();
+    	initRight = DriveEncoders.getRawRightValue();
+    	
+    	//curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
+    	System.out.println("CURENT DISTANCE----------------->" + curDist);
+    	/*if(curDist > dist){ 
+    		dist +=curDist;
+    	}*/
     }
 
     // Called just before this Command runs the first time
@@ -50,15 +56,16 @@ public class DriveForwardDist extends Command {
     	{
     		Robot.driveTrain.setTankDriveCommand(.5, .25);
     	}
-    	left = Math.abs(Math.abs(RobotMap.driveTrainLeftFront.getEncPosition())) - initLeft;
-    	right = Math.abs(Math.abs(RobotMap.driveTrainRightFront.getEncPosition())) - initRight;
+    	left = Math.abs(DriveEncoders.getRawLeftValue()) - initLeft;
+    	right = Math.abs(DriveEncoders.getRawRightValue()) - initRight;
+    	
     	curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	//if(curDist > dist)
-    		//System.out.println(curDist + "------ " + dist + "------" + initLeft + ":" + initRight);
+    	if(curDist > dist)
+    		System.out.println(curDist + "------ " + dist + "------" + initLeft + ":" + initRight);
         return curDist > dist || Timer.getFPGATimestamp() - startTime > timeOut;
     }
 

@@ -26,7 +26,7 @@ public class ParseInput {
 			//auto_Commands.add(new DriveForwardDist(152.4, 1860, 10));
 			auto_Commands.add(new DriveForward(4000, 1));
 			//auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
-			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
@@ -43,7 +43,7 @@ public class ParseInput {
 			auto_Commands.add(new RotateNavX(-59));
 			auto_Commands.add(new DriveForward(1000, 1.2));
 			//auto_Commands.add(new DriveForwardDist(152.4, 1800, 5));
-			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
@@ -55,7 +55,7 @@ public class ParseInput {
 					auto_Commands.add(new RotateNavX(60));
 					auto_Commands.add(new DriveForward(1000, 1.2));
 					//auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
-					auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+					//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
 					auto_Commands.add(new CloseDoors());
@@ -84,7 +84,7 @@ public class ParseInput {
 					auto_Commands.add(new DriveForwardDist(158.75, 1860, 10));
 					//auto_Commands.add(new DriveForward(3.4));
 					//auto_Commands.add(new DriveCorrected(3.3));
-					auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+					//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(1));
 					//auto_Commands.add(new CloseDoors());
