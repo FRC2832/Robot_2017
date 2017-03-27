@@ -163,14 +163,9 @@
 		<width>761</width>
 		<height>564</height>
 		<property name="Camera Choice" value="USB Camera 0"/>
-		<property name="Selected Camera Path"value="c"/>
+		<property name="Selected Camera Path" value="c"/>
 	</static-widget>
-</dashboard>
-<live-window>
-</live-window>
-</xml>
 		<property name="Image File" value="C:\Users\Gryffon\git\Robot_2017\sdbg2017.png"/>
-	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
 		<location x="551" y="20"/>
 		<width>65</width>
@@ -182,6 +177,4 @@
 		<height>53</height>
 	</static-widget>
 </dashboard>
-<live-window>
-</live-window>
 </xml>
