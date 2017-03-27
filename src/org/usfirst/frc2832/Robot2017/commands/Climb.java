@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Climb extends Command {
-	
+
 	private boolean fixedSpeed = false;
 
     public Climb() {
@@ -30,11 +30,11 @@ public class Climb extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(Robot.lTrigger > 0.1) {
-    		Robot.climb.setClimbMotorSpeed(0.8 * Robot.lTrigger);
+    		Robot.climb.setClimbMotorSpeed(1.0 * Robot.lTrigger);
     	} else {
-    		Robot.climb.setClimbMotorSpeed(0.8);
+    		Robot.climb.setClimbMotorSpeed(1.0);
     	}
-    	
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
