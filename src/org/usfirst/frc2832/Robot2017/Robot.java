@@ -170,7 +170,7 @@ public class Robot extends IterativeRobot {
 	    			NetworkTable.getTable("").putString("c", c1.getName());
 	    		}
 	    		try {
-					Thread.sleep(5);
+					Thread.sleep(20);
 				} catch (InterruptedException e) {
 
 				}

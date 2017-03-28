@@ -141,6 +141,11 @@ public class OI {
 	            SmartDashboard.putBoolean("Door Status", doorsOpen);
 	            SmartDashboard.putNumber("camera", Robot.camera);
 	            //SmartDashboard.putNumber("Shooting speed", shootSpeeed);
+	    		try {
+					Thread.sleep(20);
+				} catch (InterruptedException e) {
+
+				}
 	        }
 	        
         }).start();
