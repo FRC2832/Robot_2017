@@ -11,16 +11,16 @@ import edu.wpi.first.wpilibj.command.Command;
 //used for turning while not moving forward
 public class PixyRotate extends Command {
 	private String rOrL;
-	private byte[] buffer;
-	private int pixyImage;
-	private byte[] sendBuffer = "draco".getBytes();
+	//private byte[] buffer;
+	//private int pixyImage;
+	//private byte[] sendBuffer = "draco".getBytes();
 
     public PixyRotate(String direction) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	rOrL = direction;
-    	buffer = new byte[1];
-    	pixyImage = 300;
+    	//buffer = new byte[1];
+    	Robot.pixyValue = 300;
     	
     	
     }
@@ -44,10 +44,9 @@ public class PixyRotate extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.pixyCamera.read(0, 1, buffer))
-    		pixyImage = buffer[0] & 0xFF;
+    
     		
-    	if ( 124 < pixyImage || 130 > pixyImage)
+    	if ( 124 < Robot.pixyValue || 130 > Robot.pixyValue)
     	{
     		return true;
     	}

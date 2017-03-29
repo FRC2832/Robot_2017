@@ -93,16 +93,16 @@ public class ParseInput {
 					//auto_Commands.add(new ExpelGear());
 					//auto_Commands.add(new DriveBackward(Double.valueOf(movement.substring(2))));
 				}
-/*				else if (movement.charAt(0) == 'j'){
+				else if (movement.charAt(0) == 'j'){
 					
-					auto_Commands.add(new DriveForward(3.7));
-					auto_Commands.add(new Rotate(40));
+					//auto_Commands.add(new DriveForward(3.7));
+					//auto_Commands.add(new Rotate(40));
 					auto_Commands.add(new AutonAimGear());
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
 					auto_Commands.add(new CloseDoors());
 				}
-				*/
+				
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous
 	}
 	
