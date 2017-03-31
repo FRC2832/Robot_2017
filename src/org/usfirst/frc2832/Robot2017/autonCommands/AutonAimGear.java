@@ -70,20 +70,20 @@ public class AutonAimGear extends Command {
     protected void execute() {
     	//figure out how close is "close enough" because it's unlikely we'll ever get to 2.5 on the dot.  Figure this out through testing
     	
-    	Robot.driveTrain.setTankDriveCommand(.5, .5);
+    	Robot.driveTrain.setTankDriveCommand(.6, .6);
     /*	if (Robot.pixyCamera.transaction(sendBuffer, sendBuffer.length, buffer, 1))
     	{
     		pixyValue = buffer[0]  & 0xFF;
     	} */
     	SmartDashboard.putNumber("pixyXAutonAimGear", Robot.pixyValue);
-    	if ((int) Robot.pixyValue > 132 && (int) Robot.pixyValue != 255)
+    	if ((int) Robot.pixyValue > 128 && (int) Robot.pixyValue != 255) //132
     			{
-    		Robot.driveTrain.setTankDriveCommand(.25, .5);
+    		Robot.driveTrain.setTankDriveCommand(.3, .6);
     		SmartDashboard.putString("PixyImage", "turning right");
     	}
-    	else if ((int) Robot.pixyValue < 123){
-			Robot.driveTrain.setTankDriveCommand(.5, .25);
-			SmartDashboard.putString("PixyImage", "turning left");
+    	else if ((int) Robot.pixyValue < 126){
+			Robot.driveTrain.setTankDriveCommand(.6, .3);
+			SmartDashboard.putString("PixyImage", "turning left");//123
     	}
     	else if (Robot.pixyValue == 255)
     		SmartDashboard.putString("PixyImage", "no image");
