@@ -27,7 +27,7 @@ public class DriveForwardDist extends Command {
     	initRight = DriveEncoders.getRawRightValue();
     	
     	//curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
-    	System.out.println("CURENT DISTANCE----------------->" + curDist);
+    	//System.out.println("CURENT DISTANCE----------------->" + curDist);
     	/*if(curDist > dist){ 
     		dist +=curDist;
     	}*/
@@ -43,7 +43,7 @@ public class DriveForwardDist extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Execute");
+    	//System.out.println("Execute");
     	//System.out.println(DriveEncoders.getRawEncDifference());
     	if (Math.abs(DriveEncoders.getRawEncDifference()) < 51 ){
     		Robot.driveTrain.setTankDriveCommand(.5, .5);
@@ -71,8 +71,8 @@ public class DriveForwardDist extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.driveTrainRightFront.setPosition(0);
-    	RobotMap.driveTrainLeftFront.setPosition(0);
+    	//RobotMap.driveTrainRightFront.setPosition(0);
+    	//RobotMap.driveTrainLeftFront.setPosition(0);
     	Robot.driveTrain.setTankDriveCommand(0, 0);
     	//System.out.println("DriveForwardDist End");
     }

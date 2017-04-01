@@ -1,5 +1,6 @@
 package org.usfirst.frc2832.Robot2017;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveEncoders extends Subsystem {
@@ -62,6 +63,8 @@ public class DriveEncoders extends Subsystem {
 		RobotMap.driveTrainRightFront.setEncPosition(0);
 		RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
+    	System.out.println("OLD: RF: " + RobotMap.driveTrainRightFront.getEncPosition() + "LF:" + RobotMap.driveTrainLeftFront.getEncPosition());
+    	Timer.delay(21f / 1000f);
+    	System.out.println("NEW: RF: " + RobotMap.driveTrainRightFront.getEncPosition() + "LF:" + RobotMap.driveTrainLeftFront.getEncPosition());
 	}
-
 }

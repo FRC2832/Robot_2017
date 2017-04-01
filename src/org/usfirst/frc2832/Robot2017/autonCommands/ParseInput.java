@@ -53,7 +53,8 @@ public class ParseInput {
 				else if (movement.charAt(0) == 'h'){
 					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
 					auto_Commands.add(new RotateNavX(60));
-					auto_Commands.add(new DriveForward(1000, 1.2));
+					//auto_Commands.add(new DriveForward(1000, 1.2));
+					auto_Commands.add(new AutonAimGear());
 					//auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
 					//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 					auto_Commands.add(new ExpelGear());
