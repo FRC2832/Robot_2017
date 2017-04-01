@@ -11,6 +11,14 @@
 
 package org.usfirst.frc2832.Robot2017;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import org.usfirst.frc2832.Robot2017.autonCommands.AutonCommandGroup;
 import org.usfirst.frc2832.Robot2017.autonCommands.ParseInput;
 import org.usfirst.frc2832.Robot2017.commands.Climb;
@@ -164,15 +172,34 @@ public class Robot extends IterativeRobot {
 	    new Thread(() -> {
 	    	UsbCamera c0 = CameraServer.getInstance().startAutomaticCapture(0);
 	    	UsbCamera c1 = CameraServer.getInstance().startAutomaticCapture(1);
-	    	c0.setResolution(360, 240);
-	    	c1.setResolution(360, 240);
-	    	
-	    	while(true) {
+	    	c0.setResolution(255, 170);
+	    	c1.setResolution(255, 170);
+/*	    	BufferedImage red = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+	    	Graphics2D g1 = red.createGraphics();
+	    	g1.setColor(new Color(255, 0, 0));
+	    	g1.fillRect(0, 0, 100, 100);
+	    	BufferedImage blue = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+	    	Graphics2D g2 = blue.createGraphics();
+	    	g2.setColor(new Color(0, 0 , 255));
+	    	g2.fillRect(0,  0, 100, 100);
+*/	    	while(true) {
 	    		if(camera == 0) {
 	    			NetworkTable.getTable("").putString("c", c0.getName());
-	    		} else {
+/*	    			try {
+	    				ImageIO.write(red, "png", new File("C://smartDashboard/rectumcle.png"));
+	    				
+	    			} catch(IOException e) {
+	    				
+	    			}
+*/	    		} else {
 	    			NetworkTable.getTable("").putString("c", c1.getName());
-	    		}
+/*	    			try {
+	    				ImageIO.write(blue, "png", new File("C://smartDashboard/rectumcle.png"));
+	    				
+	    			} catch(IOException e) {
+	    				
+	    			}
+*/	    		}
 	    		try {
 					Thread.sleep(20);
 				} catch (InterruptedException e) {
