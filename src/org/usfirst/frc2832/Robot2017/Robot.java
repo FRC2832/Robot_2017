@@ -163,6 +163,9 @@ public class Robot extends IterativeRobot {
 	    new Thread(() -> {
 	    	UsbCamera c0 = CameraServer.getInstance().startAutomaticCapture(0);
 	    	UsbCamera c1 = CameraServer.getInstance().startAutomaticCapture(1);
+	    	c0.setResolution(360, 240);
+	    	c1.setResolution(360, 240);
+	    	
 	    	while(true) {
 	    		if(camera == 0) {
 	    			NetworkTable.getTable("").putString("c", c0.getName());
