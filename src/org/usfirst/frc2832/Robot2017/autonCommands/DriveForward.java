@@ -23,6 +23,7 @@ public class DriveForward extends Command {
 	private double currRightEnc;
 	private double currLeftEnc;
 	private double speed;
+	private double diffCounts;
 /*private double prevRightError;
 	private double prevLeftError;
 	private double currRightError;
@@ -59,6 +60,8 @@ public class DriveForward extends Command {
     	//System.out.println("DriveForward: " + distance);
     	RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
+		RobotMap.driveTrainLeftFront.setEncPosition(0);
+		RobotMap.driveTrainRightFront.setEncPosition(0);
     	startTime = Timer.getFPGATimestamp();
     	maxAccel = 0;
     	minAccel = 0;
@@ -76,6 +79,8 @@ public class DriveForward extends Command {
     	//currTime = System.currentTimeMillis();
     	currRightEnc = DriveEncoders.getRawRightValue();
     	currLeftEnc = DriveEncoders.getRawLeftValue();
+		System.out.println("curRight: " + currRightEnc + " curLeft: " + currLeftEnc);
+
     	/*currRightError = currRightEnc - initRightEnc;
     	currLeftError = currLeftEnc - initLeftEnc;
     	
@@ -92,32 +97,53 @@ public class DriveForward extends Command {
     	prevRightError = currRightError;
     	prevLeftError = currLeftError;
     	*/
-    	if (Math.abs(DriveEncoders.getRawEncDifference()) < 20 ){
+    	
+    	diffCounts = DriveEncoders.getRawEncDifference();
+    	if (Math.abs(diffCounts) < 20 ){
     		Robot.driveTrain.setTankDriveCommand(.6 * speed, .6 * speed);
     	}
-    	else if (DriveEncoders.getRawEncDifference() > 50){
+    	else if (diffCounts > 50){
     		//Robot.driveTrain.setTankDriveCommand(.7, .5);
     		Robot.driveTrain.setTankDriveCommand(.5 * speed, .6 * speed);  
     	}
-    	else if (DriveEncoders.getRawEncDifference() < -20)
+    	else if (diffCounts < -20)
     	{
     		Robot.driveTrain.setTankDriveCommand(.6 * speed, .5 * speed);
     	}
-    	//System.out.println(NavX.ahrs.getWorldLinearAccelY());
-    	
+		System.out.println("AccelY: " + NavX.ahrs.getWorldLinearAccelY() + " -- curdist: " + RobotMap.driveTrainRightFront.getEncPosition() + " diff: " + diffCounts);
+
     	if (minAccel > NavX.ahrs.getWorldLinearAccelY())
         	minAccel = NavX.ahrs.getWorldLinearAccelY();
         if (maxAccel < NavX.ahrs.getWorldLinearAccelY())
         	maxAccel = NavX.ahrs.getWorldLinearAccelY();
         SmartDashboard.putNumber("Max Accelerometer", maxAccel);
         SmartDashboard.putNumber("Min Accelerometer", minAccel);
+
     	//SmartDashboard.putNumber("distanceAuton", DriveEncoders.getAbsoluteValue());
     	//SmartDashboard.putNumber("auton stop", (getDistance()) * (DriveEncoders.getAbsoluteValue() - getInitEncoderVal());
     }
+    
     // Make this return true when this Command no longer needs to run execute()
+    // Require minimum distance before trigger on accelerometer 
     protected boolean isFinished() {
-       	return (Timer.getFPGATimestamp() - startTime) > 5  || (NavX.ahrs.getWorldLinearAccelY() < -0.8 && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance);
-    }
+    	if (Timer.getFPGATimestamp() - startTime > 5) {
+    		System.out.println("End for time");
+			return true;
+    	}
+			else if (NavX.ahrs.getWorldLinearAccelY() < -0.8 && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance) {
+			System.out.println("end for Accel and Dist: Cur:" + RobotMap.driveTrainRightFront.getEncPosition() + " Dist: " + distance);
+			return true;
+		
+		}
+			else 
+				return false;
+    }    		
+    	/*			
+       	return (Timer.getFPGATimestamp() - startTime) > 5 || 
+       			(NavX.ahrs.getWorldLinearAccelY() < -0.8 && 
+       					Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance);
+    	 */ 
+    
 
     // Called once after isFinished returns true2000
     protected void end() {
