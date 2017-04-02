@@ -40,7 +40,7 @@ public class RotateNavX extends Command {
     		//System.out.println("<");
     		//Robot.driveTrain.setTankDriveCommand(-0.2 * (initDeg - rot), 0.2 * (initDeg - rot));
     	}
-    	System.out.println(NavX.getHeading() + ":	" + initDeg + ":	" + rot);
+    	//System.out.println(NavX.getHeading() + ":	" + initDeg + ":	" + rot);
     }
 
     // Make this return true when this Command no longer needs to run execute()
