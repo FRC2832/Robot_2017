@@ -38,7 +38,7 @@ public class ExtendPusher extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	SmartDashboard.putString("Auton Debugging", "ExpelGearStart");
-    	System.out.println("Expel Gear Start");
+    	//System.out.println("Expel Gear Start");
     }
 
     // Called when another command which requires one or more of the same

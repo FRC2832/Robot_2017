@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveForwardDist extends Command {
 
 	private double diameter, initLeft, initRight, left, right, dist, curDist, startTime, timeOut;
-	
+	int dispCount = 0;
+
     public DriveForwardDist(double diameter, double dist, double timeOut) {
         // Use requires() here to declare subsystem dependencies
     	//System.out.println("Constructor");
@@ -25,6 +26,7 @@ public class DriveForwardDist extends Command {
     	this.timeOut = timeOut;
     	initLeft = DriveEncoders.getRawLeftValue();
     	initRight = DriveEncoders.getRawRightValue();
+    	dispCount = 0;
     	
     	//curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
     	//System.out.println("CURENT DISTANCE----------------->" + curDist);
@@ -60,6 +62,13 @@ public class DriveForwardDist extends Command {
     	right = Math.abs(DriveEncoders.getRawRightValue()) - initRight;
     	
     	curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
+    	if (dispCount == 10) {
+    			System.out.println(curDist + "------ " + dist + "------" + initLeft + ":" + initRight);
+    			dispCount=0;
+    	}
+    	else
+    			dispCount++;
+    				
     }
 
     // Make this return true when this Command no longer needs to run execute()
