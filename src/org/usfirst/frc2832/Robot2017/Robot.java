@@ -238,6 +238,7 @@ public class Robot extends IterativeRobot {
         auto.addObject("Expel Gear From right NavX(practice bot)", "i3");
         auto.addObject("Expel Gear From right NavX(actual bot)", "a3");
         auto.addObject("autonAimGear", "j7");
+        auto.addObject("Mr. Zobel Testing", "z0");
      
         
         SmartDashboard.putData("Autonomous Selection", auto);

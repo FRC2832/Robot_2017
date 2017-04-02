@@ -34,7 +34,9 @@ public class ParseInput {
 		
 		//use for driving forward from right or left position from practice bot. VALUES HAVE BEEN TESTED
 		else if (movement.charAt(0) == 'c'){
-			auto_Commands.add(new DriveForward(4.5, 1));
+			//auto_Commands.add(new DriveForward(4.5, 1));
+			auto_Commands.add(new DriveForwardDist(152.4, 4000, 10));
+
 		}
 		//Expel Gear From Right NavX(practice bot)
 		else if (movement.charAt(0) == 'i'){
@@ -42,8 +44,6 @@ public class ParseInput {
 			//auto_Commands.add(new RotateWithAngelTankDrive(60));
 			auto_Commands.add(new RotateNavX(-59));
 			auto_Commands.add(new DriveForward(1000, 1.2));
-			//auto_Commands.add(new DriveForwardDist(152.4, 1800, 5));
-			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
@@ -52,9 +52,9 @@ public class ParseInput {
 		//Expel Gear From Left NavX(practice bot)
 				else if (movement.charAt(0) == 'h'){
 					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
-					auto_Commands.add(new RotateNavX(60));
-					//auto_Commands.add(new DriveForward(1000, 1.2));
-					auto_Commands.add(new AutonAimGear());
+					auto_Commands.add(new RotateNavX(60f));
+					auto_Commands.add(new DriveForward(1000, 1.2));
+					//auto_Commands.add(new AutonAimGear());
 					//auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
 					//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 					auto_Commands.add(new ExpelGear());
@@ -104,6 +104,19 @@ public class ParseInput {
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
 					auto_Commands.add(new CloseDoors());
+				}
+		//use for Practice Bot = Mr Zobel testing
+				else if (movement.charAt(0) == 'z'){
+					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
+					//auto_Commands.add(new RotateNavX(60));
+					auto_Commands.add(new RotateWithPIDTankDrive(-59.0));	
+					//auto_Commands.add(new DriveForward(1000, 1.2));
+					auto_Commands.add(new AutonAimGear());
+					auto_Commands.add(new ExpelGear());
+					auto_Commands.add(new DriveBackward(2));
+					auto_Commands.add(new CloseDoors());
+					auto_Commands.add(new RotateWithPIDTankDrive(0.0));			
+					auto_Commands.add(new DriveForwardDist(152.4, 6000, 7));
 				}
 				
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous
