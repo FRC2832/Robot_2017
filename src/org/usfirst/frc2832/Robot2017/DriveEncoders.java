@@ -63,8 +63,8 @@ public class DriveEncoders extends Subsystem {
 		RobotMap.driveTrainRightFront.setEncPosition(0);
 		RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
-    	System.out.println("OLD: RF: " + RobotMap.driveTrainRightFront.getEncPosition() + "LF:" + RobotMap.driveTrainLeftFront.getEncPosition());
-    	Timer.delay(21f / 1000f);
-    	System.out.println("NEW: RF: " + RobotMap.driveTrainRightFront.getEncPosition() + "LF:" + RobotMap.driveTrainLeftFront.getEncPosition());
+    	System.out.println("OLD - RF: " + RobotMap.driveTrainRightFront.getEncPosition() + " LF:" + RobotMap.driveTrainLeftFront.getEncPosition());
+    	Timer.delay(0.04);
+    	System.out.println("NEW: RF: " + RobotMap.driveTrainRightFront.getEncPosition() + " LF:" + RobotMap.driveTrainLeftFront.getEncPosition());
 	}
 }
