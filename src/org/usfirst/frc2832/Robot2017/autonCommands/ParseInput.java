@@ -23,10 +23,7 @@ public class ParseInput {
 		
 		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
 		else if(movement.charAt(0) == 'e'){
-			//auto_Commands.add(new DriveForwardDist(152.4, 1860, 10));
-			auto_Commands.add(new DriveForward(4000, 1.2));
-			//auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
-			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			auto_Commands.add(new DriveForward(4000, 1.15));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
@@ -34,67 +31,69 @@ public class ParseInput {
 		
 		//use for driving forward from right or left position from practice bot. VALUES HAVE BEEN TESTED
 		else if (movement.charAt(0) == 'c'){
-			//auto_Commands.add(new DriveForward(4.5, 1));
 			auto_Commands.add(new DriveForwardDist(152.4, 4000, 10));
 
 		}
-		//Expel Gear From Right NavX(practice bot)
+		//Expel Gear From Right NavX(practice bot) VALUES HAVE BEEN TESTED
 		else if (movement.charAt(0) == 'i'){
 			auto_Commands.add(new DriveForwardDist(152.4, 1870, 5));
-			//auto_Commands.add(new RotateWithAngelTankDrive(60));
 			auto_Commands.add(new RotateNavX(-59));
 			auto_Commands.add(new DriveForward(1000, 1.2));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new RotateNavX(40));
+			auto_Commands.add(new DriveForwardDist(152.4, 7000, 10));
 			auto_Commands.add(new CloseDoors());
-			//auto_Commands.add(new DriveForwardDist(0, 0));
 		}
-		//Expel Gear From Left NavX(practice bot)
-				else if (movement.charAt(0) == 'h'){
-					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
-					auto_Commands.add(new RotateNavX(60f));
-					auto_Commands.add(new DriveForward(1000, 1.2));
-					//auto_Commands.add(new AutonAimGear());
-					//auto_Commands.add(new DriveForwardDist(152.4, 1185, 5));
-					//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
-					auto_Commands.add(new ExpelGear());
-					auto_Commands.add(new DriveBackward(2));
-					auto_Commands.add(new CloseDoors());
-					//auto_Commands.add(new DriveForwardDist(0, 0));
-				}
+		//Expel Gear From Left NavX(practice bot) VALUES HAVE BEEN TESTED
+		else if (movement.charAt(0) == 'h'){
+			auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
+			auto_Commands.add(new RotateNavX(60f));
+			auto_Commands.add(new DriveForward(1000, 1.2));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new RotateNavX(-40));
+			auto_Commands.add(new DriveForwardDist(152.4, 7000, 10));
+			auto_Commands.add(new CloseDoors());
+		}
 				
 		//use for driving forward from right or left position from actual bot.  THESE VALUE HAVE BEEN TESTED
 		else if (movement.charAt(0) == 'b'){
-			auto_Commands.add(new DriveForward(3.8, 1));
+			//auto_Commands.add(new DriveForward(3.8, 1));
+			auto_Commands.add(new DriveForwardDist(158.75, 4000, 12));
+
 		}
-		//use for driving forward and turning from right position on actual bot.  VALUES MUST BE CHECKED WITH IRON KRAKEN
+		//use for driving forward and deploy gear from right position on actual bot.
 		else if (movement.charAt(0) == 'a'){
-			auto_Commands.add(new DriveForwardDist(158.75, 1756, 10));
-			auto_Commands.add(new RotateNavX(60));
-			//auto_Commands.add(new DriveForwardDist(0, 0));
+			auto_Commands.add(new DriveForwardDist(158.75, 1756, 5));
+			auto_Commands.add(new RotateNavX(-59));
+			auto_Commands.add(new DriveForward(1000, 1.2));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new RotateNavX(40));
+			auto_Commands.add(new CloseDoors());	
+			auto_Commands.add(new DriveForwardDist(158.75, 7000, 10));
 		}
-		//use for driving forward and turning from left position on actual bot.  VALUES MUST BE CHECKED WITH IRON KRAKEN
-				else if (movement.charAt(0) == 'g'){
-					auto_Commands.add(new DriveForwardDist(158.75, 1756, 10));
-					auto_Commands.add(new RotateNavX(-60));
-					//auto_Commands.add(new DriveForwardDist(0, 0));
-				}
+		//use for driving forward and turning from left position on actual bot.
+		else if (movement.charAt(0) == 'g'){
+			auto_Commands.add(new DriveForwardDist(158.75, 1756, 5));
+			auto_Commands.add(new RotateNavX(60f));
+			auto_Commands.add(new DriveForward(1000, 1.2));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new RotateNavX(-40));
+			auto_Commands.add(new CloseDoors());				
+			auto_Commands.add(new DriveForwardDist(158.75, 7000, 10));
+		}
 				
-		//use for expelling the gear from the middle position of the actual bot THESE VALUES HAVE BEEN TESTED
-				else if (movement.charAt(0) == 'd'){
-					auto_Commands.add(new DriveForwardDist(158.75, 1860, 10));
-					//auto_Commands.add(new DriveForward(3.4));
-					//auto_Commands.add(new DriveCorrected(3.3));
-					//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
-					auto_Commands.add(new ExpelGear());
-					auto_Commands.add(new DriveBackward(1));
-					//auto_Commands.add(new CloseDoors());
-					
-					//auto_Commands.add(new AutonAimGear());
-					//auto_Commands.add(new ExpelGear());
-					//auto_Commands.add(new DriveBackward(Double.valueOf(movement.substring(2))));
-				}
-				else if (movement.charAt(0) == 'j'){
+		//use for expelling the gear from the middle position of the actual bot
+		else if (movement.charAt(0) == 'd'){
+			auto_Commands.add(new DriveForward(4000, 1.15));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new CloseDoors());
+		}
+		/*		else if (movement.charAt(0) == 'j'){
 					
 					//auto_Commands.add(new DriveForward(3.7));
 					//auto_Commands.add(new Rotate(40));
@@ -108,7 +107,6 @@ public class ParseInput {
 		//use for Practice Bot = Mr Zobel testing
 				else if (movement.charAt(0) == 'z'){
 					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
-					//auto_Commands.add(new RotateNavX(60));
 					auto_Commands.add(new RotateWithPIDTankDrive(-59.0));	
 					//auto_Commands.add(new DriveForward(1000, 1.2));
 					auto_Commands.add(new AutonAimGear());
@@ -118,7 +116,7 @@ public class ParseInput {
 					auto_Commands.add(new RotateWithPIDTankDrive(0.0));			
 					auto_Commands.add(new DriveForwardDist(152.4, 6000, 7));
 				}
-				
+		*/	
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous
 	}
 	

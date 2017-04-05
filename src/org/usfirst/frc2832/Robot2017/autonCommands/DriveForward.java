@@ -58,7 +58,6 @@ public class DriveForward extends Command {
     
 	// Called just before this Command runs the first time
     protected void initialize() {
-    	//System.out.println("DriveForward: " + distance);
     	RobotMap.driveTrainRightFront.setPosition(0);
     	RobotMap.driveTrainLeftFront.setPosition(0);
 		RobotMap.driveTrainLeftFront.setEncPosition(0);
@@ -72,7 +71,6 @@ public class DriveForward extends Command {
     	//prevRightError = 0;
     	//prevLeftError = 0;
     	//SmartDashboard.putString("Auton Debugging", "DriveForwardInit");
-    	//System.out.println("DriveFowardInit");
     	}
 
     // Called repeatedly when this Command is scheduled to run
@@ -80,7 +78,6 @@ public class DriveForward extends Command {
     	//currTime = System.currentTimeMillis();
     	currRightEnc = DriveEncoders.getRawRightValue();
     	currLeftEnc = DriveEncoders.getRawLeftValue();
-		System.out.println("curRight: " + currRightEnc + " curLeft: " + currLeftEnc);
 
     	/*currRightError = currRightEnc - initRightEnc;
     	currLeftError = currLeftEnc - initLeftEnc;
@@ -90,9 +87,7 @@ public class DriveForward extends Command {
     	
     	leftDeltaT = iTerm * (currTime - prevTime) * currLeftError + (pTerm * (currLeftError - prevLeftError))/(currTime - prevTime);
     	currLeftControl = prevLeftControl + leftDeltaT;
-    	System.out.println("PID Value " + currRightControl);
-    	System.out.println("Change in time " + (currTime - prevTime));
-    	System.out.println("Error " + currRightError);
+
     	
     	prevTime = currTime;
     	prevRightError = currRightError;
@@ -111,7 +106,6 @@ public class DriveForward extends Command {
     	{
     		Robot.driveTrain.setTankDriveCommand(.6 * speed, .5 * speed);
     	}
-		System.out.println("AccelY: " + NavX.ahrs.getWorldLinearAccelY() + " -- curdist: " + RobotMap.driveTrainRightFront.getEncPosition() + " diff: " + diffCounts);
 
     	if (minAccel > NavX.ahrs.getWorldLinearAccelY())
         	minAccel = NavX.ahrs.getWorldLinearAccelY();
@@ -127,7 +121,7 @@ public class DriveForward extends Command {
     // Make this return true when this Command no longer needs to run execute()
     // Require minimum distance before trigger on accelerometer 
     protected boolean isFinished() {
-    	if (Timer.getFPGATimestamp() - startTime > 5) {
+    	if (Timer.getFPGATimestamp() - startTime > 7) {
     		System.out.println("End for time");
 			return true;
     	}
@@ -148,10 +142,8 @@ public class DriveForward extends Command {
 
     // Called once after isFinished returns true2000
     protected void end() {
-    	//System.out.println("DriveForward End");
     	Robot.driveTrain.setTankDriveCommand(0.0, 0.0);
     	//SmartDashboard.putString("Auton Debugging", "DriveForwardEnd");
-    	//System.out.println("DriveFowardEnd" + DriveEncoders.getAbsoluteValue());
 
     }
 

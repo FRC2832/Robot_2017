@@ -26,10 +26,9 @@ public class DriveDistance extends Command {
     	this.timeOut = timeOut;
     	initLeft = DriveEncoders.getRawLeftValue();
     	initRight = DriveEncoders.getRawRightValue();
-    	dispCount = 0;
+
     	
     	//curDist = (left + right) / 2 / 1440 * Math.PI * diameter;
-    	//System.out.println("CURENT DISTANCE----------------->" + curDist);
     	/*if(curDist > dist){ 
     		dist +=curDist;
     	}*/
@@ -37,7 +36,6 @@ public class DriveDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	//System.out.println("DriveDistance Init: " + dist);
     	DriveEncoders.intializeEncoders();
     	
     	startTime = Timer.getFPGATimestamp();
@@ -84,12 +82,7 @@ public class DriveDistance extends Command {
     	{
     		Robot.driveTrain.setTankDriveCommand(power, power / 2);
     	}
-    	if (dispCount == 10) {
-    			System.out.println(curDist + "------ " + dist + "------" + initLeft + ":" + initRight);
-    			dispCount=0;
-    	}
-    	else
-    			dispCount++;
+
     				
     }
 
@@ -105,13 +98,11 @@ public class DriveDistance extends Command {
     	//RobotMap.driveTrainRightFront.setPosition(0);
     	//RobotMap.driveTrainLeftFront.setPosition(0);
     	Robot.driveTrain.setTankDriveCommand(0, 0);
-    	//System.out.println("DriveDistance End");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	//System.out.println("DriveDistance Interrupt");
 
     }
 }
