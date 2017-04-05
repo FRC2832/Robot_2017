@@ -116,59 +116,6 @@ public class Robot extends IterativeRobot {
     	pixyValue = (byte) 300;
     	buffer = new byte[1];
     	
-    	
-  //  	lights = new Lights();
-    
-    	
- //   	UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//	    camera.setResolution(360, 240);
-	    
-	    /* TODO: commenting out all this extra stuff 
-     	if (camera.isConnected() == true) {
-     		
-     		new Thread(() -> {
- 		        	
- 			        CvSink cvSink = CameraServer.getInstance().getVideo();
- 			        CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
- 			        
- 			        Mat source = new Mat();
- 			        Mat output = new Mat();
- 			        
- 			        while(true) {
- 			        	//System.out.println("Camera1 is connected");
- 			            cvSink.grabFrame(source);
- 			            Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
- 			            outputStream.putFrame(output);
- 			        }
- 			        
-     		}).start();
-     		
-     	}
-	    */ 	
-	     /*	UsbCamera cameraTwo = CameraServer.getInstance().startAutomaticCapture();
-	     	cameraTwo.setResolution(320, 240);
-	     	
-	     	if (cameraTwo.isConnected() == true) {
-	     		
-	     		new Thread(() -> {
-	 		        	
-	 			        CvSink cvSink = CameraServer.getInstance().getVideo();
-	 			        CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-	 			        
-	 			        Mat source = new Mat();
-	 			        Mat output = new Mat();
-				        
-	 			        while(true) {
-	 			        	System.out.println("Camera2 is conncted");
-	 			            cvSink.grabFrame(source);
-	 			            Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-	 			            outputStream.putFrame(output);
-	 			        }
-	 			        
-	     		}).start();
-	     	}
-        */
-	    
 	    new Thread(() -> {
 	    	UsbCamera c0 = CameraServer.getInstance().startAutomaticCapture(0);
 	    	UsbCamera c1 = CameraServer.getInstance().startAutomaticCapture(1);
@@ -254,6 +201,8 @@ public class Robot extends IterativeRobot {
     public void disabledInit(){
     	GearScore.gearScoreDoor.set(DoubleSolenoid.Value.kForward);
     	setBrakeMode(false);
+        SmartDashboard.putBoolean("IMU_DI_Connected", NavX.ahrs.isConnected());
+
     }
 
     public void disabledPeriodic() {
@@ -261,6 +210,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+        SmartDashboard.putBoolean("IMU_AI_Connected", NavX.ahrs.isConnected());
     	 
     	setBrakeMode(true);
         // schedule the autonomous command (example)
@@ -284,10 +234,6 @@ public class Robot extends IterativeRobot {
     		pixyValue =  buffer[0] & 0xFF;
     		
         SmartDashboard.putNumber("Pixy X value", pixyValue  );
-        
-       
-        
-     
 
     }
 
@@ -313,28 +259,16 @@ public class Robot extends IterativeRobot {
         	pixyValue =  buffer[0] & 0xFF;
 		
         SmartDashboard.putNumber("Pixy X value", pixyValue  );
-       // SmartDashboard.putNumber("Analog dist", Math.round(ultraSonic.getAverageVoltage() * 1000 / 9.8));
-       // SmartDashboard.putBoolean("Digital", !distSensor.get());
-     
-        //SmartDashboard.putNumber("LeftFront Current", pdp.getCurrent(14));
-        //SmartDashboard.putNumber("LeftRear Current", pdp.getCurrent(15));
-        //SmartDashboard.putNumber("RightFront Current", pdp.getCurrent(0));
-        //SmartDashboard.putNumber("RightRear Current", pdp.getCurrent(1));
         SmartDashboard.putBoolean("IsIngesting", isIngesting);
      
         SmartDashboard.putNumber("Right Encoder", DriveEncoders.getRawRightValue());
         SmartDashboard.putNumber("Left Encoder", DriveEncoders.getRawLeftValue());
         SmartDashboard.putNumber("Encoder Differences", DriveEncoders.getRawEncDifference());
         
-        //SmartDashboard.putData("SensorForward", new SensorForward());
-        //SmartDashboard.putData("DriveBackward", new DriveBackward());
-       // SmartDashboard.putNumber("Is Door Open", GearScore.gearScoreDoor.get());
         SmartDashboard.putNumber("Accelerometer", NavX.ahrs.getWorldLinearAccelY());
         SmartDashboard.putBoolean("IMU_Connected", NavX.ahrs.isConnected());
         SmartDashboard.putNumber("IMU_Yaw", NavX.ahrs.getYaw());
    
-        
-        
         lTrigger = oi.getXBoxController().getRawAxis(2);
         rTrigger = oi.getXBoxController().getRawAxis(3);
         pov = oi.getXBoxController().getPOV(0);
@@ -373,31 +307,7 @@ public class Robot extends IterativeRobot {
         				
         //}
         SmartDashboard.putNumber("Shooting speeed", shootSpeeed);
-   /*     
-     try {
-        	
-        	PixyPacket example1 = testPixy.readPacket(1);
-        	PixyPacket example2 = testPixy.readPacket(1);
-        	if (example1 != null){
-        		
-        		SmartDashboard.putNumber("height 1", example1.Height);
-	        	SmartDashboard.putNumber("width 1", example1.Width);
-	        	SmartDashboard.putNumber("x 1", example1.X);
-	        	SmartDashboard.putNumber("y 1", example1.Y);
-        	}
-        	if (example2 != null){
-        		
-        		SmartDashboard.putNumber("height 2", example2.Height);
-	        	SmartDashboard.putNumber("width 2", example2.Width);
-	        	SmartDashboard.putNumber("x 2", example2.X);
-	        	SmartDashboard.putNumber("y 2", example2.Y);
-        	}
-     	}
-         catch (PixyException e){
-        	e.printStackTrace();
-        }
-       */
-
+ 
     }
 
     /**

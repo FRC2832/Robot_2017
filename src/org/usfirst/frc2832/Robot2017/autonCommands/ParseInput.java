@@ -24,7 +24,7 @@ public class ParseInput {
 		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
 		else if(movement.charAt(0) == 'e'){
 			//auto_Commands.add(new DriveForwardDist(152.4, 1860, 10));
-			auto_Commands.add(new DriveForward(4000, 1));
+			auto_Commands.add(new DriveForward(4000, 1.2));
 			//auto_Commands.add(new DriveForward(3.65));//Double.valueOf(movement.substring(1))));
 			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new ExpelGear());

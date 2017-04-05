@@ -24,6 +24,7 @@ public class DriveForward extends Command {
 	private double currLeftEnc;
 	private double speed;
 	private double diffCounts;
+	private double stopLevel = -1.0; // Acceleration backwards to stop
 /*private double prevRightError;
 	private double prevLeftError;
 	private double currRightError;
@@ -130,7 +131,7 @@ public class DriveForward extends Command {
     		System.out.println("End for time");
 			return true;
     	}
-			else if (NavX.ahrs.getWorldLinearAccelY() < -0.8 && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance) {
+			else if (NavX.ahrs.getWorldLinearAccelY() < stopLevel && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance) {
 			System.out.println("end for Accel and Dist: Cur:" + RobotMap.driveTrainRightFront.getEncPosition() + " Dist: " + distance);
 			return true;
 		
