@@ -175,7 +175,7 @@
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
 		<location x="280" y="114"/>
 		<width>760</width>
-		<height>428</height>
+		<height>570</height>
 		<property name="Camera Choice" value="USB Camera 0"/>
 		<property name="Selected Camera Path" value="c"/>
 	</static-widget>
