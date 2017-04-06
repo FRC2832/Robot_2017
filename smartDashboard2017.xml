@@ -10,143 +10,145 @@
 		<property name="Color to show when false" value="51.255.51.255"/>
 	</widget>
 
+
+
+	<widget field="PixyWidth Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="0"/>
+	</widget>
+
+	<widget field="SPEEED" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="20"/>
+	</widget>
+
+	<widget field="Climbing speeed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="40"/>
+	</widget>
+
+	<widget field="Pixy X value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="60"/>
+	</widget>
+
+	<widget field="IsIngesting" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="80"/>
+	</widget>
+
+	<widget field="Is Door Open" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="5" y="100"/>
+	</widget>
+
+	<widget field="Autonomous Selection" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="5" y="120"/>
+	</widget>
+
+
+
 	<widget field="LeftRear Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1072" y="21"/>
+		<location x="1060" y="0"/>
 	</widget>
 
 	<widget field="RightRear Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1065" y="42"/>
+		<location x="1060" y="20"/>
 	</widget>
 
 	<widget field="Piston Extended" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1073" y="60"/>
+		<location x="1060" y="40"/>
 	</widget>
 
 	<widget field="Right Encoder Value: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1068" y="80"/>
+		<location x="1060" y="60"/>
 	</widget>
 
 	<widget field="Left Encoder Value: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1067" y="100"/>
+		<location x="1060" y="80"/>
 	</widget>
 
 	<widget field="Left Trigger: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1063" y="118"/>
+		<location x="1060" y="100"/>
 	</widget>
 
 	<widget field="Right Trigger: " type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1062" y="140"/>
+		<location x="1060" y="120"/>
 	</widget>
 
 	<widget field="POV" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1062" y="158"/>
+		<location x="1060" y="140"/>
 	</widget>
 
 	<widget field="Auton Test" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1063" y="181"/>
+		<location x="1060" y="160"/>
 	</widget>
 
 	<widget field="RightFront Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1063" y="203"/>
+		<location x="1060" y="180"/>
 	</widget>
 
 	<widget field="LeftFront Current" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1061" y="222"/>
+		<location x="1060" y="200"/>
 	</widget>
 
 	<widget field="PWM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1066" y="243"/>
+		<location x="1060" y="220"/>
 	</widget>
 
 	<widget field="Digital" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1064" y="265"/>
+		<location x="1060" y="240"/>
 	</widget>
 
 	<widget field="Analog dist" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="1058" y="285"/>
+		<location x="1060" y="260"/>
 	</widget>
 
 
 
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
-		<location x="1053" y="296"/>
-		<width>303</width>
-		<height>44</height>
+		<location x="1060" y="320"/>
+		<width>280</width>
+		<height>10</height>
 		<property name="Text" value="Test Buttons"/>
 	</static-widget>
 
 	<widget field="Feeder on" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1065" y="324"/>
+		<location x="1055" y="340"/>
 	</widget>
 
 	<widget field="Feeder off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1059" y="348"/>
+		<location x="1055" y="360"/>
 	</widget>
 
 	<widget field="AutonAimGear" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1064" y="372"/>
+		<location x="1055" y="380"/>
 	</widget>
 
 	<widget field="Flip motors" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1066" y="426"/>
+		<location x="1055" y="400"/>
 	</widget>
 
 	<widget field="Shooter on" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1055" y="491"/>
+		<location x="1055" y="420"/>
 	</widget>
 
 	<widget field="Shooter off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1056" y="517"/>
+		<location x="1055" y="440"/>
 	</widget>
 
 	<widget field="Shooter sequence on" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1052" y="540"/>
+		<location x="1055" y="460"/>
 	</widget>
 
 	<widget field="Shooter sequence off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1055" y="568"/>
+		<location x="1055" y="480"/>
 	</widget>
 
 	<widget field="Agitator on" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1064" y="592"/>
+		<location x="1055" y="500"/>
 	</widget>
 
 	<widget field="SensorForward" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1066" y="619"/>
+		<location x="1055" y="520"/>
 	</widget>
 
 	<widget field="Agitator off" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1052" y="645"/>
-	</widget>
-
-	<widget field="Autonomous Selection" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="-4" y="50"/>
-	</widget>
-
-
-
-	<widget field="PixyWidth Value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="5" y="5"/>
-	</widget>
-
-	<widget field="SPEEED" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="5" y="25"/>
-	</widget>
-
-	<widget field="Climbing speeed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="5" y="45"/>
-	</widget>
-
-	<widget field="Pixy X value" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="5" y="65"/>
-	</widget>
-
-	<widget field="IsIngesting" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="5" y="85"/>
-	</widget>
-
-	<widget field="Is Door Open" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="5" y="105"/>
+		<location x="1055" y="540"/>
 	</widget>
 
 
@@ -159,7 +161,7 @@
 	</static-widget>
 
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
-		<location x="541" y="20"/>
+		<location x="540" y="20"/>
 		<width>74</width>
 		<height>59</height>
 	</static-widget>
