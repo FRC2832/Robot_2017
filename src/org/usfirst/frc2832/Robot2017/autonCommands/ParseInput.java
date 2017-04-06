@@ -23,6 +23,7 @@ public class ParseInput {
 		
 		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
 		else if(movement.charAt(0) == 'e'){
+			//auto_Commands.add(new DriveForwardPlain(4000, 1.15));
 			auto_Commands.add(new DriveForward(4000, 1.15));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
@@ -42,19 +43,20 @@ public class ParseInput {
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new RotateNavX(40));
-			auto_Commands.add(new DriveForwardDist(152.4, 7000, 10));
 			auto_Commands.add(new CloseDoors());
+			auto_Commands.add(new DriveForwardDist(152.4, 7000, 10));
 		}
+		
 		//Expel Gear From Left NavX(practice bot) VALUES HAVE BEEN TESTED
 		else if (movement.charAt(0) == 'h'){
-			auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
-			auto_Commands.add(new RotateNavX(60f));
-			auto_Commands.add(new DriveForward(1000, 1.2));
+			auto_Commands.add(new DriveForwardDistGyro(152.4, 1906, 5));
+			auto_Commands.add(new RotateNavX(58));
+			auto_Commands.add(new DriveForwardGyro(1000, 1.2, 5));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new RotateNavX(-40));
-			auto_Commands.add(new DriveForwardDist(152.4, 7000, 10));
 			auto_Commands.add(new CloseDoors());
+			auto_Commands.add(new DriveForwardDistGyro(152.4, 7000, 10));
 		}
 				
 		//use for driving forward from right or left position from actual bot.  THESE VALUE HAVE BEEN TESTED
@@ -93,20 +95,27 @@ public class ParseInput {
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
 		}
-		/*		else if (movement.charAt(0) == 'j'){
-					
-					//auto_Commands.add(new DriveForward(3.7));
-					//auto_Commands.add(new Rotate(40));
-					//auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
-					//auto_Commands.add(new RotateNavX(60));
+				else if (movement.charAt(0) == 'j'){
+					auto_Commands.add(new DriveForwardDistGyro(152.4, 1850, 5)); //1906
+					auto_Commands.add(new RotateNavX(60f));
+					//auto_Commands.add(new DriveForward(1000, 1.1));
+					auto_Commands.add(new VisionAimGear());
+					auto_Commands.add(new ExpelGear());
+					auto_Commands.add(new DriveBackward(2));
+					auto_Commands.add(new CloseDoors());
+					//auto_Commands.add(new RotateNavX(-40));
+					//auto_Commands.add(new CloseDoors());
+					//auto_Commands.add(new DriveForwardDistGyro(152.4, 7000, 10));
+
+		}
+		//use for Practice Bot = Mr Zobel testing
+				else if (movement.charAt(0) == 'z'){
 					auto_Commands.add(new AutonAimGear());
 					auto_Commands.add(new ExpelGear());
 					auto_Commands.add(new DriveBackward(2));
 					auto_Commands.add(new CloseDoors());
-				}
-		//use for Practice Bot = Mr Zobel testing
-				else if (movement.charAt(0) == 'z'){
-					auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
+					//auto_Commands.add(new RotateNavX(60f));
+					/*auto_Commands.add(new DriveForwardDist(152.4, 1906, 5));
 					auto_Commands.add(new RotateWithPIDTankDrive(-59.0));	
 					//auto_Commands.add(new DriveForward(1000, 1.2));
 					auto_Commands.add(new AutonAimGear());
@@ -115,8 +124,9 @@ public class ParseInput {
 					auto_Commands.add(new CloseDoors());
 					auto_Commands.add(new RotateWithPIDTankDrive(0.0));			
 					auto_Commands.add(new DriveForwardDist(152.4, 6000, 7));
+					*/
 				}
-		*/	
+			
 		return auto_Commands; //an arraylist of the commands to be executed in autonomous
 	}
 	
