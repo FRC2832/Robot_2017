@@ -121,8 +121,8 @@ public class Robot extends IterativeRobot {
 	    new Thread(() -> {
 	    	UsbCamera c0 = CameraServer.getInstance().startAutomaticCapture(0);
 	    	UsbCamera c1 = CameraServer.getInstance().startAutomaticCapture(1);
-	    	c0.setResolution(255, 170);
-	    	c1.setResolution(255, 170);
+	    	c0.setResolution(280, 158);
+	    	c1.setResolution(280, 158);
 /*	    	BufferedImage red = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
 	    	Graphics2D g1 = red.createGraphics();
 	    	g1.setColor(new Color(255, 0, 0));
