@@ -43,15 +43,15 @@ public class DriveForwardDist extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (Math.abs(DriveEncoders.getRawEncDifference()) < 51 ){
-    		Robot.driveTrain.setTankDriveCommand(.5, .5);
+    		Robot.driveTrain.setTankDriveCommand(.6, .6);
     	}
     	else if (DriveEncoders.getRawEncDifference() > 50){
     		//Robot.driveTrain.setTankDriveCommand(.7, .5);
-    		Robot.driveTrain.setTankDriveCommand(.25, .5); //* (currRightEnc / currLeftEnc));
+    		Robot.driveTrain.setTankDriveCommand(.3, .6); //* (currRightEnc / currLeftEnc));
     	}
     	else if (DriveEncoders.getRawEncDifference() < -50)
     	{
-    		Robot.driveTrain.setTankDriveCommand(.5, .25);
+    		Robot.driveTrain.setTankDriveCommand(.6, .3);
     	}
     	left = Math.abs(DriveEncoders.getRawLeftValue()) - initLeft;
     	right = Math.abs(DriveEncoders.getRawRightValue()) - initRight;

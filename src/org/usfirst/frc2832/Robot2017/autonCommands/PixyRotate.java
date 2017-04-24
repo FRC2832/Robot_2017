@@ -2,6 +2,7 @@ package org.usfirst.frc2832.Robot2017.autonCommands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -11,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 //used for turning while not moving forward
 public class PixyRotate extends Command {
 	private String rOrL;
+	private double startTime;
 	//private byte[] buffer;
 	//private int pixyImage;
 	//private byte[] sendBuffer = "draco".getBytes();
@@ -20,25 +22,25 @@ public class PixyRotate extends Command {
         // eg. requires(chassis);
     	rOrL = direction;
     	//buffer = new byte[1];
-    	Robot.pixyValue = 300;
+    	Robot.pixyValue = 255;
     	
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	startTime = Timer.getFPGATimestamp();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (rOrL.equals("right"))
     	{
-    		Robot.driveTrain.setTankDriveCommand(0, .5);
+    		Robot.driveTrain.setTankDriveCommand(0, .4);
     	}
     	else if (rOrL.equalsIgnoreCase("left"))
     	{
-    		Robot.driveTrain.setTankDriveCommand(.5, 0);
+    		Robot.driveTrain.setTankDriveCommand(.4, 0);
     	}
     }
 
@@ -50,7 +52,8 @@ public class PixyRotate extends Command {
     	{
     		return true;
     	}
-    
+    	else if ((Timer.getFPGATimestamp() - startTime) > 3)
+    		return true;
     	return false;
         /*if (Robot.pixyInput.getAverageVoltage()  > .95 && Robot.pixyInput.getAverageVoltage() < 1.05)
         	return true;

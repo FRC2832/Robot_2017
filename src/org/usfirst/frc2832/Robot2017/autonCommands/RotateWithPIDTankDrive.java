@@ -28,7 +28,7 @@ public class RotateWithPIDTankDrive extends Command implements PIDOutput{
     private double targetAngleDegrees;
     private double rotateToAngleRate;    
     
-    private static final double kP = 0.1;
+    private static final double kP = 0.08; //0.1 original value
     private static final double kI = 0.00;
     private static final double kD = 0.15;
     private static final double kF = 0.00;

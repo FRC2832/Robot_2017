@@ -20,12 +20,12 @@ public class VisionAimGear extends Command {
 	private double startTime;
 	private double endTime;
 	private byte[] sendBuffer = "draco".getBytes();
-
+	int dispCount = 0;
 	    public VisionAimGear() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
      	requires (Robot.driveTrain);
-     	endTime = 7;
+     	endTime = 5; //changed from seven to five at chs
      	
     }
 
@@ -43,7 +43,9 @@ public class VisionAimGear extends Command {
     	setInitEncoderVal(DriveEncoders.getAbsoluteValue());
     	buffer = new byte[1];
     	startTime = Timer.getFPGATimestamp();
-		Robot.pixyValue = (byte) 300;
+		Robot.pixyValue = (byte) 255;
+		dispCount = 0;
+		
     }
     
 	public void setDistance(double straightDistance) {
@@ -66,7 +68,7 @@ public class VisionAimGear extends Command {
     protected void execute() {
     	//figure out how close is "close enough" because it's unlikely we'll ever get to 2.5 on the dot.  Figure this out through testing
     	double power = 0.5;
-    	int dispCount = 0;
+    	
     	
     /*	if (Robot.pixyCamera.transaction(sendBuffer, sendBuffer.length, buffer, 1))
     	{
@@ -74,24 +76,30 @@ public class VisionAimGear extends Command {
     	} */
     	
     	SmartDashboard.putNumber("pixyXVisionAimGear", Robot.pixyValue);
-    	if (Robot.pixyValue == 255) {
-    		SmartDashboard.putString("PixyImage", "no image");
-        	Robot.driveTrain.setTankDriveCommand(power, power);
-    	} else {
-    		final double turnP = 0.15;
+    	
+    		final double turnP = 0.2; // 0.15; ***Changed by Calvin after match 43: 4/14/2017
     		double turn = (127.0 - ((double)Robot.pixyValue)) / 127;
-    		
-    		Robot.driveTrain.setTankDriveCommand(power + (turn * turnP), power - (turn * turnP));
+    		//USE ONE OF THESE TWO
+    		//Robot.driveTrain.setTankDriveCommand(power - (turn * turnP), power + (turn * turnP)); // was + - changed after match 43: 4/14/17
+    		//MUST LOAD NEW ARDUINO CODE BEFORE THIS CAN BE USED
+    		Robot.driveTrain.setTankDriveCommand(power + (turn * turnP), power - (turn * turnP)); 
 
-    		if (dispCount == 10) {	
-    			System.out.println("Pixy: " + Robot.pixyValue + " turn: " + turn);
+    		//if (turn > 0)  // COMMENTED OUT
+    			//System.out.println("VISION turning left");
+    		//else if (turn < 0)
+    			//System.out.println("VISION Turning Right");
+    		//else
+    			//System.out.println("VISION going straight");
+
+    		if (dispCount > 10) {	
+    			System.out.println("Pixy: " + Robot.pixyValue + " turn factor: " + turn + "Motor Values: "  + (power - (turn * turnP)) + "  " + (power + (turn * turnP)));
     			dispCount = 0;
     		}
     		else {
     			dispCount++;
     		
     		}
-    	}
+    	
 
     }
 
@@ -103,7 +111,18 @@ public class VisionAimGear extends Command {
         wheelSpeedL = RobotMap.driveTrainLeftFront.getSpeed();
         wheelSpeedR = RobotMap.driveTrainRightFront.getSpeed();
         elapsedTime = Timer.getFPGATimestamp() - startTime;
-    	return (elapsedTime > 1 && wheelSpeedL == 0 && wheelSpeedR == 0) || (elapsedTime > endTime); //|| (NavX.ahrs.getWorldLinearAccelY() < -1); //-0.8);
+        if (elapsedTime > 1 && (wheelSpeedL <= .001 && wheelSpeedR <= .001))
+        {
+        	//System.out.println("VISION stop by Speed");
+        	return true;
+        }
+        else if  (elapsedTime > endTime)
+        {
+        	//System.out.println("VISION Stop by timeout");
+        	return true;
+        }
+        return false;
+    	//return (elapsedTime > 1 && (wheelSpeedL <= .001 && wheelSpeedR <= .001)) || (elapsedTime > endTime); //|| (NavX.ahrs.getWorldLinearAccelY() < -1); //-0.8);
         
     }
 	

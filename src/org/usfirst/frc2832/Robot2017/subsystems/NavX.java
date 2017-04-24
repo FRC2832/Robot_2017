@@ -1,5 +1,6 @@
 package org.usfirst.frc2832.Robot2017.subsystems;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -17,6 +18,7 @@ public class NavX extends Subsystem implements PIDOutput {
 	static final double kF = 0.00;
 
 	public NavX() {
+		try {
 		/***********************************************************************
 		 * navX-MXP: 
 		 * - Communication via RoboRIO MXP (SPI, I2C, TTL UART) and USB.            
@@ -29,7 +31,11 @@ public class NavX extends Subsystem implements PIDOutput {
 		 * Multiple navX-model devices on a single robot are supported.
 		 ************************************************************************/
 
-		ahrs = new AHRS(SerialPort.Port.kUSB);
+			ahrs = new AHRS(SerialPort.Port.kUSB);
+		} catch (RuntimeException ex ) {
+			DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
+		}
+
 	}
 	
 	@Override
