@@ -267,17 +267,6 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         if (! Robot.pixyCamera.read(0, 1, buffer))
         	pixyValue =  buffer[0] & 0xFF;
-		
-        SmartDashboard.putNumber("Pixy X value", pixyValue  );
-        //SmartDashboard.putBoolean("IsIngesting", isIngesting);
-     
-        SmartDashboard.putNumber("Right Encoder", DriveEncoders.getRawRightValue());
-        SmartDashboard.putNumber("Left Encoder", DriveEncoders.getRawLeftValue());
-        SmartDashboard.putNumber("Encoder Differences", DriveEncoders.getRawEncDifference());
-        
-        SmartDashboard.putNumber("Accelerometer", NavX.ahrs.getWorldLinearAccelY());
-        SmartDashboard.putBoolean("IMU_TP_Connected", NavX.ahrs.isConnected());
-        SmartDashboard.putNumber("IMU_Yaw", NavX.ahrs.getYaw());
    
         lTrigger = oi.getXBoxController().getRawAxis(2);
         rTrigger = oi.getXBoxController().getRawAxis(3);
@@ -326,6 +315,28 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    public void robotPeriodic() {
+    	SmartDashboard.putNumber("Pixy X value", pixyValue  );
+        //SmartDashboard.putBoolean("IsIngesting", isIngesting);
+     
+        SmartDashboard.putNumber("Right Encoder", DriveEncoders.getRawRightValue());
+        SmartDashboard.putNumber("Left Encoder", DriveEncoders.getRawLeftValue());
+        SmartDashboard.putNumber("Encoder Differences", DriveEncoders.getRawEncDifference());
+        
+        SmartDashboard.putNumber("Accelerometer", NavX.ahrs.getWorldLinearAccelY());
+        SmartDashboard.putBoolean("IMU_TP_Connected", NavX.ahrs.isConnected());
+        SmartDashboard.putNumber("IMU_Yaw", NavX.ahrs.getYaw());
+	            
+        SmartDashboard.putNumber("Left Encoder Value: ", RobotMap.driveTrainLeftFront.getEncPosition());
+        SmartDashboard.putNumber("Right Encoder Value: ", RobotMap.driveTrainRightFront.getEncPosition());
+        //SmartDashboard.putNumber("Compressor", RobotMap.compressor.getCompressorCurrent());	
+        SmartDashboard.putNumber("Left Trigger: ", Robot.lTrigger);
+        SmartDashboard.putNumber("Right Trigger: ", Robot.rTrigger);
+        //SmartDashboard.putBoolean("Door Status", doorsOpen);
+        SmartDashboard.putNumber("camera", Robot.camera);
+
     }
     
     public void setBrakeMode(boolean b) {
