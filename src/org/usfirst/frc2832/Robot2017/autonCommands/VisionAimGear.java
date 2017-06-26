@@ -92,7 +92,7 @@ public class VisionAimGear extends Command {
     			//System.out.println("VISION going straight");
 
     		if (dispCount > 10) {	
-    			System.out.println("Pixy: " + Robot.pixyValue + " turn factor: " + turn + "Motor Values: "  + (power - (turn * turnP)) + "  " + (power + (turn * turnP)));
+    			System.out.println("Pixy: " + Robot.pixyValue + " turn factor: " + turn + " Motor Values: "  + (power - (turn * turnP)) + "  " + (power + (turn * turnP)));
     			dispCount = 0;
     		}
     		else {

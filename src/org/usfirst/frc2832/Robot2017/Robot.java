@@ -182,8 +182,8 @@ public class Robot extends IterativeRobot {
         auto.addObject("Center", "e9");//"Expel Gear from Center (practice bot)", "e9");
         auto.addObject("Drive Straight Forward from left or right position (actual bot)", "b4");
         //auto.addObject("TEST Center DO NOT SELECT", "w9");
-        //auto.addObject("TEST LEft DO NOT SELECT", "u9");
-        //auto.addObject("TEST Right DO NOT SELECT", "t9");
+        auto.addObject("Left Side VISION", "u9");
+        auto.addObject("Right Side VISION", "t9");
         auto.addObject("Left SIDE turn NO GEAR", "s4");
         auto.addObject("Right SIDE turn NO GEAR", "r4");
         
@@ -191,7 +191,7 @@ public class Robot extends IterativeRobot {
         //auto.addObject("Drive Forward from left or right position (practice bot)", "c5");
         //auto.addObject("Expel Gear From left NavX(practice bot)", "h3");
         //auto.addObject("Expel Gear From left NavX(actual bot)", "g3");
-        auto.addObject("Expel Gear From right NavX(practice bot)", "i3");
+        //auto.addObject("Expel Gear From right NavX(practice bot)", "i3");
         //auto.addObject("Expel Gear From right NavX(actual bot)", "a3");
         //auto.addObject("autonAimGear", "j7");
         //auto.addObject("Mr. Zobel Testing", "x0");

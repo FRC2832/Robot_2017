@@ -40,7 +40,7 @@ public class ParseInput {
 			//967 is the magic encoder turn number
 			//5077 is the magic straight forward number
 			
-			auto_Commands.add(new DriveForwardDist(158.75, 1708, 5));
+			auto_Commands.add(new DriveForwardDist(158.75, 1650, 5)); // 1756 original, 1708 States, 1730
 			//auto_Commands.add(new PixyRotate("left"));
 			auto_Commands.add(new RotateWithPIDTankDrive(60));
 			auto_Commands.add(new DriveForward(2000, 1.00, 2));
@@ -59,7 +59,7 @@ public class ParseInput {
 		}
 		//ACTUAL RIGHT AUTON FOR IRON KRAKEN
 		else if (movement.charAt(0) == 'y'){
-			auto_Commands.add(new DriveForwardDist(158.75, 1708, 5));
+			auto_Commands.add(new DriveForwardDist(158.75, 1650, 5)); // 1756 original, 1708 States //1730
 			//auto_Commands.add(new PixyRotate("left"));
 			auto_Commands.add(new RotateWithPIDTankDrive(-60));
 			auto_Commands.add(new DriveForward(2000, 1.00, 2));
@@ -103,35 +103,36 @@ public class ParseInput {
 		}
 		//TEST LEFT AUTON
 		else if (movement.charAt(0) == 'u'){
-			auto_Commands.add(new DriveForwardDist(158.75, 1728, 5));
+			auto_Commands.add(new DriveForwardDist(158.75, 1730, 5)); // 1756 original, 1708 States
 			//auto_Commands.add(new PixyRotate("left"));
 			auto_Commands.add(new RotateWithPIDTankDrive(60));
-			auto_Commands.add(new DriveForward(2000, 1.00, 2));
-			//auto_Commands.add(new RotateNavX(60));
-			//auto_Commands.add(new RotateNavXWithEnc(50));
-			//auto_Commands.add(new VisionAimGear());
+			auto_Commands.add(new VisionAimGear());
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
-			//auto_Commands.add(new RotateNavXWithEnc(-40));
+			auto_Commands.add(new RotateNavXWithEnc(-40));
 			auto_Commands.add(new CloseDoors());	
-			//auto_Commands.add(new DriveForwardDist(158.75, 7000, 10));
+			auto_Commands.add(new DriveForwardDist(158.75, 7000, 10));
 			
 			
 		}
 		//TEST RIGHT AUTON
 		else if (movement.charAt(0) == 't'){
-			auto_Commands.add(new DriveForwardDist(158.75, 1728, 5));
+			auto_Commands.add(new DriveForwardDist(158.75, 1730, 5)); // 1756 original, 1708 States
 			//auto_Commands.add(new PixyRotate("left"));
 			auto_Commands.add(new RotateWithPIDTankDrive(-60));
 			auto_Commands.add(new DriveForward(2000, 1.00, 2));
-			//auto_Commands.add(new DriveForward(1000, 1.2));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new DriveBackward(2));
+			auto_Commands.add(new RotateNavXWithEnc(40));
+			auto_Commands.add(new CloseDoors());	
+			auto_Commands.add(new DriveForwardDist(158.75, 7000, 10));
 			
 			
 		}
 		//Left auton turn NO GEAR
 		else if (movement.charAt(0) == 's')
 		{
-			auto_Commands.add(new DriveForwardDist(158.75, 1738, 5));
+			auto_Commands.add(new DriveForwardDist(158.75, 1650, 5)); //1730
 			//auto_Commands.add(new PixyRotate("left"));
 			auto_Commands.add(new RotateWithPIDTankDrive(60));
 			auto_Commands.add(new DriveForward(2000, 1.00, 2));
@@ -139,7 +140,7 @@ public class ParseInput {
 		//Right auton turn NO GEAR
 				else if (movement.charAt(0) == 'r')
 				{
-					auto_Commands.add(new DriveForwardDist(158.75, 1728, 5));
+					auto_Commands.add(new DriveForwardDist(158.75, 1650, 5));
 					//auto_Commands.add(new PixyRotate("left"));
 					auto_Commands.add(new RotateWithPIDTankDrive(-60));
 					auto_Commands.add(new DriveForward(2000, 1.00, 2));

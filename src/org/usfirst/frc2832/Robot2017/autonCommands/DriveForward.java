@@ -118,7 +118,7 @@ public class DriveForward extends Command {
     	}
 
     	if (dispCount == 10) {
-    		System.out.println ("diff: " + diffCounts);
+    		System.out.println ("Right: " + currRightEnc + " Left :" + currLeftEnc + " diff: " + diffCounts + " Pixy: " + Robot.pixyValue);
     		dispCount = 0;
 
     	}
@@ -146,7 +146,7 @@ public class DriveForward extends Command {
 			return true;
     	}
 			else if (NavX.ahrs.getWorldLinearAccelY() < stopLevel && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance) {
-			System.out.println("end for Accel and Dist: Cur:" + RobotMap.driveTrainRightFront.getEncPosition() + " Dist: " + distance);
+			System.out.println("end for Accel and Dist: Cur:" + RobotMap.driveTrainRightFront.getEncPosition() + " Dist: " + distance + " Accel " + maxAccel);
 			return true;
 		
 		}
