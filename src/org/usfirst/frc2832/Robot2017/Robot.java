@@ -19,8 +19,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.usfirst.frc2832.Robot2017.autonCommands.AutonCommandGroup;
-import org.usfirst.frc2832.Robot2017.autonCommands.ParseInput;
+import org.usfirst.frc2832.Robot2017.commands.auton.AutonCommandGroup;
+import org.usfirst.frc2832.Robot2017.commands.auton.ParseInput;
 import org.usfirst.frc2832.Robot2017.commands.Climb;
 import org.usfirst.frc2832.Robot2017.commands.InterfaceFlip;
 import org.usfirst.frc2832.Robot2017.commands.shooter.ShooterSequenceOff;
