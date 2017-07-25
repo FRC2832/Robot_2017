@@ -84,7 +84,7 @@ public class Shooter extends Subsystem {
 	    shooterAgitator.enableBrakeMode(false);
 	}
 	
-	public static void trigger() {
+	public void trigger() {
 		shooterAgitator.set(-0.7);
 		shooterShootMotor.changeControlMode(TalonControlMode.Speed);
 		shooterShootMotor.set(Robot.shootSpeeed);

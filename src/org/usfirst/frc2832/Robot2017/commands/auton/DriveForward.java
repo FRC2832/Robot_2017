@@ -2,7 +2,7 @@ package org.usfirst.frc2832.Robot2017.commands.auton;
 
 import org.usfirst.frc2832.Robot2017.Robot;
 import org.usfirst.frc2832.Robot2017.RobotMap;
-import org.usfirst.frc2832.Robot2017.subsystems.NavX;
+import org.usfirst.frc2832.Robot2017.NavX;
 import org.usfirst.frc2832.Robot2017.DriveEncoders;
 
 import edu.wpi.first.wpilibj.Timer;

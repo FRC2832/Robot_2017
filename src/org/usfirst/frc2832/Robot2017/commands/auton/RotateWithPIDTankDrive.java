@@ -1,12 +1,10 @@
 package org.usfirst.frc2832.Robot2017.commands.auton;
 
 import org.usfirst.frc2832.Robot2017.Robot;
-import org.usfirst.frc2832.Robot2017.RobotMap;
-import org.usfirst.frc2832.Robot2017.subsystems.NavX;
+import org.usfirst.frc2832.Robot2017.NavX;
 
 //import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 //import edu.wpi.first.wpilibj.SerialPort;
@@ -32,36 +30,15 @@ public class RotateWithPIDTankDrive extends Command implements PIDOutput{
     private static final double kI = 0.00;
     private static final double kD = 0.15;
     private static final double kF = 0.00;
-    private double turnRate;
-    int counter=0;
+    private int counter = 0;
     
     static final double kToleranceDegrees = 2.0f;       
     
     public RotateWithPIDTankDrive(double targetAngleDegrees) {
       requires(Robot.driveTrain);
-      
-/*      try {
-			*//***********************************************************************
-			 * navX-MXP: - This is all defined in NavX Subsystem.
-			 * - Communication via RoboRIO MXP (SPI, I2C, TTL UART) and USB.            
-			 * - See http://navx-mxp.kauailabs.com/guidance/selecting-an-interface.
-			 * 
-			 * navX-Micro:
-			 * - Communication via I2C (RoboRIO MXP or Onboard) and USB.
-			 * - See http://navx-micro.kauailabs.com/guidance/selecting-an-interface.
-			 * 
-			 * Multiple navX-model devices on a single robot are supported.
-			 ************************************************************************//*
-  		
-      //ahrs = new AHRS(SerialPort.Port.kUSB); 
-      } catch (RuntimeException ex ) {
-          DriverStation.reportError("Error instantiating navX MXP:  " + ex.getMessage(), true);
-      }*/
-      
       this.targetAngleDegrees=targetAngleDegrees;
       turnController2 = new PIDController(kP, kI, kD, kF, NavX.ahrs, this);
       turnController2.setInputRange(-180.0f,  180.0f);
-      //turnController2.setOutputRange(-1.0, 1.0);
       turnController2.setOutputRange(-0.7, 0.7);
       turnController2.setAbsoluteTolerance(kToleranceDegrees);
       turnController2.setContinuous(true);
@@ -83,19 +60,11 @@ public class RotateWithPIDTankDrive extends Command implements PIDOutput{
 			turnController2.enable();
 		}
     	
-		turnRate = rotateToAngleRate;
-/*		if (rotateToAngleRate >= 0.05) {
-			turnRate += 0.25;
-		}
-		else if (rotateToAngleRate < 0.05)
-			turnRate -= 0.25;
-		else
-			turnRate = 0.0;
-*/		SmartDashboard.putNumber("Rotate Rate: ", rotateToAngleRate);
+		double turnRate = rotateToAngleRate;
+		SmartDashboard.putNumber("Rotate Rate: ", rotateToAngleRate);
 		SmartDashboard.putNumber("Turn value: ", turnRate);
 		SmartDashboard.putNumber("Heading (Yaw): ", NavX.ahrs.getYaw());
 		SmartDashboard.putNumber("Orientation (Angle): ", NavX.ahrs.getAngle());
-		//Robot.driveTrain.setTankDriveCommand(leftStickValue,  rightStickValue);
 		Robot.driveTrain.setTankDriveCommand(turnRate,  -turnRate);
     }
 
@@ -114,20 +83,12 @@ public class RotateWithPIDTankDrive extends Command implements PIDOutput{
     	}else {
     		return false;
     	}
-/*    	if (targetAngleDegrees >= 0) {
-    		return (NavX.ahrs.getYaw() >= targetAngleDegrees);
-    	}
-    	else {
-        	return (NavX.ahrs.getYaw() < targetAngleDegrees);
-    	}
-*/    }
+    }
 
     // Called once after isFinished returns true
     protected void end() {
 		Robot.driveTrain.setTankDriveCommand(0.0, 0.0);
 		SmartDashboard.putNumber("End Yaw: ", NavX.ahrs.getYaw());
-
-
     }
 
     // Called when another command which requires one or more of the same
@@ -138,6 +99,5 @@ public class RotateWithPIDTankDrive extends Command implements PIDOutput{
 	@Override
 	public void pidWrite(double output) {
 		 rotateToAngleRate = output;
-		
 	}
 }

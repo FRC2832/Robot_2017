@@ -12,28 +12,21 @@ public class ParseInput {
 
 	static ArrayList<Command> auto_Commands;
 	
-	public static ArrayList<Command> takeInput(String movement)
-	{
+	public static ArrayList<Command> takeInput(String movement) {
 		auto_Commands = new ArrayList<Command>(0);
 		if(movement.charAt(0) == 'f')
 			auto_Commands.add(new DriveForward(Double.valueOf(movement.substring(1)), 1));
-		
-		//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
-		else if(movement.charAt(0) == 'e'){
-			//auto_Commands.add(new DriveForwardPlain(4000, 1.15));
+
+		else if(movement.charAt(0) == 'e'){//use for expelling the gear from the middle position for practice bot. VALUES HAVE BEEN TESTED
 			auto_Commands.add(new DriveForward(4000, 1.15));
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new CloseDoors());
-		}
-		
-		//use for driving forward from right or left position from practice bot. VALUES HAVE BEEN TESTED
-		else if (movement.charAt(0) == 'c'){
+
+		} else if (movement.charAt(0) == 'c'){//use for driving forward from right or left position from practice bot. VALUES HAVE BEEN TESTED
 			auto_Commands.add(new DriveForwardDist(152.4, 4000, 10));
 
-		}
-		//Expel Gear From Right NavX(practice bot) VALUES HAVE BEEN TESTED
-		else if (movement.charAt(0) == 'i'){
+		} else if (movement.charAt(0) == 'i'){//Expel Gear From Right NavX(practice bot) VALUES HAVE BEEN TESTED
 			auto_Commands.add(new DriveForwardDist(152.4, 1870, 5));
 			auto_Commands.add(new RotateNavX(-59));
 			auto_Commands.add(new DriveForward(1000, 1.2));

@@ -1,10 +1,9 @@
 package org.usfirst.frc2832.Robot2017.commands;
 
 import org.usfirst.frc2832.Robot2017.Robot;
-import org.usfirst.frc2832.Robot2017.subsystems.NavX;
+import org.usfirst.frc2832.Robot2017.NavX;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
