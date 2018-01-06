@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 //	// For getRawEncDifference: 0: no difference.  Positive: left > right.  Negative: Right>left
-public class DriveForward extends Command {
+public class DriveForwardBackup extends Command {
 	private double distance = 4000;
 	//private double initRightEnc = 0;
 	//private double initLeftEnc = 0;
@@ -25,8 +25,7 @@ public class DriveForward extends Command {
 	private double speed;
 	private double diffCounts;
 	private double stopLevel = -1.0; // Acceleration backwards to stop
-	private double dispCount = 0;
-	private double timeout;
+	private double power = 0.5;
 /*private double prevRightError;
 	private double prevLeftError;
 	private double currRightError;
@@ -44,26 +43,18 @@ public class DriveForward extends Command {
 	
 	
 
-     public DriveForward() {
+     public DriveForwardBackup() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
-    	timeout = 4;
     	}
     
-     public DriveForward(double distance, double speed) {
+     public DriveForwardBackup(double distance, double speed) {
         // Use requires() here to declare subsystem dependencies
     	this();
         this.speed = speed;
     	setDistance(distance);
     	}
-     public DriveForward(double distance, double speed, double time) {
-         // Use requires() here to declare subsystem dependencies
-     	this();
-         this.speed = speed;
-         timeout = time;
-     	setDistance(distance);
-     	}
      
     
 	// Called just before this Command runs the first time
@@ -75,7 +66,6 @@ public class DriveForward extends Command {
     	startTime = Timer.getFPGATimestamp();
     	maxAccel = 0;
     	minAccel = 0;
-    	dispCount = 0;
     	//initRightEnc = DriveEncoders.getRawRightValue();
     	//initLeftEnc = DriveEncoders.getRawLeftValue();
     	//prevTime = System.currentTimeMillis();
@@ -99,34 +89,28 @@ public class DriveForward extends Command {
     	leftDeltaT = iTerm * (currTime - prevTime) * currLeftError + (pTerm * (currLeftError - prevLeftError))/(currTime - prevTime);
     	currLeftControl = prevLeftControl + leftDeltaT;
 
-       	prevTime = currTime;
+    	
+    	prevTime = currTime;
     	prevRightError = currRightError;
     	prevLeftError = currLeftError;
     	*/
     	
-    	diffCounts = DriveEncoders.getRawEncDifference();
-    	if (Math.abs(diffCounts) < 20 ){
-    		Robot.driveTrain.setTankDriveCommand(.6 * speed, .6 * speed);
-    	}
-    	else if (diffCounts > 20){	//THIS WAS 50!!!
-    		//Robot.driveTrain.setTankDriveCommand(.7, .5);
-    		Robot.driveTrain.setTankDriveCommand(.5 * speed, .6 * speed);  
-    	}
-    	else if (diffCounts < -20)
-    	{
-    		Robot.driveTrain.setTankDriveCommand(.6 * speed, .5 * speed);
-    	}
-
-    	if (dispCount == 10) {
-    		System.out.println ("Right: " + currRightEnc + " Left :" + currLeftEnc + " diff: " + diffCounts + " Pixy: " + Robot.pixyValue);
-    		dispCount = 0;
-
-    	}
-    	else {
-    		dispCount++;
-
-    	}
+    	//diffCounts = DriveEncoders.getRawEncDifference();
     	
+    	if (Math.abs(DriveEncoders.getRawEncDifference()) < 51 ){
+    		Robot.driveTrain.setTankDriveCommand(power, power);
+    		//System.out.println("Good");
+    	}
+    	else if (DriveEncoders.getRawEncDifference() > 50){
+    		//Robot.driveTrain.setTankDriveCommand(.7, .5);
+    		Robot.driveTrain.setTankDriveCommand(power/2.0, power); //* (currRightEnc / currLeftEnc));
+    		//System.out.println("Left");
+    	}
+    	else if (DriveEncoders.getRawEncDifference() < -50) {
+    		Robot.driveTrain.setTankDriveCommand(power, power/2.0);
+    		//System.out.println("Right");
+    	}
+
     	if (minAccel > NavX.ahrs.getWorldLinearAccelY())
         	minAccel = NavX.ahrs.getWorldLinearAccelY();
         if (maxAccel < NavX.ahrs.getWorldLinearAccelY())
@@ -141,24 +125,18 @@ public class DriveForward extends Command {
     // Make this return true when this Command no longer needs to run execute()
     // Require minimum distance before trigger on accelerometer 
     protected boolean isFinished() {
-    	if (Timer.getFPGATimestamp() - startTime > timeout) {
+    	if (Timer.getFPGATimestamp() - startTime > 5) {
     		System.out.println("End for time");
 			return true;
     	}
-			else if (NavX.ahrs.getWorldLinearAccelY() < stopLevel && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance) {
-			System.out.println("end for Accel and Dist: Cur:" + RobotMap.driveTrainRightFront.getEncPosition() + " Dist: " + distance + " Accel " + maxAccel);
+		else if (NavX.ahrs.getWorldLinearAccelY() < stopLevel && Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance) {
+			System.out.println("end for Accel and Dist: Cur: " + minAccel + " " + RobotMap.driveTrainRightFront.getEncPosition() + " Dist: " + distance);
 			return true;
 		
 		}
 			else 
 				return false;
-    }    		
-    	/*			
-       	return (Timer.getFPGATimestamp() - startTime) > 5 || 
-       			(NavX.ahrs.getWorldLinearAccelY() < -0.8 && 
-       					Math.abs(RobotMap.driveTrainRightFront.getEncPosition()) > distance);
-    	 */ 
-    
+    }    		  
 
     // Called once after isFinished returns true2000
     protected void end() {

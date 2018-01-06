@@ -28,14 +28,14 @@ public class RotateWithPIDTankDrive extends Command implements PIDOutput{
     private double targetAngleDegrees;
     private double rotateToAngleRate;    
     
-    private static final double kP = 0.1;
+    private static final double kP = 0.1; //0.1 original value  (was 0.8 on July 12)
     private static final double kI = 0.00;
     private static final double kD = 0.15;
     private static final double kF = 0.00;
     private double turnRate;
     int counter=0;
     
-    static final double kToleranceDegrees = 2.0f;       
+    static final double kToleranceDegrees = 4.0f;       
     
     public RotateWithPIDTankDrive(double targetAngleDegrees) {
       requires(Robot.driveTrain);

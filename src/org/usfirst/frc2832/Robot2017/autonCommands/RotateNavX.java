@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RotateNavX extends Command {
 
 	private double rot, initDeg;
+	private int dispCount=0;
 	
     public RotateNavX(double rot) {
         // Use requires() here to declare subsystem dependencies
@@ -25,6 +26,7 @@ public class RotateNavX extends Command {
     protected void initialize() {
     	//System.out.println("RotateNavX Start");
     	initDeg = NavX.getHeading();
+    	dispCount=0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +42,12 @@ public class RotateNavX extends Command {
     		//System.out.println("<");
     		//Robot.driveTrain.setTankDriveCommand(-0.2 * (initDeg - rot), 0.2 * (initDeg - rot));
     	}
-    	//System.out.println(NavX.getHeading() + ":	" + initDeg + ":	" + rot);
+    	if (dispCount==10) { 
+    		System.out.println(NavX.getHeading() + ":	" + initDeg + ":	" + rot);
+    		dispCount=0;
+    		
+    	}
+    	else dispCount++;
     }
 
     // Make this return true when this Command no longer needs to run execute()
