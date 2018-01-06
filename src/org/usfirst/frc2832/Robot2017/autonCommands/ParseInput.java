@@ -25,8 +25,9 @@ public class ParseInput {
 		//ACTUAL CENTER AUTON FOR IRON KRAKEN
 		else if(movement.charAt(0) == 'e'){
 			//auto_Commands.add(new DriveForwardDist(158.75, 4050, 5));
-			auto_Commands.add(new DriveForward(4000, 1.00));
 			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			auto_Commands.add(new VisionAimGear());
+			//auto_Commands.add(new DriveForward(4000, 1.00));
 			auto_Commands.add(new ExpelGear());
 			//auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new DriveBackward(1));
@@ -120,7 +121,8 @@ public class ParseInput {
 			auto_Commands.add(new DriveForwardDist(158.75, 1730, 5)); // 1756 original, 1708 States
 			//auto_Commands.add(new PixyRotate("left"));
 			auto_Commands.add(new RotateWithPIDTankDrive(-60));
-			auto_Commands.add(new DriveForward(2000, 1.00, 2));
+			//auto_Commands.add(new DriveForward(2000, 1.00, 2));
+			auto_Commands.add(new VisionAimGear());
 			auto_Commands.add(new ExpelGear());
 			auto_Commands.add(new DriveBackward(2));
 			auto_Commands.add(new RotateNavXWithEnc(40));
@@ -234,6 +236,21 @@ public class ParseInput {
 			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
 			auto_Commands.add(new DriveBackward(1));
 			//auto_Commands.add(new CloseDoors());
+		}
+		
+		//driving forward with no sensors to turn, dead reconing
+		else if (movement.charAt(0) == 'm'){
+			auto_Commands.add(new DriveForwardNoSensor());
+			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			auto_Commands.add(new ExpelGear());
+			auto_Commands.add(new WaitUntilTime(500, Robot.driveTrain));
+			auto_Commands.add(new DriveBackward(1));
+			//auto_Commands.add(new CloseDoors());
+		}
+		
+		//Drive forward from sides on practice bot for Taylor (encoder not working so bypass)
+		else if (movement.charAt(0) == 'l'){
+			auto_Commands.add(new DriveForwardNoSensor());
 		}
 		/*		else if (movement.charAt(0) == 'j'){
 					
